@@ -15,8 +15,13 @@ export class HeaderComponent {
   constructor(private router: Router, private loginService: LoginService) {}
 
   mostrarLogin() {
+
     if (!this.loginService.isLoggedIn) {
       this.router.navigate(['/login']);
     }
+    
   }
+
+
+
 }

@@ -1,28 +1,28 @@
 /* header.component.css */
 header {
-    background-color: #ECF2FF;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    right: 0%;
-  }
-  
-  .logo {
-    width: 100px; /* Ajusta el ancho de la imagen según sea necesario */
-    height: auto; /* Esto mantiene la proporción de la imagen */
-    padding-left: 5%;
-  }
-  
-  .login-button {
-    background-color: #190482;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
+  background-color: #ECF2FF;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  right: 0%;
+  z-index: 1;
+}
+
+.logo {
+  width: 100px; /* Ajusta el ancho de la imagen según sea necesario */
+  height: auto; /* Esto mantiene la proporción de la imagen */
+  padding-left: 5%;
+}
+
+.login-button {
+  background-color: #190482;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
