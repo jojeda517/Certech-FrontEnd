@@ -13,6 +13,7 @@ footer {
   }
   p{
     margin: 0%;
+    font-size: 15px;
   }
   
   img {
@@ -21,6 +22,7 @@ footer {
     margin-bottom: 0px; /* Ajusta el margen inferior de la imagen según sea necesario */
     
   }
+  
   
   /* Estilos adicionales para las secciones y el contenido */
   div.sections {
@@ -36,6 +38,7 @@ footer {
   
   h3 {
     color: #ffffff;
+    font-size: 12px;
   }
   
   /* Reglas de medios para pantallas más pequeñas */
