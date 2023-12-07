@@ -1,6 +1,5 @@
-.background-image{
-    width: 200%;
-    height: 10cm; /* Ajusta el margen inferior de la imagen según sea necesario */
-    right: 100%;
-
-}
+.background-image {
+    width: 100%; /* Ajusta la anchura según sea necesario */
+    height: 10cm; /* Ajusta la altura según sea necesario */
+  }
+  
