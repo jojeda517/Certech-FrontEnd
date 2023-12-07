@@ -9,7 +9,6 @@
     position: absolute; /* Posicionar la imagen absolutamente con respecto al contenedor */
     top: 0; /* Alinear la imagen en la esquina superior izquierda */
     left: 0;
-    background-image: url('../../../assets/images/1x/graduados.jpg');
 
 }
 
