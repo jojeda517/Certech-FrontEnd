@@ -8,7 +8,8 @@ import { CardsComponent } from "../cards/cards.component";
     standalone: true,
     templateUrl: './search.component.html',
     styleUrl: './search.component.css',
-    imports: [ModulosComponent, CardsComponent]
+    imports: [ModulosComponent,
+        CardsComponent]
 })
 export class SearchComponent {
 
