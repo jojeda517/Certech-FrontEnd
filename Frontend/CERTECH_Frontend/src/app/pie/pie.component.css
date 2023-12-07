@@ -32,7 +32,6 @@ footer {
   }
   
   div.sections div {
-    flex: 1;
     margin-right: 0px; /* Ajusta el margen derecho de las secciones según sea necesario */
   }
   

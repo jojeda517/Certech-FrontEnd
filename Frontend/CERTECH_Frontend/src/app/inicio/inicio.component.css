@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* 100% de la altura de la ventana */
+    width: 100vw; /* 100% del ancho de la ventana */
+  }
+  
+  .container > div {
+    flex: 1;
+    width: 100%;
+  }
+  
+  app-search {
+    flex: 1; /* Ocupa el 50% del contenedor en altura */
+    background-color: #f0f0f0; /* Puedes cambiar el color de fondo según tus preferencias */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  app-modulos,
+  app-cards {
+    flex: 1; /* Ocupan el 50% del contenedor en altura */
+    width: 100%;
+  }
+  

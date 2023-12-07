@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { PieComponent } from "./pie/pie.component";
 import { HeaderComponent } from "./header/header.component";
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from "./componentes/search/search.component";
+import { ModulosComponent } from "./componentes/modulos/modulos.component";
+import { CardsComponent } from "./componentes/cards/cards.component";
+import { InicioComponent } from "./inicio/inicio.component";
 
 
 @Component({
@@ -17,8 +20,8 @@ import { SearchComponent } from "./componentes/search/search.component";
         PieComponent,
         HeaderComponent,
         FormsModule,
-        SearchComponent]
+        SearchComponent, ModulosComponent, CardsComponent, InicioComponent]
 })
 export class AppComponent {
-
+    
 }

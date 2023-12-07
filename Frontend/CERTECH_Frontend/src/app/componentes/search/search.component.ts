@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { HeaderComponent } from "../../header/header.component";
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ModulosComponent } from "../modulos/modulos.component";
 import { CardsComponent } from "../cards/cards.component";
 
@@ -11,5 +10,10 @@ import { CardsComponent } from "../cards/cards.component";
     imports: [ModulosComponent, CardsComponent]
 })
 export class SearchComponent {
-
+    @Output() busquedaCambiada = new EventEmitter<string>();
+    terminoBusqueda: string = '';
+  
+    buscar() {
+      this.busquedaCambiada.emit(this.terminoBusqueda);
+    }
 }

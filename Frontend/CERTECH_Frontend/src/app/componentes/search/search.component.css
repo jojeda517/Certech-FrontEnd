@@ -1,27 +1,6 @@
-.container-search {
-    padding: 50px;
-    border-radius: 12px;
-}
+.background-image{
+    width: 200%;
+    height: 10cm; /* Ajusta el margen inferior de la imagen según sea necesario */
+    right: 100%;
 
-.container-search .background-image {
-    width: 100%; /* Ajustar el ancho según sea necesario */
-    height: 700px; /* Mantener la proporción original */
-    position: absolute; /* Posicionar la imagen absolutamente con respecto al contenedor */
-    top: 0; /* Alinear la imagen en la esquina superior izquierda */
-    left: 0;
-
-}
-
-.container-search__form {
-    position: relative; /* Establecer la posición relativa para los elementos internos */
-
-    margin-top: 320px;
-    width: 600px;
-}
-
-.t1{
-    color: white;
-}
-.modulos{
-    margin-top: 31%;
 }
