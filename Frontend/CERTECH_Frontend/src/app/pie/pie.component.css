@@ -13,6 +13,7 @@ footer {
   }
   p{
     margin: 0%;
+    font-size: 15px;
   }
   
   img {
@@ -36,6 +37,7 @@ footer {
   
   h3 {
     color: #ffffff;
+    font-size: 15px;
   }
   
   /* Reglas de medios para pantallas más pequeñas */
