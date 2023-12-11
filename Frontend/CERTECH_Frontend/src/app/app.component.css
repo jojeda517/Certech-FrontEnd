@@ -18,12 +18,13 @@ body {
   }
   
   /* Estilos del pie de página */
-  footer {
-    background-color: #1B262C;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: relative; /* Asegura que el pie de página se sitúe correctamente al final de la página */
-    margin-top: 20px; /* Ajusta según sea necesario */
-  }
-  
+ /* Estilos para el footer */
+footer {
+  background-color: #1B262C;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: absolute; /* Cambiado a "absolute" para situar el footer al final de la página */
+  bottom: 0; /* Fija el footer al final */
+  width: 100%; /* Ocupa todo el ancho */
+}
