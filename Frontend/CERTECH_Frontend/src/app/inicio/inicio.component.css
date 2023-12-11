@@ -1,26 +1,6 @@
+/* Estilos del contenedor principal */
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* 100% de la altura de la ventana */
-    width: 100vw; /* 100% del ancho de la ventana */
-  }
-  
-  .container > div {
-    flex: 1;
-    width: 100%;
-  }
-  
-  app-search {
-    flex: 1;
-    width: 100%;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;  }
-  
-  app-modulos,
-  app-cards {
-    flex: 1; /* Ocupan el 50% del contenedor en altura */
-    width: 100%;
-  }
-  
+  max-width: 1200px; /* Ajusta el ancho máximo según sea necesario */
+  margin: 0 auto; /* Centra el contenido en el contenedor */
+  padding: 20px; /* Agrega relleno al contenedor según sea necesario */
+}

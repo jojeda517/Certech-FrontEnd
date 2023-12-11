@@ -3,14 +3,13 @@ footer {
     background-color: #1B262C;
     color: white;
     text-align: center;
-    padding: 0px; /* Ajusta el padding según sea necesario */
-    position: fixed;
-    bottom: 0;
+    padding: 10px; /* Adjust padding as needed */
+    /* position: fixed; */ /* Remove the fixed positioning */
     width: 100%;
-    right: 0%;
     box-sizing: border-box;
-    height: min-content;
-  }
+}
+
+
   p{
     margin: 0%;
     font-size: 15px;

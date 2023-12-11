@@ -1,0 +1,29 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Estilos del encabezado */
+  header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Estilos del contenido principal */
+  main {
+    padding: 20px;
+  }
+  
+  /* Estilos del pie de página */
+  footer {
+    background-color: #1B262C;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Asegura que el pie de página se sitúe correctamente al final de la página */
+    margin-top: 20px; /* Ajusta según sea necesario */
+  }
+  
