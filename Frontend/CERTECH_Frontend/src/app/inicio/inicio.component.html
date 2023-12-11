@@ -12,16 +12,10 @@
     </div>
   
     <div class="row">
-        <div class="container">
-            <div class="row">
-              <div class="cards-section">
-                <app-cards title="Card 1" content="Contenido de la tarjeta 1"></app-cards>
-                <app-cards *ngFor="let card of cardsData" [title]="card.title" [content]="card.content"></app-cards>
-                <app-cards title="Card 3" content="Contenido de la tarjeta 3"></app-cards>
-              </div>
-            </div>
-          </div>
-        
+      <div class="col-md-4" *ngFor="let card of cardsData">
+        <app-cards [title]="card.title" [content]="card.content"></app-cards>
+      </div>
     </div>
   </div>
+  
   

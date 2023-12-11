@@ -1,30 +1,34 @@
-<div class="login-container">
-  <img class="background-image" src="../../assets/images/1x/biblioteca.jpg" alt="Fondo de inicio de sesión">
+<!-- Tu encabezado (header) aquí -->
+
+<main>
+  <div class="login-container">
+    <img class="background-image" src="../../assets/images/1x/biblioteca.jpg" alt="Fondo de inicio de sesión">
   
-  <div class="login-form-container">
-    <label class="bienvenido" for="username">Bienvenido:</label>
-    <form class="login-form" (ngSubmit)="login()">
-     
-      <div class="form-group">
+    <div class="login-form-container">
+      <label class="bienvenido" for="username">Bienvenido:</label>
+      <form class="login-form" (ngSubmit)="login()">
        
-       
-        <label for="username">Usuario:</label>
-        <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Ingrese su usuario">
-      </div>
+        <div class="form-group">
+          <label for="username">Usuario:</label>
+          <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Ingrese su usuario">
+        </div>
 
-      <div class="form-group">
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Ingrese su contraseña">
-      </div>
-<br><br>
-      <div class="form-group">
-        <button type="submit" style="background-color: #190482; color: #fff;">Iniciar sesión</button>
-      </div>
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Ingrese su contraseña">
+        </div>
+        <br><br>
+        <div class="form-group">
+          <button type="submit" style="background-color: #190482; color: #fff;">Iniciar sesión</button>
+        </div>
 
-      <!-- Enlace "¿Olvidaste tu contraseña?" -->
-      <div class="forgot-password">
-        <a href="#">¿Olvidaste tu contraseña?</a>
-      </div>
-    </form>
+        <!-- Enlace "¿Olvidaste tu contraseña?" -->
+        <div class="forgot-password">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+</main>
+
+<!-- Tu pie de página (footer) aquí -->
