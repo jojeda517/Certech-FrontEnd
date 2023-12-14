@@ -5,38 +5,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Agrega la referencia a FontAwesome aquí -->
   </head>
 <body>
- <div class="container">
-    <div class="menu-container">
-      <div class="dropdown">
-        <button class="dropbtn">Módulos <i class="fas fa-caret-down"></i></button>
-        <div class="dropdown-content">
-          <div class="menu-container">
-            <button class="module-btn" (click)="mostrarEventos()">
-              <i class="fas fa-graduation-cap icon"></i>Eventos
-            </button>
-            <button class="module-btn" (click)="mostrarValidacion()"><i class="fas fa-check-circle icon"></i>Validación</button>
-            <button class="module-btn" (click)="mostrarFirmas()"><i class="fas fa-signature icon"></i>Firmas</button>
+    <div class="container">
+        <div class="menu-container">
+          <div class="dropdown">
+            <button class="dropbtn">Módulos <i class="fas fa-caret-down"></i></button>
+            <div class="dropdown-content">
+              <div class="menu-container">
+                <button class="module-btn" (click)="mostrarEventos()">
+                  <i class="fas fa-graduation-cap icon"></i>Eventos
+                </button>
+                <button class="module-btn" (click)="mostrarValidacion()">
+                  <i class="fas fa-check-circle icon"></i>Validación
+                </button>
+                <button class="module-btn" (click)="mostrarFirmas()">
+                  <i class="fas fa-signature icon"></i>Firmas
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="container">
-        <div class="certificate" id="participationCertificate">
-            <h2>Certificado de participación</h2>
-            <p>Fecha de emisión:</p>
-            <div class="button-container">
+        <div class="container">
+          <main>
+            <section class="certificados">
+              <h2>Certificados</h2>
+              <button type="button" class="btn btn-primary">Participación</button>
+              <button type="button" class="btn btn-primary">Certificados</button>
+              <button type="button" class="btn btn-primary">Agregar certificado</button>
+            </section>
+            <div class="certificate" id="participationCertificate">
+              <h2>Certificado de participación</h2>
+              <p>Fecha de emisión:</p>
+              <div class="button-container">
                 <button id="participationButton">Descargar</button>
+              </div>
             </div>
-        </div>
-        <div class="certificate" id="firstPlaceCertificate">
-            <h2>Certificado de primer lugar</h2>
-            <p>Fecha de emisión:</p>
-            <div class="button-container">
+            <div class="certificate" id="firstPlaceCertificate">
+              <h2>Certificado de primer lugar</h2>
+              <p>Fecha de emisión:</p>
+              <div class="button-container">
                 <button id="firstPlaceButton">Descargar</button>
+              </div>
             </div>
+          </main>
         </div>
-    </div>
- </div>
+      </div>
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
