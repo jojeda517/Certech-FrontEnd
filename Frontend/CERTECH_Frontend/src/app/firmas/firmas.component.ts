@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-firmas',
+  standalone: true,
+  imports: [],
+  templateUrl: './firmas.component.html',
+  styleUrl: './firmas.component.css'
 })
-export class DashboardComponent {
-
+export class FirmasComponent {
   constructor(private router: Router) {}
 
   mostrarEventos() {
