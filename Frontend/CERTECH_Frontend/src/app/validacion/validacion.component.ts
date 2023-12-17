@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavbarComponent } from '../componentes/navbar/navbar.component';
 
 @Component({
   selector: 'app-validacion',
   standalone: true,
-  imports: [],
+  imports: [NavbarComponent],
   templateUrl: './validacion.component.html',
   styleUrl: './validacion.component.css'
 })

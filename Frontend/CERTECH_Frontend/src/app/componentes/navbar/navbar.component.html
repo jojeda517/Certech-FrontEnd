@@ -1,0 +1,22 @@
+<!-- navbar.component.html -->
+<div class="container">
+    <div class="menu-container">
+      <div class="dropdown">
+        <button class="dropbtn">Módulos <i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-content">
+          <div class="menu-container">
+            <button class="module-btn" (click)="mostrarVentana('eventos')">
+              <i class="fas fa-graduation-cap icon"></i>Eventos
+            </button>
+            <button class="module-btn" (click)="mostrarVentana('validacion')">
+              <i class="fas fa-check-circle icon"></i>Validación
+            </button>
+            <button class="module-btn" (click)="mostrarVentana('firmas')">
+              <i class="fas fa-signature icon"></i>Firmas
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

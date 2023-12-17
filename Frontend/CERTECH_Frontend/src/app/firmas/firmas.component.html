@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Agrega la referencia a FontAwesome aquí -->
-  </head>
-<body>
- <div class="container">
-    <div class="menu-container">
-      <div class="dropdown">
-        <button class="dropbtn">Módulos <i class="fas fa-caret-down"></i></button>
-        <div class="dropdown-content">
-            <div class="menu-container">
-                <button class="module-btn" (click)="mostrarEventos()">
-                  <i class="fas fa-graduation-cap icon"></i>Eventos
-                </button>
-                <button class="module-btn" (click)="mostrarValidacion()"><i class="fas fa-check-circle icon"></i>Validación</button>
-                <button class="module-btn" (click)="mostrarFirmas()"><i class="fas fa-signature icon"></i>Firmas</button>
-              </div>
-        </div>
-      </div>
-    </div>
+<div class="container">
+  <app-navbar
+  (eventosClick)="mostrarEventos()"
+  (validacionClick)="mostrarValidacion()"
+  (firmasClick)="mostrarFirmas()">
+</app-navbar>
+
     <div class="container">
         <h1>Firmas</h1>
         <table class="table table-striped">
@@ -60,10 +45,3 @@
         
         
     </div>
- </div>
-
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
