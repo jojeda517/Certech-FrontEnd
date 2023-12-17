@@ -1,22 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CardsComponent } from "../cards/cards.component";
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-modulos',
     standalone: true,
-    template: `
-    <nav>
-      <ul>
-        <li (click)="navegar('todos')">Todos</li>
-        <li (click)="navegar('cursos')">Cursos</li>
-        <li (click)="navegar('conferencias')">Conferencias</li>
-      </ul>
-    </nav>
-  `,
     templateUrl: './modulos.component.html',
     styleUrl: './modulos.component.css',
-    imports: [CardsComponent]
+    imports: [CardsComponent,CommonModule,FormsModule]
 })
 export class ModulosComponent {
+  @Input() categorias: string[] = [];
+  @Output() filterEvent = new EventEmitter<string>();
 
+  filterByCategory(category: string): void {
+    this.filterEvent.emit(category);
+  }
 }

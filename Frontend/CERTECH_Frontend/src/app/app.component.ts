@@ -8,6 +8,7 @@ import { SearchComponent } from "./componentes/search/search.component";
 import { ModulosComponent } from "./componentes/modulos/modulos.component";
 import { CardsComponent } from "./componentes/cards/cards.component";
 import { InicioComponent } from "./inicio/inicio.component";
+import { LoginComponent } from './login/login.component';
 
 
 @Component({
@@ -20,7 +21,7 @@ import { InicioComponent } from "./inicio/inicio.component";
         PieComponent,
         HeaderComponent,
         FormsModule,
-        SearchComponent, ModulosComponent, CardsComponent, InicioComponent]
+        SearchComponent, ModulosComponent, CardsComponent, InicioComponent,LoginComponent]
 })
 export class AppComponent {
     

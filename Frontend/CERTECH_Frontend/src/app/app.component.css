@@ -24,7 +24,6 @@ footer {
   color: white;
   text-align: center;
   padding: 10px;
-  position: absolute; /* Cambiado a "absolute" para situar el footer al final de la página */
   bottom: 0; /* Fija el footer al final */
   width: 100%; /* Ocupa todo el ancho */
 }

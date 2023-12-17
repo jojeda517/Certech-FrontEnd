@@ -1,19 +1,20 @@
 <div class="container">
     <div class="row">
       <div class="search-section">
-        <app-search></app-search>
+        <app-search (searchEvent)="searchByCedula($event)"></app-search>
       </div>
     </div>
   
     <div class="row">
       <div class="modulos-section">
-        <app-modulos></app-modulos>
+        <app-modulos [categorias]="categorias" (filterEvent)="filterByCategory($event)"></app-modulos>
+
       </div>
     </div>
   
     <div class="row">
       <div class="col-md-4" *ngFor="let card of cardsData">
-        <app-cards [title]="card.title" [content]="card.content"></app-cards>
+        <app-cards [filteredCards]="filteredCards"></app-cards>
       </div>
     </div>
   </div>

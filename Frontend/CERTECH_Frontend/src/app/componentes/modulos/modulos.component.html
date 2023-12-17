@@ -1,32 +1,8 @@
-<main>
-    <div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Todos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Concursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Congresos</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-</nav>
-</div>
 <div>
-    
-</div>
-</main>
+    <h2>Filtrar por Categoría</h2>
+    <div class="btn-group category-buttons" role="group">
+      <button *ngFor="let category of categorias" type="button" class="btn btn-secondary" (click)="filterByCategory(category)">
+        {{ category }}
+      </button>
+    </div>
+  </div>

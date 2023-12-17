@@ -3,12 +3,10 @@
     <div class="container-search__form position-absolute top-50 start-50 translate-middle">
         <h1 class="t1">Encuentra tu Certificado</h1>
         <form class="form-search">
-            <div class="form-search__input input-group">
-                <input type="text" class="form-control" placeholder="Buscar...">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
+            <div class="form-search__input input-group"> 
+            <input [(ngModel)]="searchCedula" class="form-control" placeholder="Buscar por Cédula" name="searchCedula">
+            <button (click)="search()" class="btn btn-primary">Buscar</button>
+             </div>
         </form>
     </div>
 </div>
