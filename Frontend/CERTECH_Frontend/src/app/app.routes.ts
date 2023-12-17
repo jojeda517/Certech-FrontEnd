@@ -12,10 +12,9 @@ import { FirmasComponent } from './firmas/firmas.component';
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
-    { path: '', component: InicioComponent},
+    { path: 'inicio', component: InicioComponent},
+    { path: '', redirectTo: '/inicio', pathMatch: 'full' },
     {path:'eventos', component:EventosComponent},
     {path:'validacion', component:ValidacionComponent},
     {path:'firmas', component:FirmasComponent}
-
-
 ];
