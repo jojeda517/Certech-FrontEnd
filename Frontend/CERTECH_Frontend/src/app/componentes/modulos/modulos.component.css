@@ -1,0 +1,27 @@
+/* Cambiar el color de fondo de la barra de navegación */
+.navbar {
+    background-color: #f8f9fa; /* Cambiar el color de fondo */
+  }
+  
+  /* Aumentar el tamaño del botón del toggler (para dispositivos móviles) */
+  .navbar-toggler {
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+  }
+  
+  /* Estilos para los enlaces del menú */
+  .navbar-nav .nav-link {
+    font-size: 1.1rem; /* Tamaño de fuente para los enlaces */
+    color: #333; /* Color del texto de los enlaces */
+    border: 1px solid #ccc; /* Borde de los enlaces */
+    border-radius: 4px; /* Añadir bordes redondeados */
+    padding: 8px 16px; /* Espaciado interno de los enlaces */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transición suave al pasar el ratón */
+  }
+  
+  /* Estilos al pasar el ratón sobre los enlaces */
+  .navbar-nav .nav-link:hover {
+    background-color: #190482; /* Color de fondo al pasar el ratón */
+    color: #fff; /* Color del texto al pasar el ratón */
+    border-color: #190482; /* Color del borde al pasar el ratón */
+  }
+  

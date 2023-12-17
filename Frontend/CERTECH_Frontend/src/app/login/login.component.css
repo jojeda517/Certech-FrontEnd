@@ -1,0 +1,85 @@
+/* login.component.css */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Coloca la imagen detrás de otros elementos */
+  }
+  
+  .bienvenido {
+    font-weight: bold;
+    font-size: 2em; /* Ajusta el tamaño del texto según sea necesario */
+    text-align: center; /* Ajusta el margen inferior según sea necesario */
+    margin-left: 30%;
+    width: 20%; /* Sube el texto 0.5 cm (puedes ajustar el valor según sea necesario) */
+  }
+  
+  .login-form-container {
+    max-width:400px; /* Ajusta el valor según sea necesario para hacerlo más ancho */
+    width: 90%;
+    padding: 50px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 1%;
+    margin-top: 5%;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group button {
+    background-color: #190482;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* Ajusta el ancho del botón al 100% del contenedor */
+  }
+  
+  .form-group button:hover {
+    background-color: #0A1318;
+  }
+  
+  /* Enlace "¿Olvidaste tu contraseña?" */
+  .forgot-password {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .forgot-password a {
+    color: #190482;
+    text-decoration: underline;
+  }
+  
+  .forgot-password a:hover {
+    color: #0A1318;
+  }
+  

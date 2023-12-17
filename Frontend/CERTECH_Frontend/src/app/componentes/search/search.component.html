@@ -1,0 +1,13 @@
+<div class="container-search position-relative">
+    <img class="background-image" src="../../assets/images/1x/graduados.jpg" alt="Fondo de inicio de sesión">
+    <div class="container-search__form position-absolute top-50 start-50 translate-middle">
+        <h1 class="t1">Encuentra tu Certificado</h1>
+        <form class="form-search">
+            <div class="form-search__input input-group"> 
+            <input [(ngModel)]="searchCedula" class="form-control" placeholder="Buscar por Cédula" name="searchCedula">
+            <button (click)="search()" class="btn btn-primary">Buscar</button>
+             </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,25 @@
+.container {
+  margin-top: 20px; /* Ajusta según sea necesario */
+}
+
+.cards-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: calc(33.33% - 20px); /* Ajusta el ancho deseado y resta el margen para que quepan tres en una fila */
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Ajustes adicionales según sea necesario */
