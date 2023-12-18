@@ -13,7 +13,7 @@ export class ValidacionComponent {
   constructor(private router: Router) {}
 
   mostrarEventos() {
-  this.router.navigate(['/eventos']);
+  this.router.navigate(['/dashboard']);
   }
   mostrarValidacion() {
     this.router.navigate(['/validacion']);

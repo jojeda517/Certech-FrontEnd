@@ -26,9 +26,4 @@ export class HeaderComponent {
     // Redirige a la ruta '/login'
     this.router.navigate(['/login']);
   }
-  cerrarSesion(): void {
-    // Redirige a la ruta '/login'
-    this.authService.logout();
-    this.router.navigate(['/inicio']);
-  }
 }

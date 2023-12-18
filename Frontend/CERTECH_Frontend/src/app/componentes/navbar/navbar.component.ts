@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { AuthService } from '../../auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +11,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class NavbarComponent {
  
+  showLoginButton = true;
+
+  constructor(private router: Router, private route: ActivatedRoute, public authService: AuthService) {}
   @Output() eventosClick = new EventEmitter<void>();
   @Output() validacionClick = new EventEmitter<void>();
   @Output() firmasClick = new EventEmitter<void>();
@@ -27,5 +32,15 @@ export class NavbarComponent {
       default:
         break;
     }
+  }
+  isCollapsed = false;
+
+  toggleCollapse() {
+    this.isCollapsed = !this.isCollapsed;
+  }
+  cerrarSesion(): void {
+    // Redirige a la ruta '/login'
+    this.authService.logout();
+    this.router.navigate(['/inicio']);
   }
 }

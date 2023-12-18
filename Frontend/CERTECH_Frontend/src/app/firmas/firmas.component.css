@@ -16,7 +16,12 @@
     display: none;
     /* Ocultar el botón en pantallas grandes */
 }
-
+img {
+    max-width: 200px; /* Ajusta el ancho máximo según tus preferencias */
+    max-height: 200px; /* Ajusta la altura máxima según tus preferencias */
+    width: auto;
+    height: auto;
+  }
 
 .dropdown-content {
     display: block;
@@ -74,20 +79,19 @@
 }
 .table {
     width: 100%;
+    border-collapse: collapse; /* Para eliminar los espacios entre las celdas */
   }
-  
-  .table th {
-    text-align: center;
-  }
-  
-  .table td {
+  .table th, .table td {
     padding: 10px;
+    text-align: center; /* Alinea el texto al centro */
+    border: 1px solid #ccc; /* Agrega un borde a las celdas */
   }
   
   .btn {
     margin-bottom: 10px;
+    display: block;
+    margin: 0 auto; /* Centra el botón horizontalmente */
   }
-/* Estilos para los botones de los módulos */
 .module-btn {
     display: block;
     width: 100%;

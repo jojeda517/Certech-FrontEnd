@@ -1,47 +1,33 @@
+
 <div class="container">
   <app-navbar
-  (eventosClick)="mostrarEventos()"
-  (validacionClick)="mostrarValidacion()"
-  (firmasClick)="mostrarFirmas()">
-</app-navbar>
+    (eventosClick)="mostrarEventos()"
+    (validacionClick)="mostrarValidacion()"
+    (firmasClick)="mostrarFirmas()">
+  </app-navbar>
 
-    <div class="container">
-        <h1>Firmas</h1>
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Cédula</th>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Firma</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1926483597</td>
-                <td>Juan Pérez</td>
-                <td>juanperez.com</td>
-                <td>8888</td>
-                <td><button type="button" class="btn btn-primary">Validar</button></td>
-              </tr>
-              <tr>
-                <td>1926483598</td>
-                <td>Pedro González</td>
-                <td>pedrogonzalez.com</td>
-                <td>9999</td>
-                <td><button type="button" class="btn btn-primary">Validar</button></td>
-              </tr>
-              <tr>
-                <td>1926483599</td>
-                <td>María López</td>
-                <td>marialopez.com</td>
-                <td>7777</td>
-                <td><button type="button" class="btn btn-primary">Validar</button></td>
-              </tr>
-            </tbody>
-          </table>
-          <button type="button" class="btn btn-primary">Agregar certificado</button>
-        
-        
-    </div>
+  <div class="container">
+    <h1>Firmas</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Cédula</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Firma</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let firma of firmas">
+          <td>{{ firma.cedula }}</td>
+          <td>{{ firma.nombre }}</td>
+          <td>{{ firma.correo }}</td>
+          <td><img [src]="firma.firma" alt="Imagen de la firma"></td>
+          <td><button type="button" class="btn btn-primary">Validar</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary">Agregar certificado</button>
+  </div>
+</div>
