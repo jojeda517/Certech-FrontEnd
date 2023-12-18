@@ -1,0 +1,33 @@
+<div class="container">
+    <app-navbar (eventosClick)="mostrarEventos()" (validacionClick)="mostrarValidacion()"
+        (firmasClick)="mostrarFirmas()">
+    </app-navbar>
+
+    <div>
+        <h2>Cargar Archivo CSV</h2>
+        <input type="file" (change)="csvImport($event)">
+    </div>
+
+    <div *ngIf="users.length > 0">
+        <h2>Usuarios</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Direccion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.Nombre }}</td>
+                    <td>{{ user.Correo }}</td>
+                    <td>{{ user.Telefono }}</td>
+                    <td>{{ user.Direccion }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button (click)="importarDatos()">Importar</button>
+    </div>

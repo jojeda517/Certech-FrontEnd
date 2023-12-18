@@ -12,4 +12,43 @@ import { Router } from '@angular/router';
     imports: [CommonModule, NavbarComponent]
 })
 export class TablaComponent {
+    constructor(private router: Router) { }
+
+    mostrarEventos() {
+        this.router.navigate(['/dashboard']);
+    }
+    mostrarValidacion() {
+        this.router.navigate(['/validacion']);
+    }
+    mostrarFirmas() {
+        this.router.navigate(['/firmas']);
+    }
+    users: any[] = [];
+    csvImport($event: any) {
+        const files = $event.target.files;
+        if (files.length) {
+            const file = files[0];
+            const reader = new FileReader();
+            reader.onload = (event: any) => {
+                const wb = read(event.target.result);
+                const sheets = wb.SheetNames;
+
+                if (sheets.length) {
+                    const row = utils.sheet_to_json(wb.Sheets[sheets[0]]);
+                    this.users = row;
+                    console.log('Usuarios cargados:', this.users);
+
+                    console.log('Hola mundo', this.users);
+                }
+            };
+            reader.readAsArrayBuffer(file);
+        }
+    }
+    importarDatos() {
+        // Aquí puedes realizar la lógica para guardar los datos en una lista o hacer cualquier otra acción que necesites.
+        console.log('Datos importados:', this.users);
+        // Por ejemplo, puedes guardar los datos en una lista para utilizarla después.
+        // this.listaImportada = this.users;
+    }
+
 }
