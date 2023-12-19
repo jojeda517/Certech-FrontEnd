@@ -8,6 +8,7 @@ import { ValidacionComponent } from './validacion/validacion.component';
 import { FirmasComponent } from './firmas/firmas.component';
 import { AuthGuard } from './auth.guard';
 import { TablaComponent } from './paginas/tabla/tabla.component';
+import { FormEvenComponent } from './componentes/form-even/form-even.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -23,6 +24,9 @@ export const routes: Routes = [
     //,canActivate: [AuthGuard]
     },
     {path:'eventos/tabla', component:TablaComponent
+    //,canActivate: [AuthGuard]
+    },
+    {path:'eventos/formenevt', component:FormEvenComponent
     //,canActivate: [AuthGuard]
     },
     {path:'firmas', component:FirmasComponent

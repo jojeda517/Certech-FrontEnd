@@ -23,7 +23,7 @@ export class DashboardComponent {
       this.router.navigate(['/firmas']);
     }
     agregarEvento(){
-      this.router.navigate(['/eventos']);
+      this.router.navigate(['/eventos/formenevt']);
     }
     eventos: any[] = [
       {
