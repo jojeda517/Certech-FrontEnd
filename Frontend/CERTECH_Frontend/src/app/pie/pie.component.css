@@ -1,48 +1,45 @@
 /* footer.component.css */
 footer {
-    background-color: #1B262C;
-    color: white;
-    text-align: center;
-    padding: 10px; /* Adjust padding as needed */
-    /* position: fixed; */ /* Remove the fixed positioning */
-    width: 100%;
-    box-sizing: border-box;
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  bottom: 0;
+  position:relative;
 }
 
 
-  p{
-    margin: 0%;
-    font-size: 15px;
+p{
+  margin: 0%;
+  font-size: 15px;
+}
+
+img {
+  margin-top: 20px;
+  width: 100px;
+}
+
+.menuFooter{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);;
+  margin: 30px 70px 0 70px;
+}
+
+.menuFooter div a {
+  font-family: HonorSans-Regular;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.menuFooter div a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1000px){
+  .menuFooter{
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 20px;
   }
-  
-  img {
-    width: 2cm;
-    height: 2cm;
-    margin-bottom: 0px; /* Ajusta el margen inferior de la imagen según sea necesario */
-    
-  }
-  
-  
-  /* Estilos adicionales para las secciones y el contenido */
-  div.sections {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 0px; /* Ajusta el margen superior de las secciones según sea necesario */
-  }
-  
-  div.sections div {
-    margin-right: 0px; /* Ajusta el margen derecho de las secciones según sea necesario */
-  }
-  
-  h3 {
-    color: #ffffff;
-    font-size: 12px;
-  }
-  
-  /* Reglas de medios para pantallas más pequeñas */
-  @media (max-width: 608px) {
-    img {
-      width: 30%;
-    }
-  }
-  
+}

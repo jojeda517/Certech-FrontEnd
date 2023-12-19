@@ -1,6 +1,67 @@
-/* Agrega estilos para la clase "posicion" */
-.posicion {
-    position: fixed;
-    top: 100px; /* Ajusta la distancia desde la parte superior según tu diseño de header */
-    left: 0;
+.navbar {
+    background-color: #ECF2FF !important;
+    height: 70px;
+}
+
+.navbar-toggler{
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler:hover{
+    background-color: #190482;
+    transform: scale(1.05);
+    color: #ECF2FF !important;
+}
+
+.navbar-toggler span i{
+    color:#190482;
+    font-size: 28px;
+}
+
+.navbar-toggler span i:hover{
+    color: #ECF2FF;
+    box-shadow: none;
+    transform: scale(1);
+}
+
+.btn {
+    background-color: #190482;
+    color: #ECF2FF;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #7752FE;
+    color: #ECF2FF;
+}
+
+.logo {
+    width: 15vw;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.offcanvas{
+    background-color: #05001c!important;
+    max-width: 50vw;
+}
+
+.btn-link {
+    color: #fff;
+    width: 90%;
+    margin: 10px 30px 10px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: HonorSans-Medium;
+    font-size: 24px;
+}
+
+.btn-link i{
+    font-size: 32px;
+    margin-right: 20px;
 }

@@ -11,12 +11,22 @@ import { TablaComponent } from './paginas/tabla/tabla.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: 'dashboard', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent
+    //,canActivate: [AuthGuard]
+    },
     { path: 'inicio', component: InicioComponent},
     { path: '', redirectTo: '/inicio', pathMatch: 'full' },
-    {path:'eventos', component:EventosComponent},
-    {path:'validacion', component:ValidacionComponent},
-    {path:'eventos/tabla', component:TablaComponent},
-    {path:'firmas', component:FirmasComponent}
-
+    {path:'eventos', component:EventosComponent
+    //,canActivate: [AuthGuard]
+    },
+    {path:'validacion', component:ValidacionComponent
+    //,canActivate: [AuthGuard]
+    },
+    {path:'eventos/tabla', component:TablaComponent
+    //,canActivate: [AuthGuard]
+    },
+    {path:'firmas', component:FirmasComponent
+    //,canActivate: [AuthGuard]
+    },
+    
 ];

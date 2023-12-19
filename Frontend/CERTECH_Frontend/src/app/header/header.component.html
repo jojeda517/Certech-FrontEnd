@@ -1,6 +1,7 @@
 <header>
-    <img src="../../assets/images/1x/Recurso 2.png" alt="Logo" class="logo">
+    <a routerLink="/inicio" >
+        <img src="../../assets/images/CerTech_Logo.svg" alt="Logo" class="logo">
+    </a>
    
     <button  class="login-button" *ngIf="!authService.isLoggedIn" (click)="mostrarLogin()">Acceder</button> 
 </header>
-<header>

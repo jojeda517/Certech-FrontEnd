@@ -7,21 +7,20 @@
   (firmasClick)="mostrarFirmas()">
 </app-navbar>
 <!-- dashboard.component.html -->
-<div class="contenido">
+
   <div class="container">
     <div class="row">
       <div class="col-md-12 dashboard-margin">
-        <h1>Dashboard</h1>
+        <h1>Eventos</h1>
       </div>
     </div>
     <div class="row">
       <div class="col-md-4" *ngFor="let evento of eventos">
         <div class="card">
-          <div class="card-header">
-            <h4>{{ evento.titulo }}</h4>
-          </div>
+
           <div class="card-body">
             <img [src]="evento.imagen" alt="Descripción de la imagen" class="card-img-top">
+            <h2>{{ evento.titulo }}</h2>
             <p>{{ evento.descripcion }}</p>
           </div>
         </div>
@@ -36,4 +35,4 @@
       </div>
     </div>
   </div>
-</div>
+

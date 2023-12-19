@@ -1,5 +1,15 @@
 .container {
-  margin-top: 20px; /* Ajusta según sea necesario */
+  min-height: calc(100vh - 70px);
+  max-width: 100%;
+  margin: 70px 0 0 0;
+}
+
+.search-section{
+  padding: 0;
+}
+
+.tarjetas{
+  margin: 10px 10% 10px 10%;
 }
 
 .cards-section {
