@@ -17,14 +17,9 @@
     <div class="row">
       <!-- En el HTML de la lista de eventos -->
       <div class="col-md-4" *ngFor="let evento of eventos">
-<<<<<<< HEAD
-        <div class="card" (click)="cards()">
-
-=======
         <div class="card">
->>>>>>> 6ef503ad18581a805b7945876ca491598f288dd7
           <div class="card-body">
-            <div (click)="redirigirDetalle(evento.id)" style="cursor: pointer;">
+            <div (click)="redirigirDetalle()" style="cursor: pointer;">
               <img [src]="evento.imagen" alt="Descripción de la imagen" class="card-img-top">
               <h2>{{ evento.titulo }}</h2>
               <p>{{ evento.descripcion }}</p>

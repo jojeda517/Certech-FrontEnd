@@ -5,7 +5,26 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private users: any[] = [];
+  private users: any[] = [
+    {
+        'Nombre': 'Adan',
+        'Correo': 'adan@example.com',
+        'Telefono': '8925654',
+        'Direccion': 'Ambato'
+    },
+    {
+        'Nombre': 'Eduardo',
+        'Correo': 'eduardo@example.com',
+        'Telefono': '254852',
+        'Direccion': 'Quito'
+    },
+    {
+        'Nombre': 'Jonathan',
+        'Correo': 'jonathan@example.com',
+        'Telefono': '55155885',
+        'Direccion': 'Latacunga'
+    }
+];
   public usersChanged: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
   getUsers(): any[] {
