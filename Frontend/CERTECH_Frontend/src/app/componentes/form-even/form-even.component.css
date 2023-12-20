@@ -58,6 +58,12 @@
     background-color: #7752FE !important;
     transform: scale(1.05);
   }
+
+  .formBtn{
+    display: grid;
+    grid-template-columns:  repeat(2, 1fr);
+    grid-column-gap: 20px;
+  }
   
 
   .forgot-password {

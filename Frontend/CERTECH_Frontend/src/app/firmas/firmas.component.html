@@ -18,7 +18,7 @@
       </button>
        </div>
   </form>
-    <button type="button" class="btn btn-agregar">Agregar certificado</button>
+    <button type="button" class="btn btn-agregar"><i class="fa-solid fa-circle-plus"></i>Agregar certificado</button>
   </div>
 
   <div class="container-tabla">
@@ -38,9 +38,11 @@
           <td>{{ firma.nombre }}</td>
           <td>{{ firma.correo }}</td>
           <td class="celdasFirmas"><img class="imgFirmas" [src]="firma.firma" alt="Imagen de la firma"></td>
-          <td>
-            <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>
-            <button type="button" class="btn btn-primary"><i class="fa-solid fa-trash"></i></button>
+          <td >
+            <div class="botonesFirmas">
+              <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>
+              <button type="button" class="delete-btn btn btn-primary"><i class="fa-solid fa-trash"></i></button>
+            </div>
           </td>
         </tr>
       </tbody>
