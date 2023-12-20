@@ -27,15 +27,20 @@ export class DashboardComponent {
     }
     eventos: any[] = [
       {
+        id: 1,
         titulo: 'Evento 1',
         descripcion: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
         imagen: '../../assets/images/1x/e.png'
       },
       {
+        id: 2,
         titulo: 'Evento 2',
         descripcion: 'Otra descripción interesante.',
         imagen: '../../assets/images/1x/e.png'
       },
       // Agrega más eventos según sea necesario
     ];
+    redirigirDetalle(eventoId: number) {
+      this.router.navigate(['/eventos', eventoId]);
+    }
   }

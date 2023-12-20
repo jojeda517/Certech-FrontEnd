@@ -15,16 +15,19 @@
       </div>
     </div>
     <div class="row">
+      <!-- En el HTML de la lista de eventos -->
       <div class="col-md-4" *ngFor="let evento of eventos">
         <div class="card">
-
           <div class="card-body">
-            <img [src]="evento.imagen" alt="Descripción de la imagen" class="card-img-top">
-            <h2>{{ evento.titulo }}</h2>
-            <p>{{ evento.descripcion }}</p>
+            <div (click)="redirigirDetalle(evento.id)" style="cursor: pointer;">
+              <img [src]="evento.imagen" alt="Descripción de la imagen" class="card-img-top">
+              <h2>{{ evento.titulo }}</h2>
+              <p>{{ evento.descripcion }}</p>
+            </div>
           </div>
         </div>
       </div>
+      
       <div class="col-md-4">
         <!-- Nueva tarjeta para agregar -->
         <div class="card">
