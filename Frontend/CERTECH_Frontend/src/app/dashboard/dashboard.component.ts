@@ -12,6 +12,9 @@ import { CommonModule } from '@angular/common';
 })
 export class DashboardComponent {
   constructor(private router: Router) {}
+  cards(){
+    this.router.navigate(['/eventos/usuarios']);
+  }
 
   mostrarEventos() {
   this.router.navigate(['/dashboard']);

@@ -9,8 +9,14 @@ import { FirmasComponent } from './firmas/firmas.component';
 import { AuthGuard } from './auth.guard';
 import { TablaComponent } from './paginas/tabla/tabla.component';
 import { FormEvenComponent } from './componentes/form-even/form-even.component';
+import { UduariosComponent } from './paginas/uduarios/uduarios.component';
 
 export const routes: Routes = [
+     // Otras rutas aquí...
+  {
+    path: 'eventos/usuarios',
+    component: UduariosComponent, // Asegúrate de tener el componente asociado
+  },
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent
     //,canActivate: [AuthGuard]
@@ -27,6 +33,9 @@ export const routes: Routes = [
     //,canActivate: [AuthGuard]
     },
     {path:'eventos/formenevt', component:FormEvenComponent
+    //,canActivate: [AuthGuard]
+    },
+    {path:'eventos/usuarios', component:UduariosComponent
     //,canActivate: [AuthGuard]
     },
     {path:'firmas', component:FirmasComponent

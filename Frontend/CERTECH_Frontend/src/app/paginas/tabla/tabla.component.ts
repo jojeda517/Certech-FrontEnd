@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { read, utils } from 'xlsx';
 import { NavbarComponent } from "../../componentes/navbar/navbar.component";
 import { Router } from '@angular/router';
+import { UserService } from '../../servicios/user.service';
 
 @Component({
     selector: 'app-tabla',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
     imports: [CommonModule, NavbarComponent]
 })
 export class TablaComponent {
-    constructor(private router: Router) { }
+    constructor(private router: Router,private userService: UserService) { }
 
     mostrarEventos() {
         this.router.navigate(['/dashboard']);
@@ -45,10 +46,9 @@ export class TablaComponent {
         }
     }
     importarDatos() {
-        // Aquí puedes realizar la lógica para guardar los datos en una lista o hacer cualquier otra acción que necesites.
         console.log('Datos importados:', this.users);
-        // Por ejemplo, puedes guardar los datos en una lista para utilizarla después.
-        // this.listaImportada = this.users;
+        this.userService.addUsers(this.users); // Agrega los usuarios al servicio
+        this.router.navigate(['/eventos/usuarios']);
     }
+      }
 
-}
