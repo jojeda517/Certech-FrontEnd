@@ -40,7 +40,6 @@
     font-weight: 100;
     box-shadow: none;
     transform: none;
-    color: rgba(0, 0, 0, 0.6);
 }
 
 .card-body h2{
@@ -50,4 +49,12 @@
 .card-body p{
     margin: 10px 20px 10px 20px;
     font-family: HonorSans-ExtraLight;
+}
+
+.btnAgregar{
+    color: #190482;
+}
+
+.btnAgregar:hover{
+    color: #190482;
 }
