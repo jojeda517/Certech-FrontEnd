@@ -22,6 +22,10 @@
     font-family: 'HonorSans-Medium';
     src: url('../src/assets/fonts/HONORSans/HONORSans-Medium.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'HonorSans-ExtraLight';
+    src: url('../src/assets/fonts/HONORSans/HONORSans-ExtraLight.ttf') format('truetype');
+}
 
 *{
     padding: 0;
