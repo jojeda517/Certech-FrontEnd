@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { NavbarComponent } from '../componentes/navbar/navbar.component';
 
 @Component({
@@ -10,7 +10,10 @@ import { NavbarComponent } from '../componentes/navbar/navbar.component';
   styleUrls: ['./eventos.component.css']
 })
 export class EventosComponent {
-  constructor(private router: Router) {}
+
+
+  constructor(private router: Router) {
+  }
 
   mostrarEventos() {
     this.router.navigate(['/dashboard']);
@@ -26,4 +29,8 @@ export class EventosComponent {
   cargarcsv(){
     this.router.navigate(['/eventos/tabla']);
   }
+  mostrarcertificados() {
+    this.router.navigate(['/certificados']);
+  }
+  
 }

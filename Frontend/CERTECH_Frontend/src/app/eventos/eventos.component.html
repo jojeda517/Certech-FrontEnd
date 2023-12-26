@@ -1,33 +1,17 @@
 <div class="container">
   <app-navbar
-  (eventosClick)="mostrarEventos()"
-  (validacionClick)="mostrarValidacion()"
-  (firmasClick)="mostrarFirmas()">
-</app-navbar>
+    (eventosClick)="mostrarEventos()"
+    (validacionClick)="mostrarValidacion()"
+    (firmasClick)="mostrarFirmas()">
+  </app-navbar>
 
-    <!-- firmas.component.html -->
-       
-       <div class="container">
-            <main>
-              <section class="certificados">
-                <h2>Certificados</h2>
-                <button type="button" class="btn btn-primary" (click)="cargarcsv()">Participación</button>
-                <button type="button" class="btn btn-primary">Certificados</button>
-                <button type="button" class="btn btn-primary">Agregar certificado</button>
-              </section>
-            <div class="certificate" id="participationCertificate">
-              <h2>Certificado de participación</h2>
-              <p>Fecha de emisión:</p>
-              <div class="button-container">
-                <button id="participationButton">Descargar</button>
-              </div>
-            </div>
-            <div class="certificate" id="firstPlaceCertificate">
-              <h2>Certificado de primer lugar</h2>
-              <p>Fecha de emisión:</p>
-              <div class="button-container">
-                <button id="firstPlaceButton">Descargar</button>
-              </div>
-            </div>
-          </main>
-        </div>
+  <div class="container">
+    <main>
+      <section class="certificados">
+        <h2>Certificados</h2>
+        <button type="button" class="btn btn-primary" (click)="cargarcsv()">Participación</button>
+        <button type="button" class="btn btn-primary"(click)="mostrarcertificados()">Certificados</button>
+      </section>
+    </main>
+  </div>
+</div>

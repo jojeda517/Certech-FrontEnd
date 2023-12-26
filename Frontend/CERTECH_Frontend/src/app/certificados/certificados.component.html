@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row titulo">
+    <div class="col-md-12 dashboard-margin">
+      <h1>Certificados</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Certificados existentes -->
+    <div class="col-md-4" *ngFor="let certificado of certificados" class="certificado">
+      <div class="card">
+        <div class="card-body">
+          <div (click)="redirigirDetalle(certificado.id)" style="cursor: pointer;">
+            <img [src]="certificado.imagen" alt="Descripción de la imagen" class="card-img-top">
+            <h2>{{ certificado.titulo }}</h2>
+            <p>{{ certificado.fecha }}</p>
+            <p>{{ certificado.descripcion }}</p>
+          </div>
+          <div class="certificado-actions">
+            <button class="btn btnEditar" (click)="editarCertificado(certificado)">
+              Editar
+            </button>
+            <button class="btn btnEliminar" (click)="eliminarCertificado(certificado)">
+              Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nueva tarjeta para agregar un certificado -->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <button class="btn btnAgregar" (click)="agregarCertificado()">
+            <i class="fa-solid fa-plus"></i><br>
+            <p>Agregar certificado</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
