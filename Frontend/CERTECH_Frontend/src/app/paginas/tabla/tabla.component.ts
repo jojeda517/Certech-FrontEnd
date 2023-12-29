@@ -46,9 +46,11 @@ export class TablaComponent {
         }
     }
     importarDatos() {
+        
         console.log('Datos importados:', this.users);
         this.userService.addUsers(this.users); // Agrega los usuarios al servicio
         this.router.navigate(['/eventos/usuarios']);
+    
     }
-      }
 
+}   
