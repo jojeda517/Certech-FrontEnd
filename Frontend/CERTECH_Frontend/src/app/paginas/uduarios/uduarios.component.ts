@@ -41,4 +41,25 @@ ngOnInit() {
 mostrarTabla() {
     this.router.navigate(['/eventos/tabla']);
 }
+AgregarEstudiante(){
+    this.router.navigate(['/eventos/formEst']);
+}
+editarUsuario(index: number) {
+    const usuarioAEditar = this.users[index];
+    const cedulaUsuario = usuarioAEditar.Cedula;
+
+    this.userService.setCedulaUsuario(cedulaUsuario);
+    this.router.navigate(['/eventos/formEstedit',cedulaUsuario]);
+    console.log(cedulaUsuario);
+  }
+
+  eliminarUsuario(index: number) {
+    // Aquí puedes implementar la lógica para eliminar un usuario
+    const confirmarEliminar = confirm('¿Estás seguro de eliminar este usuario?');
+    if (confirmarEliminar) {
+      this.users.splice(index, 1);
+      this.userService.setUsers(this.users);
+    }
+  }
+
 }

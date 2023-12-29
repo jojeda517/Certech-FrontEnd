@@ -4,26 +4,38 @@
     </app-navbar>
 
   
-<button>agregar</button>
+<button (click)="AgregarEstudiante()">agregar</button>
 <button (click)="mostrarTabla()">importar</button>
     <div *ngIf="users.length > 0">
         <h2>Usuarios</h2>
         <table class="table">
             <thead>
                 <tr>
+                    <th>Cedula</th>
                     <th>Nombre</th>
                     <th>Correo</th>
                     <th>Telefono</th>
-                    <th>Direccion</th>
+                    <th>Accion</th>
+                    
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users">
-                    <td>{{ user.Nombre }}</td>
-                    <td>{{ user.Correo }}</td>
-                    <td>{{ user.Telefono }}</td>
-                    <td>{{ user.Direccion }}</td>
+                <tr *ngFor="let user of users; let i = index">
+                  <td>{{ user.Cedula }}</td>
+                  <td>{{ user.Nombre }}</td>
+                  <td>{{ user.Correo }}</td>
+                  <td>{{ user.Telefono }}</td>
+                  <td>
+                    <div class="botonesFirmas">
+                      <button type="button" class="btn btn-primary" (click)="editarUsuario(i)">
+                        <i class="fa-solid fa-pen"></i> Editar
+                      </button>
+                      <button type="button" class="delete-btn btn btn-primary" (click)="eliminarUsuario(i)">
+                        <i class="fa-solid fa-trash"></i> Eliminar
+                      </button>
+                    </div>
+                  </td>
                 </tr>
-            </tbody>
+              </tbody>
         </table>
     </div>

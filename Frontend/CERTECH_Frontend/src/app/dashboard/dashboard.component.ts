@@ -19,7 +19,7 @@ export class DashboardComponent {
     this.router.navigate(['/validacion']);
     }
   mostrarFirmas() {
-      this.router.navigate(['/firmas']);
+    this.router.navigate(['/firmas']);
     }
     agregarEvento(){
       this.router.navigate(['/eventos/formenevt']);
