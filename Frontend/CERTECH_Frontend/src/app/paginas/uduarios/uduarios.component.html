@@ -19,8 +19,8 @@
                     </button>
                 </div>
             </form>
-            <button type="button" class="btn btn-agregar" onclick="AgregarEstudiante()"><i class="fa-solid fa-circle-plus"></i>Agregar Estudiante</button>
-            <button type="button" class="btn btn-agregar" onclick="mostrarTabla()"><i class="fa-solid fa-circle-plus"></i>Importar</button>
+            <button type="button" class="btn btn-agregar" (click)="AgregarEstudiante()"><i class="fa-solid fa-circle-plus"></i>Agregar Estudiante</button>
+            <button type="button" class="btn btn-agregar" (click)="mostrarTabla()"><i class="fa-solid fa-circle-plus"></i>Importar</button>
         </div>
     
         <div class="container-tabla">
@@ -43,10 +43,10 @@
                             <td>{{ user.Telefono }}</td>
                             <td>
                                 <div class="botonesFirmas">
-                                    <button type="button" class="btn btn-primary" onclick="editarUsuario(i)">
+                                    <button type="button" class="btn btn-primary" (click)="editarUsuario(i)">
                                         <i class="fa-solid fa-pen"></i> Editar
                                     </button>
-                                    <button type="button" class="delete-btn btn btn-primary" onclick="eliminarUsuario(i)">
+                                    <button type="button" class="delete-btn btn btn-primary" (click)="eliminarUsuario(i)">
                                         <i class="fa-solid fa-trash"></i> Eliminar
                                     </button>
                                 </div>

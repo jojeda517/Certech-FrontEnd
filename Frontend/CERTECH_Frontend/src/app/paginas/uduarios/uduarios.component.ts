@@ -39,10 +39,10 @@ ngOnInit() {
 }
 
 mostrarTabla() {
-    this.router.navigate(['/eventos/tabla']);
+    this.router.navigate(['/eventos/usuarios/tabla']);
 }
 AgregarEstudiante(){
-    this.router.navigate(['/eventos/formEst']);
+    this.router.navigate(['eventos/usuarios/formEst']);
 }
 editarUsuario(index: number) {
     const usuarioAEditar = this.users[index];

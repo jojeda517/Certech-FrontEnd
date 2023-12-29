@@ -28,26 +28,27 @@ export const routes: Routes = [
     {path:'eventos', component:EventosComponent
     //,canActivate: [AuthGuard]
     },   
+    {path:'eventos/usuarios', component:UduariosComponent
+    //,canActivate: [AuthGuard]
+    },
     {path:'firmas', component:FirmasComponent
     //,canActivate: [AuthGuard]
     },
     {path:'validacion', component:ValidacionComponent
     //,canActivate: [AuthGuard]
     },
-    {path:'eventos/tabla', component:TablaComponent
+    {path:'eventos/usuarios/tabla', component:TablaComponent
     //,canActivate: [AuthGuard]
     },
     {path:'eventos/formenevt', component:FormEvenComponent
     //,canActivate: [AuthGuard]
     },
-    {path:'eventos/formEst', component:FormEstuComponent
+    {path:'eventos/usuarios/formEst', component:FormEstuComponent
     //,canActivate: [AuthGuard]
     },
     {path:'firmas/formFirmas', component:FormFirmaComponent
     //,canActivate: [AuthGuard]
     },
-    {path:'eventos/usuarios', component:UduariosComponent
-    //,canActivate: [AuthGuard]
-    }
+   
  
 ]

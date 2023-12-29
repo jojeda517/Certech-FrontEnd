@@ -20,7 +20,7 @@
         <div class="card">
           <div class="card-body">
             <div (click)="redirigirDetalle()" style="cursor: pointer;">
-              <img [src]="evento.imagen" alt="Descripción de la imagen" class="card-img-top">
+              <img [src]="'../../assets/images/eventos/' + evento.imagen" alt="Descripción de la imagen" class="card-img-top">
               <h2>{{ evento.titulo }}</h2>
               <p>{{ evento.descripcion }}</p>
             </div>
