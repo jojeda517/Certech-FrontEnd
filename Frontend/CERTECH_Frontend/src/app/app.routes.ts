@@ -32,25 +32,4 @@ export const routes: Routes = [
     { path: 'eventos/:id', component: EventosComponent },
     { path: 'certificados', component: CertificadosComponent }
 ];
-
-    {path:'eventos', component:EventosComponent
-    //,canActivate: [AuthGuard]
-    },
-    {path:'validacion', component:ValidacionComponent
-    //,canActivate: [AuthGuard]
-    },
-    {path:'eventos/tabla', component:TablaComponent
-    //,canActivate: [AuthGuard]
-    },
-    {path:'eventos/formenevt', component:FormEvenComponent
-    //,canActivate: [AuthGuard]
-    },
-    {path:'eventos/usuarios', component:UduariosComponent
-    //,canActivate: [AuthGuard]
-    },
-    {path:'firmas', component:FirmasComponent
-    //,canActivate: [AuthGuard]
-    },
-    { path: 'eventos/:id', component: EventosComponent } 
-];
-
+   
