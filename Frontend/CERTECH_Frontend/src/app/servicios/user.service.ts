@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  //consumir aqui : 
   private users: any[] = [
     {
       'Cedula': '185088995',
@@ -16,6 +17,11 @@ export class UserService {
     {
       'Cedula': '185088934',
         'Nombre': 'Eduardo',
+        'Correo': 'eduardo@example.com',
+        'Telefono': '254852'
+    }, {
+      'Cedula': '185088934',
+        'Nombre': 'EJuan',
         'Correo': 'eduardo@example.com',
         'Telefono': '254852'
     },
