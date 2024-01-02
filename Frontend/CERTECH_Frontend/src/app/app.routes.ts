@@ -38,5 +38,6 @@ export const routes: Routes = [
     {path:'firmas', component:FirmasComponent
     //,canActivate: [AuthGuard]
     },
-    { path: 'eventos/:id', component: EventosComponent } 
+    { path: 'eventos/:id', component: EventosComponent } ,
+    { path: 'certificados', component: CertificadosComponent } 
 ];
