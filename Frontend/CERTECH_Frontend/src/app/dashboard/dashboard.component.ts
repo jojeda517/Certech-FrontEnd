@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
 })
 export class DashboardComponent {
   constructor(private router: Router) {}
-
   mostrarEventos() {
   this.router.navigate(['/dashboard']);
   }
@@ -40,7 +39,7 @@ export class DashboardComponent {
       },
       // Agrega más eventos según sea necesario
     ];
-    redirigirDetalle(eventoId: number) {
-      this.router.navigate(['/eventos', eventoId]);
+    redirigirDetalle() {
+      this.router.navigate(['/eventos/usuarios']);
     }
   }
