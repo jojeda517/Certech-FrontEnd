@@ -1,29 +1,61 @@
-<div class="container">
-    <app-navbar (eventosClick)="mostrarEventos()" (validacionClick)="mostrarValidacion()"
-        (firmasClick)="mostrarFirmas()">
-    </app-navbar>
+<body>
 
-  
-<button>agregar</button>
-<button (click)="mostrarTabla()">importar</button>
-    <div *ngIf="users.length > 0">
-        <h2>Usuarios</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Telefono</th>
-                    <th>Direccion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let user of users">
-                    <td>{{ user.Nombre }}</td>
-                    <td>{{ user.Correo }}</td>
-                    <td>{{ user.Telefono }}</td>
-                    <td>{{ user.Direccion }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="container">
+        <app-navbar (eventosClick)="mostrarEventos()" (validacionClick)="mostrarValidacion()"
+            (firmasClick)="mostrarFirmas()">
+        </app-navbar>
+    
+        <div class="container_botones">
+            <div>
+                <h1>Usuarios</h1>
+                <button>Participantes</button>
+                <button>Certificados</button>
+            </div>
+            <form class="form-search">
+                <div class="form-search__input input-group">
+                    <input class="form-control" placeholder="Buscar por Cédula" name="searchCedula">
+                    <button class="btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                    </button>
+                </div>
+            </form>
+            <button type="button" class="btn btn-agregar" (click)="AgregarEstudiante()"><i class="fa-solid fa-circle-plus"></i>Agregar Estudiante</button>
+            <button type="button" class="btn btn-agregar" (click)="mostrarTabla()"><i class="fa-solid fa-circle-plus"></i>Importar</button>
+        </div>
+    
+        <div class="container-tabla">
+            <div *ngIf="users.length > 0">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Cedula</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Telefono</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users; let i = index">
+                            <td>{{ user.Cedula }}</td>
+                            <td>{{ user.Nombre }}</td>
+                            <td>{{ user.Correo }}</td>
+                            <td>{{ user.Telefono }}</td>
+                            <td>
+                                <div class="botonesFirmas">
+                                    <button type="button" class="btn btn-primary" (click)="editarUsuario(i)">
+                                        <i class="fa-solid fa-pen"></i> Editar
+                                    </button>
+                                    <button type="button" class="delete-btn btn btn-primary" (click)="eliminarUsuario(i)">
+                                        <i class="fa-solid fa-trash"></i> Eliminar
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+    
+    </body>

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavbarComponent } from '../componentes/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
+import { FirmasService } from '../servicios/firmas.service';
 
 @Component({
   selector: 'app-firmas',
@@ -10,8 +11,11 @@ import { CommonModule } from '@angular/common';
   templateUrl: './firmas.component.html',
   styleUrl: './firmas.component.css'
 })
-export class FirmasComponent {
-  constructor(private router: Router) {}
+export class FirmasComponent implements OnInit {
+  constructor(private router: Router, private firmaService: FirmasService) {}
+  ngOnInit(): void {
+    this.firmas = this.firmaService.getfirmas();
+  }
 
   mostrarEventos() {
   this.router.navigate(['/dashboard']);
@@ -23,11 +27,18 @@ export class FirmasComponent {
       this.router.navigate(['/firmas']);
     }
 
-    firmas: any[] = [
-      { cedula: '1926483597', nombre: 'Juan Pérez', correo: 'juanperez.com', firma: '../../../assets/images/1x/firma.png' },
-      { cedula: '1926483598', nombre: 'Pedro González', correo: 'pedrogonzalez.com', firma: '../../../assets/images/1x/firma.png' },
-      { cedula: '1926483599', nombre: 'María López', correo: 'marialopez.com', firma: '../../../assets/images/1x/firma.png' },
-      { cedula: '1850089952', nombre: 'María López', correo: 'marialopez.com', firma: '../../../assets/images/1x/firma.png' },
-      // Agrega más firmas según sea necesario
-    ];
+    firmas: any[] = []
+    
+    eliminarfirma(index: number) {
+      // Aquí puedes implementar la lógica para eliminar un usuario
+      const confirmarEliminar = confirm('¿Estás seguro de eliminar esta firma?');
+      if (confirmarEliminar) {
+        this.firmas.splice(index, 1);
+        this.firmaService.setFirmas(this.firmas);
+      
+    }
+}
+agregarFirma(){
+  this.router.navigate(['/firmas/formFirmas']);
+}
 }

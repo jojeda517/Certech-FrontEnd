@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavbarComponent } from '../componentes/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
+import { EventoService } from '../servicios/evento.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,8 +11,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent {
-  constructor(private router: Router) {}
+export class DashboardComponent implements OnInit  {
+  constructor(private router: Router, private eventoService: EventoService) {}
+  eventos: any[] = []
+  ngOnInit(): void {
+    this.eventos = this.eventoService.getEventos();
+  }
+  
+  
   mostrarEventos() {
   this.router.navigate(['/dashboard']);
   }
@@ -19,26 +26,12 @@ export class DashboardComponent {
     this.router.navigate(['/validacion']);
     }
   mostrarFirmas() {
-      this.router.navigate(['/firmas']);
+    this.router.navigate(['/firmas']);
     }
     agregarEvento(){
       this.router.navigate(['/eventos/formenevt']);
     }
-    eventos: any[] = [
-      {
-        id: 1,
-        titulo: 'Evento 1',
-        descripcion: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-        imagen: '../../assets/images/1x/e.png'
-      },
-      {
-        id: 2,
-        titulo: 'Evento 2',
-        descripcion: 'Otra descripción interesante.',
-        imagen: '../../assets/images/1x/e.png'
-      },
-      // Agrega más eventos según sea necesario
-    ];
+   
     redirigirDetalle() {
       this.router.navigate(['/eventos/usuarios']);
     }

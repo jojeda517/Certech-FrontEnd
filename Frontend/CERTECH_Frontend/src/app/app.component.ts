@@ -9,7 +9,7 @@ import { ModulosComponent } from "./componentes/modulos/modulos.component";
 import { CardsComponent } from "./componentes/cards/cards.component";
 import { InicioComponent } from "./inicio/inicio.component";
 import { LoginComponent } from './login/login.component';
-
+import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 
 @Component({
     selector: 'app-root',
@@ -21,7 +21,7 @@ import { LoginComponent } from './login/login.component';
         PieComponent,
         HeaderComponent,
         FormsModule,
-        SearchComponent, ModulosComponent, CardsComponent, InicioComponent,LoginComponent]
+        SearchComponent, ModulosComponent, CardsComponent, InicioComponent,LoginComponent,  ModalModule]
 })
 export class AppComponent {
     
