@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modulos',
   templateUrl: './modulos.component.html',
   styleUrls: ['./modulos.component.css']
 })
-export class ModulosComponent implements OnInit {
+export class ModulosComponent {
+  
+  @Input() categorias: string[] = [];
+  @Output() filterEvent = new EventEmitter<string>();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  filterByCategory(category: string): void {
+    this.filterEvent.emit(category);
   }
-
 }
+

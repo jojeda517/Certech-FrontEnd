@@ -1,0 +1,42 @@
+
+<body>
+    <div class="container">
+     <app-navbar
+     (eventosClick)="mostrarEventos()"
+     (validacionClick)="mostrarValidacion()"
+     (firmasClick)="mostrarFirmas()">
+   </app-navbar>
+   <!-- dashboard.component.html -->
+   
+     <div class="container">
+       <div class="row titulo">
+         <div class="col-md-12 dashboard-margin">
+           <h1>Eventos</h1>
+         </div>
+       </div>
+       <div class="row">
+         <!-- En el HTML de la lista de eventos -->
+         <div class="col-md-4" *ngFor="let evento of eventos">
+           <div class="card">
+             <div class="card-body">
+               <div (click)="redirigirDetalle()" style="cursor: pointer;">
+                 <img [src]="'../../assets/images/eventos/' + evento.imagen" alt="Descripción de la imagen" class="card-img-top">
+                 <h2>{{ evento.titulo }}</h2>
+                 <p>{{ evento.descripcion }}</p>
+               </div>
+             </div>
+           </div>
+         </div>
+         
+         <div class="col-md-4">
+           <!-- Nueva tarjeta para agregar -->
+           <div class="card">
+             <div class="card-body text-center">
+               <button class="btn btnAgregar" (click)="agregarEvento()"><i class="fa-solid fa-plus"></i><br><p>Agregar evento</p></button>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   
+   

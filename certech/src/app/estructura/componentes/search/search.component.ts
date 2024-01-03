@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent  {
 
-  constructor() { }
+  @Output() searchEvent = new EventEmitter<string>();
+  searchCedula: string = '';
 
-  ngOnInit(): void {
+  search(): void {
+    // Emitir el evento de búsqueda con el número de cédula
+    this.searchEvent.emit(this.searchCedula);
   }
-
 }

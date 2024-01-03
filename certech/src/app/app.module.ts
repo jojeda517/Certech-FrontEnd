@@ -11,6 +11,14 @@ import { SearchComponent } from './estructura/componentes/search/search.componen
 import { NavbarComponent } from './estructura/componentes/navbar/navbar.component';
 import { FirmasComponent } from './paginas/firmas/firmas.component';
 import { LoginComponent } from './paginas/login/login.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './paginas/dashboard/dashboard.component';
+import { EventosComponent } from './paginas/eventos/eventos.component';
+import { ValidacionComponent } from './paginas/validacion/validacion.component';
+import { InicioComponent } from './paginas/inicio/inicio.component';
+import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +30,20 @@ import { LoginComponent } from './paginas/login/login.component';
     SearchComponent,
     NavbarComponent,
     FirmasComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    EventosComponent,
+    ValidacionComponent,
+    InicioComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

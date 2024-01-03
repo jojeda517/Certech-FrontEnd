@@ -1,0 +1,112 @@
+
+.container{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 70px);
+    margin-top: 70px;
+    width: 100%;
+}
+
+.container_botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1{
+    margin-top: 20px;
+}
+
+.container_botones{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form-search__input{
+    border: 1px solid #a0a0a0;
+    border-radius: 10px;
+    width: 30vw;
+}
+
+.btn-agregar{
+    background-color: #190482;
+    color: #ECF2FF;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-agregar i{
+    margin-right: 10px;
+}
+
+.btn-agregar:hover{
+    background-color: #7752FE;
+    transform: scale(1.05);
+    color: #ECF2FF;
+}
+
+.container-tabla {
+    margin: 0;
+    width: 100%;
+}
+
+.imgFirmas{
+    width: 50%;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse; 
+    table-layout: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #d60d0d !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    width: auto;
+  }
+  
+
+  tbody tr{
+    height: 50px;
+  }
+
+
+  .botonesFirmas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .delete-btn{
+    margin: 10px;
+  }
+
+  .botonesFirmas button{
+    background-color: #190482;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .botonesFirmas button:hover{
+    background-color: #7752FE;
+    transform: scale(1.05);
+  }
+
+  i{
+    box-shadow: none;
+    transform: none;
+  }
