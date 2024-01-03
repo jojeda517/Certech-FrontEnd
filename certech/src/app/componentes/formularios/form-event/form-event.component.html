@@ -1,0 +1,38 @@
+
+
+<div class="login-container">
+    <app-navbar
+    (eventosClick)="mostrarEventos()"
+    (validacionClick)="mostrarValidacion()"
+    (firmasClick)="mostrarFirmas()">
+  </app-navbar>
+      <div class="login-form-container">
+        <label class="bienvenido" for="nomevent"><h1>Agregar Evento</h1></label>
+        <form class="login-form">
+         
+          <div class="form-group">
+            <label for="nomevent">Nombre del Evento:</label>
+            <input type="text" id="nomevent" name="nomevent" [(ngModel)]="nomevent" placeholder="Ingrese el nombre del evento" accept=".jpg, .png">
+          </div>
+    
+          <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <input type="text" id="tipo" name="tipo" [(ngModel)]="tipo" placeholder="Ingrese el tipo">
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion" [(ngModel)]="descripcion" placeholder="Ingrese la descripción">
+          </div>
+          <div class="form-group">
+            <label for="portada">Portada:</label>
+            <input type="file" id="portada" name="portada" [(ngModel)]="portada" placeholder="Seleccione la portada">
+          </div>
+          <br><br>
+          <div class="form-group formBtn">
+            <button type="submit" style="background-color: #190482; color: #fff;" (click)="guardarEvento()">Guardar</button>
+            <button type="submit" style="background-color: #190482; color: #fff;" (click)="cancelar() ">Cancelar</button>
+          </div>
+    
+        </form>
+      </div>
+    </div>

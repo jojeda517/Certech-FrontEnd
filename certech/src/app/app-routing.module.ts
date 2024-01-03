@@ -7,6 +7,7 @@ import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { FirmasComponent } from './paginas/firmas/firmas.component';
 import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
+import { FormEventComponent } from './componentes/formularios/form-event/form-event.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent},
@@ -26,6 +27,9 @@ const routes: Routes = [
     //,canActivate: [AuthGuard]
     },
     {path:'eventos/usuarios', component:UsuariosComponent
+    //,canActivate: [AuthGuard]
+    },
+    {path:'eventos/formenevt', component:FormEventComponent
     //,canActivate: [AuthGuard]
     },
 ];

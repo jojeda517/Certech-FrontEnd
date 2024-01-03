@@ -19,6 +19,8 @@ import { EventosComponent } from './paginas/eventos/eventos.component';
 import { ValidacionComponent } from './paginas/validacion/validacion.component';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
+import { FormFirmaComponent } from './componentes/formularios/form-firma/form-firma.component';
+import { FormEventComponent } from './componentes/formularios/form-event/form-event.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
     EventosComponent,
     ValidacionComponent,
     InicioComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    FormFirmaComponent,
+    FormEventComponent
   ],
   imports: [
     BrowserModule,
