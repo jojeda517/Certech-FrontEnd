@@ -8,6 +8,8 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
 import { FirmasComponent } from './paginas/firmas/firmas.component';
 import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
 import { FormEventComponent } from './componentes/formularios/form-event/form-event.component';
+import { TablaComponent } from './componentes/formularios/tabla/tabla.component';
+import { CertificadosComponent } from './paginas/certificados/certificados.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent},
@@ -32,6 +34,13 @@ const routes: Routes = [
     {path:'eventos/formenevt', component:FormEventComponent
     //,canActivate: [AuthGuard]
     },
+    {path:'eventos/tabla', component:TablaComponent
+    //,canActivate: [AuthGuard]
+    },
+    {path:'eventos/formenevt', component:FormEventComponent
+    //,canActivate: [AuthGuard]
+    },
+    { path: 'certificados', component: CertificadosComponent }
 ];
 
 @NgModule({

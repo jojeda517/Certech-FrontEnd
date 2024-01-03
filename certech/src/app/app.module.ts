@@ -21,6 +21,9 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
 import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
 import { FormFirmaComponent } from './componentes/formularios/form-firma/form-firma.component';
 import { FormEventComponent } from './componentes/formularios/form-event/form-event.component';
+import { TablaComponent } from './componentes/formularios/tabla/tabla.component';
+import { CertificadosComponent } from './paginas/certificados/certificados.component';
+import { FormCertificadoComponent } from './componentes/formularios/form-certificado/form-certificado.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { FormEventComponent } from './componentes/formularios/form-event/form-ev
     InicioComponent,
     UsuariosComponent,
     FormFirmaComponent,
-    FormEventComponent
+    FormEventComponent,
+    TablaComponent,
+    CertificadosComponent,
+    FormCertificadoComponent
   ],
   imports: [
     BrowserModule,
