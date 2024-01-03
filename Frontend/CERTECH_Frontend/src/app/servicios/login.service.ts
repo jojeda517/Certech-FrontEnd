@@ -10,7 +10,7 @@ export class LoginService {
     this.loggedIn = value;
   }
 
-  get isLoggedIn() {
+  get isLoggedIn(): boolean {
     return this.loggedIn;
   }
 }

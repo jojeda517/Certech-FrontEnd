@@ -1,28 +1,27 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService { 
-  
-  constructor(private router: Router){}
-  isLoggedIn = false;
+export class AuthService {
+  private apiUrl = 'http://34.125.254.116:8000/api/administrador/';
+  private isLoggedIn = false;
 
-  login(username: string, password: string): boolean {
-    // Lógica de autenticación (compara con credenciales reales o realiza la autenticación de acuerdo a tu implementación)
-    const isAuthenticated = username === "usuario" && password === "contraseña";
-    
-    if (isAuthenticated) {
-      this.isLoggedIn = true;
-      this.router.navigate(['/dashboard']);
-  
-    }
+  constructor(private http: HttpClient, private router: Router) {}
 
-    return isAuthenticated;
+  login(usuario: string, clave: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}${usuario}/${clave}`);
   }
+  
   logout(): void {
-    // Lógica de cierre de sesión
     this.isLoggedIn = false;
+    this.router.navigate(['/login']);
+  }
+
+  isAuthenticated(): boolean {
+    return this.isLoggedIn;
   }
 }

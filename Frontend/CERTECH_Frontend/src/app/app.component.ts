@@ -10,6 +10,8 @@ import { CardsComponent } from "./componentes/cards/cards.component";
 import { InicioComponent } from "./inicio/inicio.component";
 import { LoginComponent } from './login/login.component';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
     selector: 'app-root',
@@ -19,9 +21,9 @@ import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
     imports: [CommonModule,
         RouterOutlet,
         PieComponent,
-        HeaderComponent,
+        HeaderComponent,HttpClientModule,
         FormsModule,
-        SearchComponent, ModulosComponent, CardsComponent, InicioComponent,LoginComponent,  ModalModule]
+        SearchComponent, ModulosComponent, CardsComponent, InicioComponent, LoginComponent,  ModalModule]
 })
 export class AppComponent {
     

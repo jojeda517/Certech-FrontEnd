@@ -1,38 +1,56 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavbarComponent } from '../componentes/navbar/navbar.component';
-import { CommonModule } from '@angular/common';
 import { EventoService } from '../servicios/evento.service';
+import { NavbarComponent } from '../componentes/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NavbarComponent,CommonModule],
+  imports: [FormsModule, NavbarComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent implements OnInit  {
+export class DashboardComponent implements OnInit {
+  eventos: any[] = [];
+
   constructor(private router: Router, private eventoService: EventoService) {}
-  eventos: any[] = []
+
   ngOnInit(): void {
-    this.eventos = this.eventoService.getEventos();
+    this.getEventos();
   }
-  
-  
-  mostrarEventos() {
-  this.router.navigate(['/dashboard']);
+
+  getEventos(): void {
+    this.eventoService.getEventos().subscribe(
+      (response) => {
+        if (response && response.eventos) {
+          this.eventos = response.eventos;
+        }
+      },
+      (error) => {
+        console.error('Error al obtener eventos:', error);
+        // Manejar errores si es necesario
+      }
+    );
   }
-  mostrarValidacion() {
+
+  mostrarEventos(): void {
+    this.router.navigate(['/dashboard']);
+  }
+
+  mostrarValidacion(): void {
     this.router.navigate(['/validacion']);
-    }
-  mostrarFirmas() {
-    this.router.navigate(['/firmas']);
-    }
-    agregarEvento(){
-      this.router.navigate(['/eventos/formenevt']);
-    }
-   
-    redirigirDetalle() {
-      this.router.navigate(['/eventos/usuarios']);
-    }
   }
+
+  mostrarFirmas(): void {
+    this.router.navigate(['/firmas']);
+  }
+
+  agregarEvento(): void {
+    this.router.navigate(['/eventos/formenevt']);
+  }
+
+  redirigirDetalle(): void {
+    this.router.navigate(['/eventos/usuarios']);
+  }
+}

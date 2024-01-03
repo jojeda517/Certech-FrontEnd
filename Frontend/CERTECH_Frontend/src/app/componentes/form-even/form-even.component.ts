@@ -18,6 +18,7 @@ export class FormEvenComponent {
   descripcion: string= "";
   portada: File | null = null;
   imagenFile: File | null = null;
+
   onFileSelected(event: any): void {
     this.imagenFile = event.target.files[0];
   }
@@ -33,25 +34,35 @@ export class FormEvenComponent {
         this.router.navigate(['/firmas']);
       }
 
-cancelar(){
-  this.router.navigate(['/dashboard']);
-}
-guardarEvento(){
- 
-    const nuevoEvento = {
-      titulo: 'Nuevo Evento',
-      descripcion: 'Descripción del nuevo evento.'
-    };
-
-    if (this.imagenFile) {
-      this.eventoService.agregarEvento(nuevoEvento, this.imagenFile);
-    } else {
-      // Manejo si no se selecciona un archivo
-      console.error('No se ha seleccionado un archivo de imagen.');
+    cancelar(){
+      this.router.navigate(['/dashboard']);
     }
-    this.router.navigate(['/dashboard']);
+
+  guardarEvento(): void {
+    if (this.portada) {
+      const nuevoEvento = {
+        nombre_evento: this.nomevent,
+        tipo_evento: this.tipo,
+        descripcion_evento: this.descripcion,
+        portada: this.portada,
+        logo: null // Ajustar según tus necesidades
+      };
+
+      this.eventoService.createEvento(nuevoEvento).subscribe(
+        (response) => {
+          console.log('Evento creado:', response);
+          this.router.navigate(['/dashboard']);
+        },
+        (error) => {
+          console.error('Error al crear evento:', error);
+          // Manejar errores si es necesario
+        }
+      );
+    } else {
+      console.error('No se ha seleccionado una imagen para la portada.');
+      // Manejar si no se ha seleccionado una imagen
+    }
   }
-
+  
+  
 }
-
-

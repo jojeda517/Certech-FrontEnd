@@ -1,44 +1,68 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavbarComponent } from '../componentes/navbar/navbar.component';
-import { CommonModule } from '@angular/common';
 import { FirmasService } from '../servicios/firmas.service';
+import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from '../componentes/navbar/navbar.component';
 
 @Component({
   selector: 'app-firmas',
   standalone: true,
-  imports: [NavbarComponent,CommonModule],
+  imports: [FormsModule, NavbarComponent],
   templateUrl: './firmas.component.html',
   styleUrl: './firmas.component.css'
 })
 export class FirmasComponent implements OnInit {
+  firmas: any[] = [];
+
   constructor(private router: Router, private firmaService: FirmasService) {}
+
   ngOnInit(): void {
-    this.firmas = this.firmaService.getfirmas();
+    this.getFirmas();
   }
 
-  mostrarEventos() {
-  this.router.navigate(['/dashboard']);
+  getFirmas(): void {
+    this.firmaService.getFirmas().subscribe(
+      (response) => {
+        if (response && response.firmas) {
+          this.firmas = response.firmas;
+        }
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
-  mostrarValidacion() {
+
+  eliminarFirma(index: number): void {
+    const confirmarEliminar = confirm('¿Estás seguro de eliminar esta firma?');
+    if (confirmarEliminar) {
+      const idFirma = this.firmas[index].id; // Suponiendo que 'id' es el identificador de la firma
+      this.firmaService.deleteFirma(idFirma).subscribe(
+        (response) => {
+          console.log(response); // Manejar la respuesta del servidor si es necesario
+          this.firmas.splice(index, 1);
+        },
+        (error) => {
+          console.error(error);
+          alert('Error al eliminar la firma');
+        }
+      );
+    }
+  }
+
+  agregarFirma(): void {
+    this.router.navigate(['/firmas/formFirmas']);
+  }
+
+  mostrarEventos(): void {
+    this.router.navigate(['/dashboard']);
+  }
+
+  mostrarValidacion(): void {
     this.router.navigate(['/validacion']);
-    }
-  mostrarFirmas() {
-      this.router.navigate(['/firmas']);
-    }
+  }
 
-    firmas: any[] = []
-    
-    eliminarfirma(index: number) {
-      // Aquí puedes implementar la lógica para eliminar un usuario
-      const confirmarEliminar = confirm('¿Estás seguro de eliminar esta firma?');
-      if (confirmarEliminar) {
-        this.firmas.splice(index, 1);
-        this.firmaService.setFirmas(this.firmas);
-      
-    }
-}
-agregarFirma(){
-  this.router.navigate(['/firmas/formFirmas']);
-}
+  mostrarFirmas(): void {
+    this.router.navigate(['/firmas']);
+  }
 }

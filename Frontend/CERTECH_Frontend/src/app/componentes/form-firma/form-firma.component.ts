@@ -1,81 +1,65 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../servicios/user.service';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FirmasService } from '../../servicios/firmas.service';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-form-firma',
-    standalone: true,
-    templateUrl: './form-firma.component.html',
-    styleUrl: './form-firma.component.css',
-    imports: [NavbarComponent,FormsModule]
+  selector: 'app-form-firma',
+  standalone: true,
+  imports: [FormsModule, NavbarComponent],
+  templateUrl: './form-firma.component.html',
+  styleUrl: './form-firma.component.css'
+
 })
 export class FormFirmaComponent implements OnInit {
-  firmas: any[] = [];
-  cedula: string = "";
-  nombre: string = "";
-  firma: string = "";
-  correo: string = "";
+  cedula: string = '';
+  nombre: string = '';
+  correo: string = '';
+  celular: string = '';
+  firma: string='';
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private firmaService: FirmasService
-  ) {}
+  constructor(private router: Router, private firmaService: FirmasService) {}
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      const idUsuario = params['id'];
-  console.log(idUsuario)
-      if (idUsuario) {
-        // Realizar lógica para cargar los detalles del usuario utilizando el ID
-      }
-    });
-  }
-  
+  ngOnInit(): void {}
 
-  mostrarEventos() {
-    this.router.navigate(['/dashboard']);
-  }
-
-  mostrarValidacion() {
-    this.router.navigate(['/validacion']);
-  }
-
-  mostrarFirmas() {
+  cancelar(): void {
     this.router.navigate(['/firmas']);
   }
 
-  cancelar() {
-    this.router.navigate(['/firmas']);
-  }
-
-  guardar() {
-    // Verificar si todos los campos requeridos están llenos
-    if (this.nombre  && this.cedula && this.correo) {
-      // Crear un nuevo usuario con la información del formulario
-      const nuevoFirma = {
-        'Nombre': this.nombre,
-        'Cedula': this.cedula,
-        'Correo': this.correo
+  guardar(): void {
+    if (this.nombre && this.cedula && this.correo && this.celular) {
+      const nuevaFirma = {
+        propietario_firma: this.nombre,
+        cargo_propietario: this.cedula,
+        correo: this.correo,
+        firma: this.firma,
+        estado_firma: 'Activo' // Supongo que este campo es requerido
       };
 
-      // Obtener la lista actual de usuarios desde el servicio
-      const usuariosActuales = this.firmaService.getfirmas();
-
-      // Agregar el nuevo usuario a la lista actual
-      usuariosActuales.push(nuevoFirma);
-
-      // Actualizar la lista de usuarios en el servicio utilizando el método setUsers
-      this.firmaService.setFirmas(usuariosActuales);
-
-      // Navegar a la ruta especificada
-      this.router.navigate(['/eventos/firmas']);
+      this.firmaService.createFirma(nuevaFirma).subscribe(
+        (response) => {
+          console.log(response); // Manejar la respuesta del servidor si es necesario
+          this.router.navigate(['/firmas']);
+        },
+        (error) => {
+          console.error(error);
+          alert('Error al guardar la firma');
+        }
+      );
     } else {
-      // Manejar el caso en el que no se completaron todos los campos
       console.error('Por favor, complete todos los campos antes de guardar.');
     }
   }
+  
+  mostrarEventos() {
+    this.router.navigate(['/dashboard']);
+    }
+    mostrarValidacion() {
+      this.router.navigate(['/validacion']);
+      }
+    mostrarFirmas() {
+        this.router.navigate(['/firmas']);
+      }
+
 }
