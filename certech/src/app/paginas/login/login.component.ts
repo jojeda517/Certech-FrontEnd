@@ -8,30 +8,34 @@ import { AuthService } from 'src/app/servicios/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-username: string = '';
-password: string = '';
+  usuario: string = '';
+  clave: string = '';
 
-constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-login(): void {
-  this.authService.login(this.username, this.password)
-    .subscribe(
-      (response) => {
-        if (response && response.isAuthenticated) {
-          // Usuario autenticado correctamente
-          this.router.navigate(['/dashboard']); // Redirigir a la página de dashboard
-        } else {
-          // Autenticación fallida
-          alert('Usuario o contraseña incorrectos');
+  login(): void {
+    // Validación simple para campos de usuario y contraseña
+    if (this.usuario && this.clave) {
+      this.authService.login(this.usuario ,this.clave).subscribe(
+        response => {
+          // Manejar la respuesta del servicio
+          if (response && response.administrador) {
+            const administrador = response.administrador;
+            console.log('Inicio de sesión exitoso:', administrador);
+  
+            // Puedes almacenar la información del administrador en el estado de tu aplicación
+            // o en algún servicio para su posterior uso.
+          } else {
+            console.error('Respuesta del servidor no válida.');
+          }
+        },
+        error => {
+          // Manejar el error del inicio de sesión
+          console.error('Error en el inicio de sesión:', error);
         }
-      },
-      (error) => {
-        // Manejo de errores
-        console.error('Error al iniciar sesión:', error);
-        alert('Error al iniciar sesión. Por favor, intenta nuevamente.');
-      }
-    );
-}
-
-
+      );
+    } else {
+      console.error('Ingrese usuario y contraseña');
+    }
+  }
 }

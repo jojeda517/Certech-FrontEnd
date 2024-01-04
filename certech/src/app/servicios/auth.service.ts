@@ -1,3 +1,4 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,9 +14,9 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(usuario: string, clave: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}${usuario}/${clave}`);
+    const loginData = { usuario, clave };
+    return this.http.post<any>(`${this.apiUrl}${usuario}/${clave}/`, {});
   }
-  
   logout(): void {
     this.isLoggedIn = false;
     this.router.navigate(['/login']);

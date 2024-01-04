@@ -13,8 +13,10 @@ export class EventoService {
 
   getEventos(idEvento?: string): Observable<any> {
     const url = idEvento ? `${this.apiUrl}${idEvento}/` : this.apiUrl;
+    
     return this.http.get<any>(url);
   }
+
 
   createEvento(eventoData: any): Observable<any> {
     const formData = new FormData();
