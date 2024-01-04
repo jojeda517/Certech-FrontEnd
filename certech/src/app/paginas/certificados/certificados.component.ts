@@ -6,7 +6,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
   styleUrls: ['./certificados.component.css']
 })
 export class CertificadosComponent implements AfterViewInit {
-  private certificados: any[] = [
+  public certificados: any[] = [
 
     {
       numeroCertificado: 2,
@@ -112,4 +112,16 @@ export class CertificadosComponent implements AfterViewInit {
     link.click();
     document.body.removeChild(link);
   }
+  editarCertificado(): void {
+    // Lógica para editar el certificado
+    // Por ejemplo, podrías abrir un modal o navegar a una página de edición
+    console.log('Editando el certificado');
+  }
+
+  // Método para generar el certificado
+  generarCertificado(): void {
+    // Lógica para generar el certificado
+    // Por ejemplo, podrías llamar a la función de generación de certificado
+    console.log('Generando el certificado');
+  } 
 }

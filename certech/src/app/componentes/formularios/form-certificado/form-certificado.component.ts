@@ -1,48 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { CertificadosService } from 'src/app/servicios/certificados.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-certificado',
   templateUrl: './form-certificado.component.html',
   styleUrls: ['./form-certificado.component.css']
 })
-export class FormCertificadoComponent implements OnInit {
-  certificado: any = {};
-  datosAutoridad: any = {};
+export class FormCertificadoComponent {
 
-  constructor(private certificadoService: CertificadosService) {}
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-    // Al inicializar el componente, obtenemos los datos necesarios para el certificado
-    this.certificadoService.getDatosParaCertificado().subscribe(
-      (datos) => {
-        this.datosAutoridad = datos;
-      },
-      (error) => {
-        console.error('Error al obtener datos de la base de datos:', error);
-      }
-    );
+  nombre: string = '';
+  evento: string = '';
+  fechainicio: string = '';
+  tiempo: string = '';
+  responsablenombre: string = '';
+  responsablecargo: string = '';
+  firma: string = '';
+
+  mostrarEventos() {
+    this.router.navigate(['/dashboard']);
   }
 
-  submitForm() {
-    // Lógica para manejar el envío del formulario
-    console.log('Certificado creado:', this.certificado);
-
-    // Generar PDF
-    this.generatePDF();
+  mostrarValidacion() {
+    this.router.navigate(['/validacion']);
   }
 
-  generatePDF() {
-    const content: HTMLElement = document.getElementById('certificado-form')!;
-    const options = {
-      margin: 10,
-      filename: 'certificado.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
+  mostrarFirmas() {
+    this.router.navigate(['/firmas']);
+  }
 
-    
-}
+  guardarEvento(): void {
+    this.router.navigate(['/eventos/usuarios/certificado']);
+  }
 
+  cancelar(): void {
+    this.router.navigate(['/eventos/usuarios']);
+  }
 }

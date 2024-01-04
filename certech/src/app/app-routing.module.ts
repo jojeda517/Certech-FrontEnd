@@ -12,6 +12,7 @@ import { TablaComponent } from './componentes/formularios/tabla/tabla.component'
 import { CertificadosComponent } from './paginas/certificados/certificados.component';
 import { FormEstudianteComponent } from './componentes/formularios/form-estudiante/form-estudiante.component';
 import { FormFirmaComponent } from './componentes/formularios/form-firma/form-firma.component';
+import { FormCertificadoComponent } from './componentes/formularios/form-certificado/form-certificado.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent},
@@ -38,6 +39,12 @@ const routes: Routes = [
     //,canActivate: [AuthGuard]
     },
     {path:'eventos/tabla', component:TablaComponent
+    //,canActivate: [AuthGuard]
+    },
+    {path:'eventos/usuarios/certificado', component:CertificadosComponent
+    //,canActivate: [AuthGuard]
+    },
+    {path:'eventos/usuarios/formCertificado', component:FormCertificadoComponent
     //,canActivate: [AuthGuard]
     },
     {path:'eventos/usuarios/formEstudiante', component:FormEstudianteComponent

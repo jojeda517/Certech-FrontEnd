@@ -36,7 +36,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   mostrarTabla() {
-    this.router.navigate(['/eventos/usuarios/tabla']);
+    this.router.navigate(['/eventos/tabla']);
   }
 
   AgregarEstudiante() {

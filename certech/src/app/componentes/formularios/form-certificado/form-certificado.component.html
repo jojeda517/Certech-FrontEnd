@@ -1,8 +1,56 @@
-<div>
-    <h2>Formulario de Certificado</h2>
-    <form (submit)="submitForm()" id="certificado-form">
-      <!-- ... Campos del formulario ... -->
+
+<div class="login-container">
+    <app-navbar
+      (eventosClick)="mostrarEventos()"
+      (validacionClick)="mostrarValidacion()"
+      (firmasClick)="mostrarFirmas()">
+    </app-navbar>
+    <div class="login-form-container">
+      <label class="bienvenido" for="nomevent"><h1>Agregar Certificado</h1></label>
+      <form class="login-form">
+       
+        <div class="form-group">
+          <label for="nombre">Nombre del Certificado:</label>
+          <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" placeholder="Ingrese el nombre del certificado">
+        </div>
   
-      <button type="submit">Crear Certificado</button>
-    </form>
+        <div class="form-group">
+          <label for="evento">Nombre del Evento:</label>
+          <input type="text" id="evento" name="evento" [(ngModel)]="evento" placeholder="Ingrese el nombre del evento">
+        </div>
+  
+        <div class="form-group">
+          <label for="fechainicio">Fecha de Inicio:</label>
+          <input type="text" id="fechainicio" name="fechainicio" [(ngModel)]="fechainicio" placeholder="Ingrese la fecha de inicio">
+        </div>
+  
+        <div class="form-group">
+          <label for="tiempo">Duración:</label>
+          <input type="text" id="tiempo" name="tiempo" [(ngModel)]="tiempo" placeholder="Ingrese la duración">
+        </div>
+  
+        <div class="form-group">
+          <label for="responsablenombre">Nombre del Responsable:</label>
+          <input type="text" id="responsablenombre" name="responsablenombre" [(ngModel)]="responsablenombre" placeholder="Ingrese el nombre del responsable">
+        </div>
+  
+        <div class="form-group">
+          <label for="responsablecargo">Cargo del Responsable:</label>
+          <input type="text" id="responsablecargo" name="responsablecargo" [(ngModel)]="responsablecargo" placeholder="Ingrese el cargo del responsable">
+        </div>
+  
+        <div class="form-group">
+          <label for="firma">Firma:</label>
+          <input type="text" id="firma" name="firma" [(ngModel)]="firma" placeholder="Ingrese el nombre de la firma">
+        </div>
+  
+        <br><br>
+        <div class="form-group formBtn">
+          <button type="submit" style="background-color: #190482; color: #fff;" (click)="guardarEvento()">Guardar</button>
+          <button type="submit" style="background-color: #190482; color: #fff;" (click)="cancelar()">Cancelar</button>
+        </div>
+  
+      </form>
+    </div>
   </div>
+  
