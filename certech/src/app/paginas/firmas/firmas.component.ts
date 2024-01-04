@@ -47,7 +47,7 @@ export class FirmasComponent implements OnInit {
   }
 
   agregarFirma(): void {
-    this.router.navigate(['/firmas/formFirmas']);
+    this.router.navigate(['firmas/formFirmas  ']);
   }
 
   mostrarEventos(): void {

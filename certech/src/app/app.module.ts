@@ -24,6 +24,7 @@ import { FormEventComponent } from './componentes/formularios/form-event/form-ev
 import { TablaComponent } from './componentes/formularios/tabla/tabla.component';
 import { CertificadosComponent } from './paginas/certificados/certificados.component';
 import { FormCertificadoComponent } from './componentes/formularios/form-certificado/form-certificado.component';
+import { FormEstudianteComponent } from './componentes/formularios/form-estudiante/form-estudiante.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { FormCertificadoComponent } from './componentes/formularios/form-certifi
     FormEventComponent,
     TablaComponent,
     CertificadosComponent,
-    FormCertificadoComponent
+    FormCertificadoComponent,
+    FormEstudianteComponent
   ],
   imports: [
     BrowserModule,

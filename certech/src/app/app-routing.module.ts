@@ -10,6 +10,8 @@ import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
 import { FormEventComponent } from './componentes/formularios/form-event/form-event.component';
 import { TablaComponent } from './componentes/formularios/tabla/tabla.component';
 import { CertificadosComponent } from './paginas/certificados/certificados.component';
+import { FormEstudianteComponent } from './componentes/formularios/form-estudiante/form-estudiante.component';
+import { FormFirmaComponent } from './componentes/formularios/form-firma/form-firma.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent},
@@ -20,10 +22,11 @@ const routes: Routes = [
     },
     {path:'firmas', component:FirmasComponent
     //,canActivate: [AuthGuard]
+    
     },
-   
-    {path:'eventos', component:EventosComponent
+    {path:'firmas/formFirmas', component:FormFirmaComponent
     //,canActivate: [AuthGuard]
+    
     },
     {path:'validacion', component:ValidacionComponent
     //,canActivate: [AuthGuard]
@@ -37,10 +40,13 @@ const routes: Routes = [
     {path:'eventos/tabla', component:TablaComponent
     //,canActivate: [AuthGuard]
     },
-    {path:'eventos/formenevt', component:FormEventComponent
+    {path:'eventos/usuarios/formEstudiante', component:FormEstudianteComponent
     //,canActivate: [AuthGuard]
     },
+
     { path: 'certificados', component: CertificadosComponent }
+
+    
 ];
 
 @NgModule({

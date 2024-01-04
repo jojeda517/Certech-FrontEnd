@@ -40,7 +40,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   AgregarEstudiante() {
-    this.router.navigate(['/eventos/usuarios/formEst']);
+    this.router.navigate(['eventos/usuarios/formEstudiante']);
   }
 
   editarUsuario(index: number) {
