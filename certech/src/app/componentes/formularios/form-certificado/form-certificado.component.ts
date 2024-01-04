@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CertificadosService } from 'src/app/servicios/certificados.service';
 
 @Component({
   selector: 'app-form-certificado',
@@ -9,7 +10,7 @@ export class FormCertificadoComponent implements OnInit {
   certificado: any = {};
   datosAutoridad: any = {};
 
-  constructor(private certificadoService: CertificadoService) {}
+  constructor(private certificadoService: CertificadosService) {}
 
   ngOnInit() {
     // Al inicializar el componente, obtenemos los datos necesarios para el certificado
@@ -41,22 +42,7 @@ export class FormCertificadoComponent implements OnInit {
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
-    html2pdf()
-      .from(content)
-      .set(options)
-      .outputPdf((pdf: any) => {
-        // Agregar información al PDF (por ejemplo, firma y nombre de la autoridad)
-        // Puedes ajustar las coordenadas y el formato según tus necesidades
-        const firmaX = 10;
-        const firmaY = pdf.internal.pageSize.height - 20;
-        const autoridadX = 50;
-        const autoridadY = pdf.internal.pageSize.height - 15;
+    
+}
 
-        pdf.addImage(this.datosAutoridad.firma, 'JPEG', firmaX, firmaY, 15, 15);
-        pdf.text(this.datosAutoridad.nombreAutoridad, autoridadX, autoridadY);
-
-        // Guardar el PDF o realizar acciones adicionales
-        window.open(URL.createObjectURL(new Blob([pdf], { type: 'application/pdf' })));
-      });
-  }
 }
