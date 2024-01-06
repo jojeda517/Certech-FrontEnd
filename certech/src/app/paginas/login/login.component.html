@@ -1,31 +1,20 @@
-<!-- Tu encabezado (header) aquí -->
-
 <div class="login-container">
-    <div class="login-form-container">
-      <label class="bienvenido" for="usuario"><h1>Bienvenido</h1></label>
-      <form class="login-form" (ngSubmit)="login()">
-       
-        <div class="form-group">
-          <label for="usuario">Usuario:</label>
-          <input type="text" id="usuario" name="usuario" [(ngModel)]="usuario" placeholder="Ingrese su usuario">
-        </div>
-
-        <div class="form-group">
-          <label for="clave">Contraseña:</label>
-          <input type="password" id="clave" name="clave" [(ngModel)]="clave" placeholder="Ingrese su contraseña">
-        </div>
-        <br><br>
-        <div class="form-group">
-          <button type="submit" style="background-color: #190482; color: #fff;">Iniciar sesión</button>
-        </div>
-
-        <!-- Enlace "¿Olvidaste tu contraseña?" -->
-        <div class="forgot-password">
-          <a href="#">¿Olvidaste tu contraseña?</a>
-        </div>
-      </form>
-    </div>
+  <div class="login-form-container">
+    <label class="bienvenido" for="usuario"><h1>Bienvenido</h1></label>
+    <form class="login-form" (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario" [(ngModel)]="usuario" placeholder="Ingrese su usuario">
+      </div>
+      
+      <div class="form-group">
+        <label for="clave">Contraseña:</label>
+        <input type="password" id="clave" name="clave" [(ngModel)]="clave" placeholder="Ingrese su contraseña">
+      </div>
+      
+      <div class="form-group">
+        <button type="submit" style="background-color: #190482; color: #fff;">Iniciar sesión</button>
+      </div>
+    </form>
   </div>
-
-
-<!-- Tu pie de página (footer) aquí -->
+</div>

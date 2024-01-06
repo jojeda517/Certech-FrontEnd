@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://34.125.254.116:8000/api/administrador/';
+  private apiUrl = 'http://34.125.254.116:8000/api/administrador/admin1/admin1/';
   private isLoggedIn = false;
 
   constructor(private http: HttpClient, private router: Router) {}

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/servicios/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -11,31 +11,26 @@ export class LoginComponent {
   usuario: string = '';
   clave: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(): void {
-    // Validación simple para campos de usuario y contraseña
-    if (this.usuario && this.clave) {
-      this.authService.login(this.usuario ,this.clave).subscribe(
-        response => {
-          // Manejar la respuesta del servicio
-          if (response && response.administrador) {
-            const administrador = response.administrador;
-            console.log('Inicio de sesión exitoso:', administrador);
-  
-            // Puedes almacenar la información del administrador en el estado de tu aplicación
-            // o en algún servicio para su posterior uso.
-          } else {
-            console.error('Respuesta del servidor no válida.');
-          }
+    const url = 'http://127.0.0.1:8000/api/administrador/' + this.usuario + '/' + this.clave + '/';
+    
+    console.log('URL de solicitud:', url); // Verifica que la URL sea la correcta
+
+    this.http.get(url)
+      .subscribe(
+        (data: any) => {
+          console.log('Datos recibidos:', data); // Verifica los datos recibidos del backend
+
+          // Por ejemplo, si el inicio de sesión es exitoso, redirige al dashboard
+          this.router.navigate(['/dashboard']);
         },
-        error => {
-          // Manejar el error del inicio de sesión
-          console.error('Error en el inicio de sesión:', error);
+        (error) => {
+          console.error('Error en la solicitud:', error); // Manejo de errores
+
+          // Puedes agregar más lógica para manejar diferentes tipos de errores
         }
       );
-    } else {
-      console.error('Ingrese usuario y contraseña');
-    }
   }
 }
