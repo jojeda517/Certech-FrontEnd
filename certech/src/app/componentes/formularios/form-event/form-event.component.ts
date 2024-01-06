@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventoService } from 'src/app/servicios/evento.service';
 
@@ -8,57 +8,51 @@ import { EventoService } from 'src/app/servicios/evento.service';
   styleUrls: ['./form-event.component.css']
 })
 export class FormEventComponent {
-  constructor(private router:Router,private eventoService: EventoService){}
-  nomevent: string= "";
-  tipo: string= "";
-  descripcion: string= "";
-  portada: File | null = null;
-  imagenFile: File | null = null;
+  nuevoEvento: any = {
+    nombre_evento: '',
+    tipo_evento: '',
+    descripcion_evento: '',
+    portada: '', // Cambiando el tipo de la portada a string para aceptar la URL
+    logo: null // Agregar una propiedad para almacenar el archivo del logo
+  };
 
-  onFileSelected(event: any): void {
-    this.imagenFile = event.target.files[0];
-  }
-
+  constructor(private router: Router, private eventoService: EventoService) {}
 
   mostrarEventos() {
     this.router.navigate(['/dashboard']);
-    }
-    mostrarValidacion() {
-      this.router.navigate(['/validacion']);
-      }
-    mostrarFirmas() {
-        this.router.navigate(['/firmas']);
-      }
-
-    cancelar(){
-      this.router.navigate(['/dashboard']);
-    }
-
-  guardarEvento(): void {
-    if (this.portada) {
-      const nuevoEvento = {
-        nombre_evento: this.nomevent,
-        tipo_evento: this.tipo,
-        descripcion_evento: this.descripcion,
-        portada: this.portada,
-        logo: null // Ajustar según tus necesidades
-      };
-
-      this.eventoService.createEvento(nuevoEvento).subscribe(
-        (response) => {
-          console.log('Evento creado:', response);
-          this.router.navigate(['/dashboard']);
-        },
-        (error) => {
-          console.error('Error al crear evento:', error);
-          // Manejar errores si es necesario
-        }
-      );
-    } else {
-      console.error('No se ha seleccionado una imagen para la portada.');
-      // Manejar si no se ha seleccionado una imagen
-    }
   }
-  
-  
+
+  mostrarValidacion() {
+    this.router.navigate(['/validacion']);
+  }
+
+  mostrarFirmas() {
+    this.router.navigate(['/firmas']);
+  }
+
+  cancelar() {
+    this.router.navigate(['/dashboard']);
+  }
+
+  agregarEvento(): void {
+    this.eventoService.createEvento(this.nuevoEvento).subscribe(
+      (response) => {
+        console.log('Evento creado:', response);
+        this.router.navigate(['/dashboard']);
+      },
+      (error) => {
+        console.error('Error al agregar evento:', error);
+      }
+    );
+  }
+
+  onPortadaSelected(event: any): void {
+    const file = event.target.files[0];
+    this.nuevoEvento.portada = file; // Asignar el archivo seleccionado a la propiedad de la portada
+  }
+
+  onLogoSelected(event: any): void {
+    const file = event.target.files[0];
+    this.nuevoEvento.logo = file; // Asignar el archivo seleccionado a la propiedad del logo
+  }
 }

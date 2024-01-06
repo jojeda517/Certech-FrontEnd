@@ -30,10 +30,6 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  mostrarEventos(): void {
-    this.router.navigate(['/dashboard']);
-  }
-
   mostrarValidacion(): void {
     this.router.navigate(['/validacion']);
   }
@@ -46,7 +42,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/eventos/formenevt']);
   }
 
-  redirigirDetalle(): void {
-    this.router.navigate(['/eventos/usuarios']);
+  redirigirDetalle(idEvento: string): void {
+    this.router.navigate([`/eventos/usuarios/${idEvento}`]);
+  }
+  mostrarEventos(): void {
+    this.router.navigate(['/dashboard']);
   }
 }
