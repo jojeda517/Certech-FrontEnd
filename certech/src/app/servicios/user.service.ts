@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 export class UserService {
 
   private apiUrl = 'http://34.125.254.116:8000/api/participante/';
-
+  private apifile = 'http://34.125.254.116:8000/api/participantefile/';
   constructor(private http: HttpClient) {}
 
   getParticipantes(idParticipante?: string): Observable<any> {
@@ -33,11 +33,18 @@ export class UserService {
       catchError(this.handleError)
     );
   }
+  subirArchivoExcel(archivo: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('excel_file', archivo, archivo.name);
 
+    return this.http.post<any>(this.apifile, formData);
+  }
 
   // Método para manejar errores
   private handleError(error: any) {
     console.error('Error:', error);
     return throwError('Algo salió mal');
   }
+
+
 }

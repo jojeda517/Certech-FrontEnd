@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 
@@ -16,6 +16,7 @@ export class UsuariosComponent implements OnInit {
     celular: '',
     correo: ''
   };
+  @ViewChild('fileInput') fileInput: ElementRef | undefined;
   constructor(private router: Router, private userService: UserService) {}
   ngOnInit(): void {
     // En el ciclo de vida OnInit, podrías cargar los datos de los participantes
@@ -95,6 +96,32 @@ export class UsuariosComponent implements OnInit {
         // Manejar errores aquí
       }
     );
+  }
+
+  onFileSelected(event: any) {
+    const archivo: File = event.target.files[0];
+
+    if (archivo) {
+      this.subirArchivo(archivo);
+    }
+  }
+
+  subirArchivo(archivo: File) {
+    this.userService.subirArchivoExcel(archivo).subscribe(
+      (response) => {
+        console.log('Archivo subido correctamente:', response);
+        // Manejar la respuesta aquí si es necesario
+      },
+      (error) => {
+        console.error('Error al subir el archivo:', error);
+        // Manejar errores aquí
+      }
+    );
+  }
+  importarArchivo() {
+    if (this.fileInput) {
+      this.fileInput.nativeElement.click(); // Activa el input de tipo file
+    }
   }
   }
   
