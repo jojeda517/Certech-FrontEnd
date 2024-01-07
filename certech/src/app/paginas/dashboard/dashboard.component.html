@@ -19,7 +19,7 @@
       <div class="col-md-4" *ngFor="let evento of eventos">
         <div class="card">
           <div class="card-body" (click)="redirigirDetalle(evento.id_evento)" style="cursor: pointer;">
-            <img [src]="evento.portada" alt="Descripción de la imagen" class="card-img-top">
+            <img [src]="'http://34.125.254.116:8000/' + evento.portada" alt="Evento" class="card-img-top">
             <h2>{{ evento.nombre_evento }}</h2>
             <p>{{ evento.descripcion_evento }}</p>
           </div>

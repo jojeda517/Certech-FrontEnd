@@ -43,7 +43,7 @@ export class EventoService {
     return throwError('Algo malo sucedió; por favor, inténtelo de nuevo más tarde.');
   }
   actualizarEvento(idEvento: string, nuevoEventoData: any) {
-    const url = 'http://34.125.254.116:8000/eventoupdate/${idEvento}/';
+    const url = 'http://34.125.254.116:8000/api/eventoupdate/${idEvento}/';
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

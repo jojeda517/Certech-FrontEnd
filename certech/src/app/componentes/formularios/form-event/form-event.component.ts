@@ -42,7 +42,7 @@ export class FormEventComponent {
     formData.append('portada', this.nuevoEvento.portada as File, 'nombre_archivo_portada.jpg');
     formData.append('logo', this.nuevoEvento.logo as File, 'nombre_archivo_logo.jpg');
 
-    this.http.post<any>('http://127.0.0.1:8000/api/evento/', formData).subscribe(
+    this.http.post<any>('http://34.125.254.116:8000/api/evento/', formData).subscribe(
       (response) => {
         console.log('Evento creado:', response);
         // Manejar la respuesta del backend aquí
