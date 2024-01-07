@@ -16,7 +16,7 @@ export class UserService {
     const url = idParticipante ? `${this.apiUrl}${idParticipante}/` : this.apiUrl;
     return this.http.get<any>(url);
   }
-
+  
   crearParticipante(cedula: string, nombre: string, celular: string, correo: string): Observable<any> {
     const participanteData = { cedula, nombre_apellido: nombre, celular, correo };
     return this.http.post<any>(this.apiUrl, participanteData);
