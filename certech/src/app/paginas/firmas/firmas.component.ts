@@ -17,7 +17,7 @@ export class FirmasComponent implements OnInit {
   }
 
   getFirmas(): void {
-    this.firmaService.getFirmas().subscribe(
+    this.firmaService.obtenerFirmas().subscribe(
       (response) => {
         if (response && response.firmas) {
           this.firmas = response.firmas;
@@ -29,21 +29,18 @@ export class FirmasComponent implements OnInit {
     );
   }
 
-  eliminarFirma(index: number): void {
-    const confirmarEliminar = confirm('¿Estás seguro de eliminar esta firma?');
-    if (confirmarEliminar) {
-      const idFirma = this.firmas[index].id; // Suponiendo que 'id' es el identificador de la firma
-      this.firmaService.deleteFirma(idFirma).subscribe(
-        (response) => {
-          console.log(response); // Manejar la respuesta del servidor si es necesario
-          this.firmas.splice(index, 1);
-        },
-        (error) => {
-          console.error(error);
-          alert('Error al eliminar la firma');
-        }
-      );
-    }
+  eliminarFirma(id_firma: string) {
+    this.firmaService.eliminarParticipante(id_firma).subscribe(
+      (response) => {
+        console.log('Firma eliminado:', response);
+        // Volver a cargar la lista después de eliminar el participante
+        this.getFirmas();
+      },
+      (error) => {
+        console.error('Error al eliminar firma:', error);
+        // Manejar errores aquí
+      }
+    );
   }
 
   agregarFirma(): void {
@@ -60,5 +57,8 @@ export class FirmasComponent implements OnInit {
 
   mostrarFirmas(): void {
     this.router.navigate(['/firmas']);
+  }
+  editarFirma(){
+
   }
 }

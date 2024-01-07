@@ -25,23 +25,23 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>Cédula</th>
             <th>Nombre</th>
-            <th>Correo</th>
+            <th>Cargo</th>
             <th>Firma</th>
+            <th>Estado</th>
             <th>Acción</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let firma of firmas let i = index">
-            <td>{{ firma.cedula }}</td>
-            <td>{{ firma.nombre }}</td>
-            <td>{{ firma.correo }}</td>
-            <td class="celdasFirmas"><img class="imgFirmas" [src]="firma.firma" alt="Imagen de la firma"></td>
+            <td>{{ firma.propietario_firma }}</td>
+            <td>{{ firma.cargo_propietario }}</td>            
+            <td class="celdasFirmas"><img class="imgFirmas" [src]="'http://34.125.254.116:8000/'+ firma.firma" alt="Imagen de la firma"></td>
+            <td>{{ firma.estado_firma	 }}</td>
             <td >
               <div class="botonesFirmas">
-                <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>
-                <button type="button" class="delete-btn btn btn-primary" (click)="eliminarFirma(i)"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen" (click)="editarFirma()"></i></button>
+                <button type="button" class="delete-btn btn btn-primary" (click)="eliminarFirma(firma.id_firma)"><i class="fa-solid fa-trash"></i></button>
               </div>
             </td>
           </tr>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,30 +11,35 @@ export class FirmaService {
 
   constructor(private http: HttpClient) {}
 
-  getFirmas(idFirma?: string): Observable<any> {
-    const url = idFirma ? `${this.apiUrl}${idFirma}/` : this.apiUrl;
-    return this.http.get<any>(url);
+  obtenerFirmas(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}`);
   }
 
-  createFirma(firmaData: any): Observable<any> {
-    const formData = new FormData();
-    formData.append('propietario_firma', firmaData.propietario_firma);
-    formData.append('cargo_propietario', firmaData.cargo_propietario);
-    formData.append('firma', firmaData.firma);
-    return this.http.post<any>(this.apiUrl, formData);
+  // Obtener una firma específica por ID
+  obtenerFirmaPorId(id_firma: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id_firma}`);
   }
 
-  deleteFirma(idFirma: string): Observable<any> {
-    const url = `${this.apiUrl}${idFirma}/`;
-    return this.http.delete<any>(url);
+  // Crear una nueva firma
+  crearFirma(firmaData: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}`, firmaData);
   }
-  
-  updateFirma(idFirma: string, firmaData: any): Observable<any> {
-    const formData = new FormData();
-    formData.append('propietario_firma', firmaData.propietario_firma);
-    formData.append('cargo_propietario', firmaData.cargo_propietario);
-    formData.append('firma', firmaData.firma);
-    const url = `${this.apiUrlUpdate}${idFirma}/`;
-    return this.http.put<any>(url, formData);
+
+  // Actualizar una firma existente por ID
+  actualizarFirma(id_firma: number, firmaData: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrlUpdate}/${id_firma}`, firmaData);
   }
+
+  // Eliminar una firma por ID
+  eliminarParticipante(id_participante: string): Observable<any> {
+    const url = `${this.apiUrl}${id_participante}/`;
+    return this.http.delete<any>(url).pipe(
+      catchError(this.handleError)
+    );
+  }
+  private handleError(error: any) {
+    console.error('Error:', error);
+    return throwError('Algo salió mal');
+  }
+
 }

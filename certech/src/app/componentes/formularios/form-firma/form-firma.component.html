@@ -1,37 +1,40 @@
-
 <div class="login-container">
-    <app-navbar
+  <app-navbar
     (eventosClick)="mostrarEventos()"
     (validacionClick)="mostrarValidacion()"
     (firmasClick)="mostrarFirmas()">
   </app-navbar>
-      <div class="login-form-container">
-        <label class="bienvenido" for="nomevent"><h1>Agregar Firma</h1></label>
-        <form class="login-form">
-         
-          <div class="form-group">
-            <label for="nomevent">Cedula:</label>
-            <input type="text" id="cedula" name="nomevent" [(ngModel)]="cedula" placeholder="Ingrese numero de cedula">
-          </div>
-    
-          <div class="form-group">
-            <label for="tipo">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" placeholder="Ingrese nombre completo">
-          </div>
-          <div class="form-group">
-            <label for="descripcion">Correo electronico:</label>
-            <input type="email" id="correo" name="correo" [(ngModel)]="correo" placeholder="Ingrese el correo electronico">
-          </div>
-          <div class="form-group">
-            <label for="tipo">Correo:</label>
-            <input type="file" id="telefono" name="telefono" [(ngModel)]="firma" placeholder="Ingrese numero telefonico">
-          </div>
-          <br><br>
-          <div class="form-group formBtn">
-            <button type="submit" style="background-color: #190482; color: #fff;" (click)="guardar()">Guardar</button>
-            <button type="submit" style="background-color: #190482; color: #fff;" (click)="cancelar() ">Cancelar</button>
-          </div>
-    
-        </form>
+  
+  <div class="login-form-container">
+    <label class="bienvenido" for="nomevent"><h1>Agregar Firma</h1></label>
+    <form class="login-form">
+      <div class="form-group">
+        <label for="propietario">Propietario:</label>
+        <input type="text" id="propietario" name="propietario" [(ngModel)]="nuevaFirma.propietario_firma" placeholder="Ingrese el propietario">
       </div>
-    </div>
+      
+      <div class="form-group">
+        <label for="cargo">Cargo:</label>
+        <input type="text" id="cargo" name="cargo" [(ngModel)]="nuevaFirma.cargo_propietario" placeholder="Ingrese el cargo">
+      </div>
+      
+      <div class="form-group">
+        <label for="firma">Firma:</label>
+        <input type="file" id="firma" name="firma" (change)="onFirmaSelected($event)" accept="image/*">
+      </div>
+
+      <div class="form-group">
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" [(ngModel)]="nuevaFirma.estado_firma">
+          <option value="Activo">Activo</option>
+          <option value="Inactivo">Inactivo</option>
+        </select>
+      </div>
+      
+      <div class="form-group formBtn">
+        <button type="button" style="background-color: #190482; color: #fff;" (click)="guardar()">Guardar</button>
+        <button type="button" style="background-color: #190482; color: #fff;" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
