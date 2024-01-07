@@ -13,6 +13,7 @@ import { CertificadosComponent } from './paginas/certificados/certificados.compo
 import { FormEstudianteComponent } from './componentes/formularios/form-estudiante/form-estudiante.component';
 import { FormFirmaComponent } from './componentes/formularios/form-firma/form-firma.component';
 import { FormCertificadoComponent } from './componentes/formularios/form-certificado/form-certificado.component';
+import { SeccionCertificadoComponent } from './paginas/seccion-certificado/seccion-certificado.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent},
@@ -52,7 +53,9 @@ const routes: Routes = [
     },
     { path: 'eventos/usuarios/:id', component: UsuariosComponent },
 
-    { path: 'certificados', component: CertificadosComponent }
+    { path: 'certificados', component: CertificadosComponent },
+    { path: 'eventos/seccionCertificados', component: SeccionCertificadoComponent},
+    
 
     
 ];

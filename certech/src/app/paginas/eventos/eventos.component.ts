@@ -27,7 +27,8 @@ export class EventosComponent {
     this.router.navigate(['/eventos/tabla']);
   }
   mostrarcertificados() {
-    this.router.navigate(['eventos/usuarios/formCertificado']);
+    this.router.navigate(['eventos/seccionCertificados']);
   }
+  
   
 }

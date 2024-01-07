@@ -25,6 +25,7 @@ import { TablaComponent } from './componentes/formularios/tabla/tabla.component'
 import { CertificadosComponent } from './paginas/certificados/certificados.component';
 import { FormCertificadoComponent } from './componentes/formularios/form-certificado/form-certificado.component';
 import { FormEstudianteComponent } from './componentes/formularios/form-estudiante/form-estudiante.component';
+import { SeccionCertificadoComponent } from './paginas/seccion-certificado/seccion-certificado.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { FormEstudianteComponent } from './componentes/formularios/form-estudian
     TablaComponent,
     CertificadosComponent,
     FormCertificadoComponent,
-    FormEstudianteComponent
+    FormEstudianteComponent,
+    SeccionCertificadoComponent
   ],
   imports: [
     BrowserModule,
