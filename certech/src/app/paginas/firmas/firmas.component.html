@@ -39,8 +39,8 @@
             <td class="celdasFirmas"><img class="imgFirmas" [src]="'http://34.125.254.116:8000/'+ firma.firma" alt="Imagen de la firma"></td>
             <td>{{ firma.estado_firma	 }}</td>
             <td >
-              <div class="botonesFirmas">
-                <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen" (click)="editarFirma()"></i></button>
+              <div class="botonesTabla">
+                <button type="button" class="btn btn-primary"  (click)="editarFirma()"><i class="fa-solid fa-pen" (click)="editarFirma()"></i></button>
                 <button type="button" class="delete-btn btn btn-primary" (click)="eliminarFirma(firma.id_firma)"><i class="fa-solid fa-trash"></i></button>
               </div>
             </td>

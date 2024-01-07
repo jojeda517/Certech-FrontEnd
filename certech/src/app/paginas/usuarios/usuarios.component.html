@@ -6,18 +6,25 @@
     <div class="container_botones">
         <div>
             <h1>Usuarios</h1>
-            <app-eventos></app-eventos>
+        </div>
+        
+        <div class="Tabs">
+            <app-eventos class="usuariosBtn"></app-eventos>
+            <app-eventos class="certificadosBtn"></app-eventos>
         </div>
 
-        <form class="form-search">
-            <!-- Tu formulario de búsqueda aquí -->
-        </form>
-        <button type="button" class="btn btn-agregar" (click)="AgregarEstudiante()">
-            <i class="fa-solid fa-circle-plus"></i>Agregar Estudiante
-        </button>
-        <button type="button" class="btn btn-agregar" (click)="importarArchivo()">
-            <i class="fa-solid fa-circle-plus"></i> Importar
-        </button>
+        <div>
+            <form class="form-search">
+                <!-- Tu formulario de búsqueda aquí -->
+            </form>
+            <button type="button" class="btn btn-agregar" (click)="AgregarEstudiante()">
+                <i class="fa-solid fa-circle-plus"></i>Agregar Estudiante
+            </button>
+            <button type="button" class="btn btn-agregar" (click)="importarArchivo()">
+                <i class="fa-solid fa-circle-plus"></i> Importar
+            </button>
+        </div>
+
     </div>
 
     <div class="container-tabla">
@@ -39,11 +46,15 @@
                         <td>{{ participante.correo }}</td>
                         <td>{{ participante.celular }}</td>
                         <td>
-                            <div class="botonesFirmas">
-                                <button (click)="editarParticipante(participante.id_participante)">Editar</button>
+                            <div class="botonesTabla">
+                                <button class="btn btn-primary" (click)="editarParticipante(participante.id_participante)">
+                                    <i class="fa-solid fa-pen"></i>
+                                    <!--Editar-->
+                                </button>
                                 <button type="button" class="delete-btn btn btn-primary"
                                     (click)="eliminarParticipante(participante.id_participante)">
-                                    <i class="fa-solid fa-trash"></i> Eliminar
+                                    <i class="fa-solid fa-trash"></i> 
+                                    <!--Eliminar-->
                                     {{ participante.id }} <!-- Agregar esta línea para mostrar el ID -->
                                 </button>
                             </div>

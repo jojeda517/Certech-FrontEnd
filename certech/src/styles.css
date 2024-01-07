@@ -77,3 +77,39 @@ app-firmas {
   background: rgba(255, 255, 255, 0.5); 
   color: #000;
 }
+
+.table {
+    width: 100%;
+    border-collapse: collapse; 
+    table-layout: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #d60d0d !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .botonesTabla{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .botonesTabla button{
+    background-color: #190482;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    border: none;
+  }
+
+  .botonesTabla button:hover button:focus{
+    background-color: #7752FE;
+    transform: scale(1.05);
+  }

@@ -1,65 +1,9 @@
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .certificados {
-    text-align: center;
-  }
-  
-  .certificados h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .btn-primary {
-    margin: 5px;
-  }
-  
-  .certificate {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  .certificate h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .certificate p {
-    margin-bottom: 15px;
-  }
-  
-  .button-container {
-    text-align: center;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
+.certificados .btn{
+  background-color: #190482;
+  border: none;
+  border-radius: 10px;
 }
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-}
-th {
-    background-color: #f2f2f2;
+
+.certificados .btn:hover{
+  
 }

@@ -55,21 +55,7 @@ h1{
     width: 50%;
 }
 
-.table {
-    width: 100%;
-    border-collapse: collapse; 
-    table-layout: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: 1px solid #d60d0d !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    margin-bottom: 50px;
-  }
+
 
   td, th {
     border: 1px solid #ddd;
@@ -83,28 +69,11 @@ h1{
     height: 50px;
   }
 
-
-  .botonesFirmas{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-
   .delete-btn{
     margin: 10px;
   }
 
-  .botonesFirmas button{
-    background-color: #190482;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-  }
 
-  .botonesFirmas button:hover{
-    background-color: #7752FE;
-    transform: scale(1.05);
-  }
 
   i{
     box-shadow: none;

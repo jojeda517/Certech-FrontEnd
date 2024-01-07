@@ -1,34 +1,28 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
 .container {
-    max-width: 800px; /* Ajusta el ancho máximo según tus necesidades */
-    margin: 0 auto;
-    padding: 20px;
-    margin-top: 5%;
+    width: 100vw;
+    min-height: calc(100vh -70px);
+    margin-top: 70px;
 }
 
-/* Estilos para la barra de navegación */
-app-navbar {
-    margin-bottom: 20px;
-}
 
-/* Estilos para la sección de botones */
+
 .container_botones {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    flex-direction: column;
 }
 
-.container_botones div {
+.Tabs{
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    background-color: #ecf2ff;
+    border-radius: 10px;
 }
+
+.Tabs .usuariosBtn{
+    
+}
+
 
 h1 {
     margin-right: 20px;
@@ -69,7 +63,3 @@ th {
     background-color: #f2f2f2;
 }
 
-/* Estilos para los botones de acción en la tabla */
-.botonesFirmas button {
-    margin-right: 5px;
-}
