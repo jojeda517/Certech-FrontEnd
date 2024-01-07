@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private apiUrl = 'http://127.0.0.1:8000/api/participante/';
-  private apiUrlFile = 'http://127.0.0.1:8000/api/participantefile/';
+  private apiUrl = 'http://34.125.254.116:8000/api/participante/';
+  private apiUrlFile = 'http://34.125.254.116:8000/api/participantefile/';
   private cedulaUsuario: string = '';
   private users: any[] = [];
   constructor(private http: HttpClient) {}

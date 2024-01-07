@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class EventoService {
 
-  private apiUrl = 'http://127.0.0.1:8000/api/evento/';
+  private apiUrl = 'http://34.125.254.116:8000/api/evento/';
 
   constructor(private http: HttpClient) { }
 
@@ -41,5 +41,14 @@ export class EventoService {
         `error: ${error.error}`);
     }
     return throwError('Algo malo sucedió; por favor, inténtelo de nuevo más tarde.');
+  }
+  actualizarEvento(idEvento: string, nuevoEventoData: any) {
+    const url = 'http://34.125.254.116:8000/eventoupdate/${idEvento}/';
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post<any>(url, nuevoEventoData, { headers });
   }
 }
