@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +22,22 @@ export class UserService {
     return this.http.post<any>(this.apiUrl, participanteData);
   }
 
-  actualizarParticipante(idParticipante: string, cedula: string, nombre: string, celular: string, correo: string): Observable<any> {
-    const participanteData = { cedula, nombre_apellido: nombre, celular, correo };
-    return this.http.put<any>(`${this.apiUrl}${idParticipante}/`, participanteData);
+  actualizarParticipante(id_participante: string, participanteData: any): Observable<any> {
+    const url = `${this.apiUrl}participante/${id_participante}/`;
+    return this.http.put<any>(url, participanteData);
   }
 
-  eliminarParticipante(idParticipante: string): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}${idParticipante}/`);
+  eliminarParticipante(id_participante: string): Observable<any> {
+    const url = `${this.apiUrl}${id_participante}/`;
+    return this.http.delete<any>(url).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
+  // Método para manejar errores
+  private handleError(error: any) {
+    console.error('Error:', error);
+    return throwError('Algo salió mal');
   }
 }

@@ -1,7 +1,5 @@
 <div class="container">
-    <app-navbar 
-        (eventosClick)="mostrarEventos()" 
-        (validacionClick)="mostrarValidacion()"
+    <app-navbar (eventosClick)="mostrarEventos()" (validacionClick)="mostrarValidacion()"
         (firmasClick)="mostrarFirmas()">
     </app-navbar>
 
@@ -10,7 +8,7 @@
             <h1>Usuarios</h1>
             <app-eventos></app-eventos>
         </div>
-       
+
         <form class="form-search">
             <!-- Tu formulario de búsqueda aquí -->
         </form>
@@ -42,14 +40,15 @@
                         <td>{{ participante.celular }}</td>
                         <td>
                             <div class="botonesFirmas">
-                                <button type="button" class="btn btn-primary" (click)="editarUsuario(i)">
-                                    <i class="fa-solid fa-pen"></i> Editar
-                                </button>
-                                <button type="button" class="delete-btn btn btn-primary" (click)="eliminarParticipante(participante.id)">
+                                <button (click)="editarParticipante(participante.id_participante)">Editar</button>
+                                <button type="button" class="delete-btn btn btn-primary"
+                                    (click)="eliminarParticipante(participante.id_participante)">
                                     <i class="fa-solid fa-trash"></i> Eliminar
+                                    {{ participante.id }} <!-- Agregar esta línea para mostrar el ID -->
                                 </button>
                             </div>
                         </td>
+
                     </tr>
                 </tbody>
             </table>

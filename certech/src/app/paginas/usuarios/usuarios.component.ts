@@ -9,6 +9,7 @@ import { UserService } from 'src/app/servicios/user.service';
 })
 export class UsuariosComponent implements OnInit {
   participantes: any[] = [];
+  participanteAEditar: any = {}; 
   nuevoParticipante = {
     cedula: '',
     nombre_apellido: '',
@@ -55,23 +56,38 @@ export class UsuariosComponent implements OnInit {
     this.router.navigate(['eventos/usuarios/formEstudiante']);
   }
 
- /*  editarUsuario(index: number) {
-    const participanteAEditar = this.participantes[index];
-    const cedulaParticipante = participanteAEditar.cedula;
-  
-    this.userService.setCedulaUsuario(cedulaParticipante);
-    this.router.navigate(['/eventos/formEstedit', cedulaParticipante]);
-  }
-   */
-  editarUsuario(index: number){
+  editarParticipante(id_participante: string) {
+    // Llama al servicio para obtener los detalles del participante según el id
+    this.userService.getParticipantes(id_participante).subscribe(
+      (participante) => {
+        // Aquí tienes los detalles del participante, podrías modificarlos
+        // Por ejemplo, asignar nuevos valores a sus propiedades
+        participante.nombre = 'Nuevo nombre';
+        participante.correo = 'nuevo_correo@example.com';
 
+        // Luego, llama al método de actualización del servicio para actualizar el participante
+        this.userService.actualizarParticipante(id_participante, participante).subscribe(
+          (response) => {
+            console.log('Participante actualizado:', response);
+            // Llama a obtenerParticipantes para actualizar la lista después de la edición
+            this.cargarParticipantes();
+          },
+          (error) => {
+            console.error('Error al actualizar participante:', error);
+          }
+        );
+      },
+      (error) => {
+        console.error('Error al obtener detalles del participante:', error);
+      }
+    );
   }
 
-  eliminarParticipante(idParticipante: string): void {
-    this.userService.eliminarParticipante(idParticipante).subscribe(
+  eliminarParticipante(id_participante: string) {
+    this.userService.eliminarParticipante(id_participante).subscribe(
       (response) => {
         console.log('Participante eliminado:', response);
-        // Realizar acciones después de eliminar el participante, como cargar nuevamente la lista de participantes
+        // Volver a cargar la lista después de eliminar el participante
         this.cargarParticipantes();
       },
       (error) => {
@@ -79,6 +95,6 @@ export class UsuariosComponent implements OnInit {
         // Manejar errores aquí
       }
     );
-    }
   }
-
+  }
+  
