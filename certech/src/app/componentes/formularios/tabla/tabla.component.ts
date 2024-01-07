@@ -45,7 +45,7 @@ export class TablaComponent {
   }
 
   importarDatos() {
-      console.log('Datos importados:', this.users);
+     /*  console.log('Datos importados:', this.users);
       
       // Utiliza el servicio para cargar el archivo Excel
       this.userService.cargarArchivoExcel(this.users)
@@ -57,6 +57,6 @@ export class TablaComponent {
           console.error('Error al cargar archivo Excel:', error);
         });
   
-      this.router.navigate(['/eventos/usuarios']);
+      this.router.navigate(['/eventos/usuarios']); */
     }
 }
