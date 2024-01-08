@@ -8,7 +8,7 @@ import { UserService } from 'src/app/servicios/user.service';
   styleUrls: ['./form-estudiante.component.css']
 })
 export class FormEstudianteComponent implements OnInit {
-  usuario: any;
+
   telefono: string = "";
   nombre: string = "";
   cedula: string = "";
@@ -23,24 +23,12 @@ export class FormEstudianteComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const idUsuario = params['id'];
-      console.log(idUsuario);
-      
+      console.log(idUsuario)
       if (idUsuario) {
-        // Llama al servicio para obtener los detalles del usuario según el ID
-        this.userService.getParticipantes(idUsuario).subscribe(
-          (usuario) => {
-            this.usuario = usuario; // Asigna los detalles del usuario a la variable del componente
-            // Puedes realizar más acciones si es necesario
-          },
-          (error) => {
-            console.error('Error al obtener detalles del usuario:', error);
-            // Maneja el error según tus necesidades
-          }
-        );
+        // Realizar lógica para cargar los detalles del usuario utilizando el ID
       }
     });
   }
-
 
   mostrarEventos(): void {
     this.router.navigate(['/dashboard']);

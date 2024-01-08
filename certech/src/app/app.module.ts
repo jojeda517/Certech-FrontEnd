@@ -29,6 +29,7 @@ import { SeccionCertificadoComponent } from './paginas/seccion-certificado/secci
 import { DesarrolladoresComponent } from './paginas/desarrolladores/desarrolladores.component';
 import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-certificado.component';
 import { ValiddorInicoComponent } from './paginas/validdor-inico/validdor-inico.component';
+import { TerminoycondicionComponent } from './paginas/terminoycondicion/terminoycondicion.component';
 
 
 @NgModule({
@@ -57,6 +58,8 @@ import { ValiddorInicoComponent } from './paginas/validdor-inico/validdor-inico.
     DesarrolladoresComponent,
     VistaCertificadoComponent,
     ValiddorInicoComponent,
+    TerminoycondicionComponent,
+    
     
   ],
   imports: [
@@ -65,7 +68,8 @@ import { ValiddorInicoComponent } from './paginas/validdor-inico/validdor-inico.
     CommonModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+  
     
   ],
   providers: [],

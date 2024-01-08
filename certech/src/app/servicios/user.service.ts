@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Usuario } from '../componentes/formularios/form-estudiante/usuario.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,10 @@ export class UserService {
   obtenerparticipante(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}`);
   }
-
+  getParticipantess(id: number): Observable<Usuario> {
+    const url = `${this.apiUrl}${id}`;
+    return this.http.get<Usuario>(url);
+  }
   getParticipantes(idParticipante?: string): Observable<any> {
     const url = idParticipante ? `${this.apiUrl}${idParticipante}/` : this.apiUrl;
     return this.http.get<any>(url);
