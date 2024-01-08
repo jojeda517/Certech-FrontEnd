@@ -52,6 +52,11 @@ const routes: Routes = [
     {path:'eventos/usuarios/formEstudiante', component:FormEstudianteComponent
     //,canActivate: [AuthGuard]
     },
+    
+    {path:'eventos/usuarios/formEstudiante/:id_participante', component:FormEstudianteComponent
+    //,canActivate: [AuthGuard]
+    },
+    
     { path: 'eventos/usuarios/:id', component: UsuariosComponent },
 
     { path: 'certificados', component: CertificadosComponent },

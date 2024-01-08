@@ -13,19 +13,19 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>Cedula</th>
                     <th>Nombre</th>
+                    <th>Celular</th>
                     <th>Correo</th>
-                    <th>Telefono</th>
-                    <th>Direccion</th>
                    
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let user of users">
-                    <td>{{ user.Nombre }}</td>
-                    <td>{{ user.Correo }}</td>
-                    <td>{{ user.Telefono }}</td>
-                    <td>{{ user.Direccion }}</td>
+                    <td>{{ user.cedula }}</td>
+                    <td>{{ user.nombre_apellido }}</td>
+                    <td>{{ user.celular }}</td>
+                    <td>{{ user.correo }}</td>
                     
                     
     

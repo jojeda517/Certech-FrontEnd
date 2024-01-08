@@ -128,9 +128,11 @@ export class UsuariosComponent implements OnInit {
     );
   }
   importarArchivo() {
-    if (this.fileInput) {
+   /* if (this.fileInput) {
       this.fileInput.nativeElement.click(); // Activa el input de tipo file
-    }
+    }*/
+  
+  this.router.navigate(['/eventos/tabla']);
   }
   }
   
