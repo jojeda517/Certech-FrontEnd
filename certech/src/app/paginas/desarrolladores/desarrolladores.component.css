@@ -48,11 +48,36 @@
     
 }
 
+.trabajosAnteriores{
+    padding: 50px 10% 50px 10%;
+}
+
+h2{
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.logosProyectos{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+    text-align: center;
+}
+
+.proyecto img{
+    height: 20vh;
+}
+
 @media (max-width: 950px) {
     .visionSisTech{
         grid-template-columns: 1fr;
     }
     .visionSisTech p{
         margin: 0;
+    }
+    .logosProyectos{
+        grid-template-columns: repeat(2,1fr);
     }
 }
