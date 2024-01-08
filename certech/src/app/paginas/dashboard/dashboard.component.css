@@ -1,8 +1,28 @@
-.container{
+.contenedorDashboard{
     min-height: calc(100vh - 70px);
     width: 100vw;
-    margin-top: 90px;
-    margin-bottom: 70px;
+    margin-top: 70px;
+    padding: 20px 70px 70px 70px;
+}
+
+.contenedorTarjetas{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+    row-gap: 50px;
+}
+
+@media (max-width: 990px) {
+    .contenedorTarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .contenedorTarjetas {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .titulo{
@@ -58,4 +78,11 @@
 
 .btnAgregar:hover{
     color: #190482;
+}
+
+
+.card-img-top{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }

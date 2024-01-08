@@ -29,6 +29,7 @@ import { SeccionCertificadoComponent } from './paginas/seccion-certificado/secci
 import { DesarrolladoresComponent } from './paginas/desarrolladores/desarrolladores.component';
 import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-certificado.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-cer
     FormEstudianteComponent,
     SeccionCertificadoComponent,
     DesarrolladoresComponent,
-    VistaCertificadoComponent
+    VistaCertificadoComponent,
+    
   ],
   imports: [
     BrowserModule,
