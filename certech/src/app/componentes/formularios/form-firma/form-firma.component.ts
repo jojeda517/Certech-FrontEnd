@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FirmaService } from 'src/app/servicios/firma.service';
 
 @Component({
@@ -7,15 +8,51 @@ import { FirmaService } from 'src/app/servicios/firma.service';
   templateUrl: './form-firma.component.html',
   styleUrls: ['./form-firma.component.css']
 })
-export class FormFirmaComponent {
+export class FormFirmaComponent implements OnInit {
+  firmaId: number | null = null;
   nuevaFirma: any = {
     propietario_firma: '',
     cargo_propietario: '',
     firma: null as File | null,
     estado_firma: 'Activo'
   };
+  
 
-  constructor(private router: Router, private firmaService: FirmaService) {}
+  constructor(private router: Router, private firmaService: FirmaService,private route: ActivatedRoute , private localitatio:Location) {}
+ 
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const id_firma = params['id_firma'];
+      console.log(id_firma)
+      if (id_firma) {
+        this.firmaService.obtenerFirmaPorId(id_firma).subscribe(
+          (firma: any) => {
+            // Cargar los datos de la firma obtenida en el formulario
+            this.nuevaFirma = firma;
+            console.log('Firma obtenida:', firma);
+          },
+          (error) => {
+            console.error('Error al obtener firma por ID:', error);
+            // Maneja el error según tus necesidades
+          }
+        );
+      }
+    });
+  } 
+  private cargarDetallesFirma(idFirma: number): void {
+    this.firmaService.obtenerFirmaPorId(idFirma).subscribe(
+      (firma: any) => {
+        // Cargar los datos de la firma existente en el formulario para editar
+        this.nuevaFirma = firma;
+        console.log('Firma obtenida:', firma);
+      },
+      error => {
+        console.error('Error al obtener la firma:', error);
+        // Maneja el error según tus necesidades
+      }
+    );
+  }
 
   cancelar(): void {
     this.router.navigate(['/firmas']);

@@ -82,7 +82,7 @@ export class FirmasComponent implements OnInit {
   mostrarFirmas(): void {
     this.router.navigate(['/firmas']);
   }
-  editarFirma(){
-
+  editarFirma(id_firma: string){
+    this.router.navigate(['firmas/formFirmasAct/',id_firma]);
   }
 }

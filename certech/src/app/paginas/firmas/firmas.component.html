@@ -40,7 +40,7 @@
             <td>{{ firma.estado_firma	 }}</td>
             <td >
               <div class="botonesTabla">
-                <button type="button" class="btn btn-primary"  (click)="editarFirma()"><i class="fa-solid fa-pen" (click)="editarFirma()"></i></button>
+                <button type="button" class="btn btn-primary"  (click)="editarFirma(firma.id_firma)"><i class="fa-solid fa-pen"     ></i></button>
                 <button type="button" class="delete-btn btn btn-primary" (click)="eliminarFirma(firma.id_firma)"><i class="fa-solid fa-trash"></i></button>
               </div>
             </td>

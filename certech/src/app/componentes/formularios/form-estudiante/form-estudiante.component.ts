@@ -24,7 +24,7 @@ export class FormEstudianteComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const idUsuario = params['id'];
+      const idUsuario = params['id_participante'];
       console.log(idUsuario)
       if (idUsuario) {
         // Realizar lógica para cargar los detalles del usuario utilizando el ID
@@ -64,5 +64,3 @@ export class FormEstudianteComponent implements OnInit {
       this.location.back();
     }
 }
-
-
