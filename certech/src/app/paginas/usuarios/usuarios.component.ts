@@ -23,6 +23,10 @@ export class UsuariosComponent implements OnInit {
     this.cargarParticipantes();
   }
 
+  mostrarcertificados() {
+    this.router.navigate(['eventos/seccionCertificados']);
+  }
+  
   cargarParticipantes(): void {
     this.userService.getParticipantes().subscribe(
       (response) => {

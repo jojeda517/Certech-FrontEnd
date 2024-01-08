@@ -1,12 +1,20 @@
-
-<main>
-    <div class="col-md-4">
-        <app-eventos></app-eventos>
-        <!-- Nueva tarjeta para agregar -->
-        <div class="card">
-          <div class="card-body text-center">
-            <button class="btn btnAgregar" (click)="agregarCertificado()"><i class="fa-solid fa-plus"></i><br><p>Agregar Certificado</p></button>
-          </div>
-        </div>
+<div class="contenedorPrincipal">
+  <div class="container_botones">
+    <div>
+        <h1>Usuarios</h1>
+    </div>
+    
+    <div class="Tabs">
+        <!--<app-eventos class="usuariosBtn"></app-eventos>-->
+        <button type="button" class="btnParticipantes btn btn-primary" (click)="goBack()">Participantes</button>
+        <button type="button" class="btnCertificados btn btn-primary">Certificados</button>
+    </div>
+  </div>
+  <div class="contenedorTarjetas">
+    <div class="card">
+      <div class="card-body text-center">
+        <button class="btn btnAgregar" (click)="agregarCertificado()"><i class="fa-solid fa-plus"></i><br><p>Agregar Certificado</p></button>
       </div>
-    </main>
+    </div>
+  </div>
+</div>

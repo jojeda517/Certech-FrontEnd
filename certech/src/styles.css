@@ -109,7 +109,33 @@ app-firmas {
     border: none;
   }
 
-  .botonesTabla button:hover button:focus{
-    background-color: #7752FE;
+  .botonesTabla button:hover{
+    background-color: #7752FE !important;
     transform: scale(1.05);
   }
+
+  .botonesTabla .delete-btn {
+    margin: 10px;
+}
+
+.contenedorTarjetas{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 50px;
+  row-gap: 50px;
+}
+
+@media (max-width: 990px) {
+  .contenedorTarjetas {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .contenedorTarjetas {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
