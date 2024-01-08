@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-seccion-certificado',
@@ -8,11 +9,14 @@ import { Router } from '@angular/router';
 })
 export class SeccionCertificadoComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private location: Location) { }
 
   ngOnInit(): void {
   }
   agregarCertificado(): void {
     this.router.navigate(['/eventos/usuarios/formCertificado']);
+  }
+  goBack(): void {
+    this.location.back();
   }
 }

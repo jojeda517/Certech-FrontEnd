@@ -1,5 +1,4 @@
-
-.container{
+.container {
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -8,39 +7,39 @@
     width: 100%;
 }
 
-.container_botones{
+.container_botones {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-h1{
+h1 {
     margin-top: 20px;
 }
 
-.container_botones{
+.container_botones {
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
-.form-search__input{
+.form-search__input {
     border: 1px solid #a0a0a0;
     border-radius: 10px;
     width: 30vw;
 }
 
-.btn-agregar{
+.btn-agregar {
     background-color: #190482;
     color: #ECF2FF;
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
-.btn-agregar i{
+.btn-agregar i {
     margin-right: 10px;
 }
 
-.btn-agregar:hover{
+.btn-agregar:hover {
     background-color: #7752FE;
     transform: scale(1.05);
     color: #ECF2FF;
@@ -51,31 +50,30 @@ h1{
     width: 100%;
 }
 
-.imgFirmas{
+.imgFirmas {
     width: 50%;
 }
 
 
 
-  td, th {
+td,
+th {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
     width: auto;
-  }
-  
+}
 
-  tbody tr{
+
+tbody tr {
     height: 50px;
-  }
-
-  .delete-btn{
-    margin: 10px;
-  }
+}
 
 
 
-  i{
+
+
+i {
     box-shadow: none;
     transform: none;
-  }
+}

@@ -1,7 +1,44 @@
-.container{
+.contenedorPrincipal{
     min-height: calc(100vh - 70px);
     width: 100vw;
-    margin-top: 200px;
+    margin-top: 70px;
+    padding: 20px 70px 20px 70px;
+}
+
+.Tabs{
+    display: flex;
+    flex-direction: row;
+    background-color: #ecf2ff;
+    border-radius: 15px;
+    width: 430px;
+    margin-bottom: 20px;
+}
+
+.Tabs .btn{
+    width: 200px;
+    border-radius: 10px;
+    border: none !important;
+}
+
+.btnParticipantes{
+    margin: 10px;
+    background: #fff;
+    color: #190482;
+}
+
+.btnParticipantes:hover{
+    background-color: #190482;
+}
+
+.btnCertificados{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #190482;
+}
+
+.btnCertificados:hover{
+    background-color: #190482;
+    color: #fff;
 }
 
 
