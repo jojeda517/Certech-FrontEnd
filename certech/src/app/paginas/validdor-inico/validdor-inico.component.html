@@ -9,7 +9,7 @@
     <div *ngIf="certificadoData">
       <div class="contenedorVerificado">
         <div class="informacion">
-          <p>Este certificado es auténtico.</p>
+          <h2>Este certificado es auténtico</h2>
           <p *ngIf="certificadoData.fecha">Fecha de creacion: {{ certificadoData.fecha }}</p>
     
           <p>Codigo de verificacion: {{ certificadoData.codigo_unico }}</p>
@@ -28,7 +28,7 @@
     <div *ngIf="verificado == false">
       <div class="contenedorVerificado">
         <div class="informacion">
-          <p>No se ha podido validar la legitimidad del certificado.</p>
+          <h2>No se ha podido validar la legitimidad del certificado</h2>
         </div>
         <div class="imagenVerificado">
           <img src="../../../assets/images/Error.svg" alt="">
