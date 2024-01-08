@@ -15,6 +15,9 @@ export class FooterComponent implements OnInit {
   dirigirdesarrolladores(){
     this.router.navigate(['/desarrolladores']);
   }
+  dirigirValidacion(){
+    this.router.navigate(['/validador']);
+  }
   terminoycondiciones(){
     this.router.navigate(['/terminoycondiciones']);
   }

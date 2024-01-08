@@ -19,4 +19,14 @@ export class SeccionCertificadoComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+  mostrarEventos(): void {
+    this.router.navigate(['/dashboard']);
+  }
+  mostrarValidacion(): void {
+    this.router.navigate(['/validacion']);
+  }
+
+  mostrarFirmas(): void {
+    this.router.navigate(['/firmas']);
+  }
 }
