@@ -34,18 +34,19 @@
         </table>
       </div>
       --->
-      <div class="contenedorTarjetas">
+      <div class="">
         <div *ngIf="certificados && certificados.length > 0">
-          <h3>Resultados:</h3>
-          <div class="card-container">
+          
+          <div class="contenedorTarjetas">
             <div class="card" *ngFor="let certificado of certificados">
               <div class="card-header">
+                
                 <h4>Código Único: {{ certificado.codigo_unico }}</h4>
               </div>
               <div class="card-body">
-                <p><strong>Enlace:</strong> <a [href]="'http://34.125.254.116:8000/' + certificado.url" target="_blank">Ver Certificado</a></p>
+                <!-- <p><strong>Enlace:</strong> <a [href]="'http://34.125.254.116:8000/' + certificado.url" target="_blank">Ver Certificado</a></p>-->
                 <p><strong>Nombre del Evento:</strong> {{ getNombreEvento(certificado.id_evento) }}</p>
-                <!-- Agrega aquí cualquier otra información que quieras mostrar en la tarjeta -->
+                <button (click)="verCertificado(certificado.url)">Ver Certificado</button>
               </div>
             </div>
           </div>

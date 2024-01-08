@@ -16,6 +16,7 @@ import { FormCertificadoComponent } from './componentes/formularios/form-certifi
 import { SeccionCertificadoComponent } from './paginas/seccion-certificado/seccion-certificado.component';
 import { DesarrolladoresComponent } from './paginas/desarrolladores/desarrolladores.component';
 import { ValiddorInicoComponent } from './paginas/validdor-inico/validdor-inico.component';
+import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-certificado.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent},
@@ -64,6 +65,7 @@ const routes: Routes = [
     {path: 'validador', component: ValiddorInicoComponent},
     { path: 'desarrolladores', component: DesarrolladoresComponent },
     { path: 'eventos/seccionCertificados', component: SeccionCertificadoComponent},
+    { path: 'vista-certificado', component: VistaCertificadoComponent}
     
 
     

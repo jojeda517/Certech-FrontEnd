@@ -1,3 +1,58 @@
-*{
-    margin-top: 20%;
+.contenedorPrincipal{
+    margin: 70px 0 0 0;
+    padding: 0;
+}
+
+.titulo{
+    height: 35vh;
+    background-image: url(../../../assets/images/team.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    color: #fff;
+}
+
+.titulo h1{
+    font-size: 5em;
+}
+
+.titulo p{
+    font-size: 1.2em;
+}
+
+.visionSisTech{
+    padding: 50px 10% 50px 10%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+.logoSisTech {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoSisTech img{
+    height: 40vh;
+}
+
+.visionSisTech p{
+    margin: auto 30px auto 30px;
+    font-size: 1.3em;
+    line-height: 1.8em;
+    text-align: justify;
+    
+}
+
+@media (max-width: 950px) {
+    .visionSisTech{
+        grid-template-columns: 1fr;
+    }
+    .visionSisTech p{
+        margin: 0;
+    }
 }
