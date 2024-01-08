@@ -16,4 +16,8 @@ export class CertificadosService {
     const url = `${this.apiUrl}?filtro=${filtro}`;
     return this.http.get<any>(url);
   }
+  searchCertificado(id: string): Observable<any> {
+    const url = `http://34.125.254.116:8000/api/certificadoValido/${id}/`;
+    return this.http.get(url);
+  }
 }

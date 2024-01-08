@@ -5,16 +5,29 @@
     (firmasClick)="mostrarFirmas()">
   </app-navbar>
   
+<!-- src/app/search-results/search-results.component.html -->
+
+<div>
+    <h2>Buscar Certificado</h2>
+    <label for="searchText">Texto de búsqueda:</label>
+    <input type="text" id="searchText" [(ngModel)]="searchText" placeholder="Ingrese el texto">
+    <button (click)="search()">Buscar</button>
+    
+    <div *ngIf="certificadoData">
+      <h2>Resultados de la búsqueda</h2>
+     
       <div class="container">
-         <section class="certificados">
-                <h1>Validación</h1>
-                <!-- Barra de búsqueda -->
-                <div class="codigoVerificacion">
-                    <input type="text" placeholder="Buscar...">
-                    <button type="button" class="btn btn-primary">Verificar</button>
-                </div>
-            </section>
-        
-    </div>
+        <p>Este certificado es auténtico.</p>
+        <p *ngIf="certificadoData.fecha">Fecha de creacion: {{ certificadoData.fecha }}</p>
+       
+        <p>Codigo de verificacion: {{ certificadoData.codigo_unico }}</p>
+        <a href="{{'http://34.125.254.116:8000/'+ certificadoData.url }}" target="_blank">
+            <button type="button">Ir al Certificado</button>
+          </a>
+        <!-- Agrega más información adicional según sea necesario -->
       </div>
+    </div>
+  </div>
   
+
+

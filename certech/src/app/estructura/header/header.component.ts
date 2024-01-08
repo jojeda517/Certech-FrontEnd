@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, public authService: AuthService) {}
 
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
+    this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         // Verifica la ruta actual para ocultar el botón en el componente Login
         this.showLoginButton = !this.router.url.includes('/login');
