@@ -10,6 +10,7 @@ import { UserService } from 'src/app/servicios/user.service';
 export class UsuariosComponent implements OnInit {
   participantes: any[] = [];
   participanteAEditar: any = {}; 
+  filtroCedula: string = '';
   nuevoParticipante = {
     cedula: '',
     nombre_apellido: '',
@@ -23,10 +24,25 @@ export class UsuariosComponent implements OnInit {
     this.cargarParticipantes();
   }
 
-  mostrarcertificados() {
-    this.router.navigate(['eventos/seccionCertificados']);
+  filtrarCedula(): void {
+    this.userService.obtenerparticipante().subscribe(
+      (data) => {
+        if (data && Array.isArray(data.participantes)) {
+          this.participantes = data.participantes.filter((participante: any) => {
+            // Asegúrate de que participante.cedula tiene un valor antes de llamar a toLowerCase()
+            return participante.cedula && participante.cedula.toLowerCase().includes(this.filtroCedula.toLowerCase());
+          });
+        } else {
+          console.error('Los datos no contienen un array de participantes:', data);
+          // Manejar el caso donde los datos no son válidos, por ejemplo, mostrando un mensaje de error en la interfaz de usuario.
+        }
+      },
+      (error) => {
+        console.error('Error al obtener participantes:', error);
+        // Manejar el error, por ejemplo, mostrando un mensaje de error en la interfaz de usuario.
+      }
+    );
   }
-  
   cargarParticipantes(): void {
     this.userService.getParticipantes().subscribe(
       (response) => {
@@ -59,6 +75,9 @@ export class UsuariosComponent implements OnInit {
 
   AgregarEstudiante() {
     this.router.navigate(['eventos/usuarios/formEstudiante']);
+  }
+  mostrarcertificados() {
+    this.router.navigate(['eventos/seccionCertificados']);
   }
 
   editarParticipante(id_participante: string) {
@@ -108,7 +127,7 @@ export class UsuariosComponent implements OnInit {
     console.log('Eliminación cancelada por el usuario.');
   }
   // El usuario canceló la eliminación
- 
+  console.log('Eliminación cancelada por el usuario.');
 }
 
   onFileSelected(event: any) {
@@ -122,8 +141,12 @@ export class UsuariosComponent implements OnInit {
   subirArchivo(archivo: File) {
     this.userService.subirArchivoExcel(archivo).subscribe(
       (response) => {
-        console.log('Archivo subido correctamente:', response);
+        console.log('Archivo subido correctamente:', response);{
+          
+        }
+        this.recargarPagina()
         // Manejar la respuesta aquí si es necesario
+        
       },
       (error) => {
         console.error('Error al subir el archivo:', error);
@@ -132,11 +155,12 @@ export class UsuariosComponent implements OnInit {
     );
   }
   importarArchivo() {
-   /* if (this.fileInput) {
+    if (this.fileInput) {
       this.fileInput.nativeElement.click(); // Activa el input de tipo file
-    }*/
-  
-  this.router.navigate(['/eventos/tabla']);
+    }
+  }
+  recargarPagina(): void {
+    window.location.reload();
   }
   }
   
