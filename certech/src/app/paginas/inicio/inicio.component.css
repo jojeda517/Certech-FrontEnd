@@ -1,36 +1,9 @@
 .container {
     min-height: calc(100vh - 70px);
-    max-width: 100%;
+    width: 100vw;
     margin: 70px 0 0 0;
-  }
-  
-  .search-section{
     padding: 0;
   }
   
-  .tarjetas{
-    margin: 10px 10% 10px 10%;
-  }
-  
-  .cards-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .card {
-    width: calc(33.33% - 20px); /* Ajusta el ancho deseado y resta el margen para que quepan tres en una fila */
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Ajustes adicionales según sea necesario */
+
   

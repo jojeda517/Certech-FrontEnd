@@ -1,5 +1,5 @@
-<div class="container-search position-relative">
-    <div class="container-search__form position-absolute top-50 start-50 translate-middle">
+<div class="container-search ">
+    <div class="contenedorBuscador container-search__form">
       <h1>Encuentra tu Certificado</h1>
       <form class="form-search">
         <div class="form-search__input input-group">
@@ -12,6 +12,8 @@
           </button>
         </div>
       </form>
+    </div>
+      <!--
       <div *ngIf="certificados && certificados.length > 0">
         <h3>Resultados:</h3>
         <table class="table">
@@ -31,7 +33,25 @@
           </tbody>
         </table>
       </div>
-    </div>
+      --->
+      <div class="contenedorTarjetas">
+        <div *ngIf="certificados && certificados.length > 0">
+          <h3>Resultados:</h3>
+          <div class="card-container">
+            <div class="card" *ngFor="let certificado of certificados">
+              <div class="card-header">
+                <h4>Código Único: {{ certificado.codigo_unico }}</h4>
+              </div>
+              <div class="card-body">
+                <p><strong>Enlace:</strong> <a [href]="'http://34.125.254.116:8000/' + certificado.url" target="_blank">Ver Certificado</a></p>
+                <p><strong>Nombre del Evento:</strong> {{ getNombreEvento(certificado.id_evento) }}</p>
+                <!-- Agrega aquí cualquier otra información que quieras mostrar en la tarjeta -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
   </div>
   
 
