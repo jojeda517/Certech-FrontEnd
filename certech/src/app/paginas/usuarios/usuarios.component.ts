@@ -79,34 +79,9 @@ export class UsuariosComponent implements OnInit {
   mostrarcertificados() {
     this.router.navigate(['eventos/seccionCertificados']);
   }
-
   editarParticipante(id_participante: string) {
-    // Llama al servicio para obtener los detalles del participante según el id
-    this.userService.getParticipantes(id_participante).subscribe(
-      (participante) => {
-        // Aquí tienes los detalles del participante, podrías modificarlos
-        // Por ejemplo, asignar nuevos valores a sus propiedades
-        participante.nombre = 'Nuevo nombre';
-        participante.correo = 'nuevo_correo@example.com';
-
-        // Luego, llama al método de actualización del servicio para actualizar el participante
-        this.userService.actualizarParticipante(id_participante, participante).subscribe(
-          (response) => {
-            console.log('Participante actualizado:', response);
-            // Llama a obtenerParticipantes para actualizar la lista después de la edición
-            this.cargarParticipantes();
-          },
-          (error) => {
-            console.error('Error al actualizar participante:', error);
-          }
-        );
-      },
-      (error) => {
-        console.error('Error al obtener detalles del participante:', error);
-      }
-    );
+    this.router.navigate(['eventos/usuarios/formEstudiante/', id_participante]);
   }
-
   eliminarParticipante(id_participante: string) {
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este participante?');
 

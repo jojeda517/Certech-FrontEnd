@@ -12,7 +12,7 @@ import { NavbarComponent } from './estructura/componentes/navbar/navbar.componen
 import { FirmasComponent } from './paginas/firmas/firmas.component';
 import { LoginComponent } from './paginas/login/login.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 import { EventosComponent } from './paginas/eventos/eventos.component';
@@ -28,6 +28,7 @@ import { FormEstudianteComponent } from './componentes/formularios/form-estudian
 import { SeccionCertificadoComponent } from './paginas/seccion-certificado/seccion-certificado.component';
 import { DesarrolladoresComponent } from './paginas/desarrolladores/desarrolladores.component';
 import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-certificado.component';
+import { ValiddorInicoComponent } from './paginas/validdor-inico/validdor-inico.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-cer
     SeccionCertificadoComponent,
     DesarrolladoresComponent,
     VistaCertificadoComponent,
+    ValiddorInicoComponent,
     
   ],
   imports: [
@@ -62,7 +64,8 @@ import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-cer
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
   providers: [],
