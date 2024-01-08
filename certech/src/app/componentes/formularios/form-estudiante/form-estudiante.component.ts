@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
@@ -17,7 +18,8 @@ export class FormEstudianteComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -58,9 +60,9 @@ export class FormEstudianteComponent implements OnInit {
     }
   }
 
-  cancelar(): void {
-    this.router.navigate(['/dashboard']);
-  }
+    cancelar(): void {
+      this.location.back();
+    }
 }
 
 
