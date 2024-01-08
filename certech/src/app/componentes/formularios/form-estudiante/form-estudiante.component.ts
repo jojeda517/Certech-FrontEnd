@@ -25,12 +25,33 @@ export class FormEstudianteComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const idUsuario = params['id_participante'];
-      console.log(idUsuario)
+      console.log(idUsuario);
+
       if (idUsuario) {
-        // Realizar lógica para cargar los detalles del usuario utilizando el ID
+        this.userService.getParticipantes(idUsuario).subscribe(
+          (data: any) => {
+            // Verifica la estructura de la respuesta del servicio
+            if (data && data.participante) {
+              // Asigna las propiedades desde el objeto participante
+              this.cedula = data.participante.cedula;
+              this.nombre = data.participante.nombre_apellido;
+              this.telefono = data.participante.celular;
+              this.correo = data.participante.correo;
+
+              console.log('Participante obtenido:', data.participante);
+            } else {
+              console.error('La respuesta del servicio no tiene la estructura esperada.');
+            }
+          },
+          (error) => {
+            console.error('Error al obtener participante por ID:', error);
+            // Maneja el error según tus necesidades
+          }
+        );
       }
     });
   }
+
 
   mostrarEventos(): void {
     this.router.navigate(['/dashboard']);
