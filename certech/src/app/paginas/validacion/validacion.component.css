@@ -1,35 +1,37 @@
-/* Estilos para el resultado de búsqueda */
-.container-search {
-    min-height: calc(100vh - 70px);
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-  }
+.codigoVerificacion input{
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid #707070; 
+  width: 30vw;
+}
 
-  .contenedorTarjetas{
-    min-height: 50vh;
-    width: 100%;
-    padding: 50px;
-  }
-  
-  .card-container {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-  }
-  
-  .card {
-    margin: 20px;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0 0 13px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  .container{
-    margin-top: 70px;
-    min-height: calc(100vh - 70px);
-    width: 100wv;
+.codigoVerificacion button{
+  padding: 5px;
+  border: none;
+  background-color: #190482;
+  color: #fff;
+  width: 150px;
+  border-radius: 10px;
+  margin-left: 20px;
+  transition: transform 0.3s ease;
+}
+
+.codigoVerificacion button:hover{
+  transform: scale(1.05);
+  background-color: #8361fe;
+}
+
+.contenedorVerificado {
+  border: 1px solid #707070;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imagenVerificado img {
+  height: 150px;
 }
