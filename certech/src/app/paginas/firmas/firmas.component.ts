@@ -9,12 +9,29 @@ import { FirmaService } from 'src/app/servicios/firma.service';
 })
 export class FirmasComponent implements OnInit {
   firmas: any[] = [];
-
+  filtroNombre: string = '';
   constructor(private router: Router, private firmaService: FirmaService) {}
 
   ngOnInit(): void {
     this.getFirmas();
   }
+  filtrarFirmas(): void {
+    this.firmaService.obtenerFirmas().subscribe(
+      (data) => {
+        if (data && Array.isArray(data.firmas)) {
+          this.firmas = data.firmas.filter((firma: { propietario_firma: string; }) => firma.propietario_firma.toLowerCase().includes(this.filtroNombre.toLowerCase()));
+        } else {
+          console.error('Los datos no contienen un array de firmas:', data);
+          // Manejar el caso donde los datos no son válidos, por ejemplo, mostrando un mensaje de error en la interfaz de usuario.
+        }
+      },
+      (error) => {
+        console.error('Error al obtener firmas:', error);
+        // Manejar el error, por ejemplo, mostrando un mensaje de error en la interfaz de usuario.
+      }
+    );
+  }
+  
 
   getFirmas(): void {
     this.firmaService.obtenerFirmas().subscribe(
@@ -30,6 +47,10 @@ export class FirmasComponent implements OnInit {
   }
 
   eliminarFirma(id_firma: string) {
+    const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar esta autoridad?');
+
+    // Verificar si el usuario confirmó la eliminación
+    if (confirmacion) {
     this.firmaService.eliminarParticipante(id_firma).subscribe(
       (response) => {
         console.log('Firma eliminado:', response);
@@ -41,6 +62,9 @@ export class FirmasComponent implements OnInit {
         // Manejar errores aquí
       }
     );
+  }else{
+    console.log('Eliminación cancelada por el usuario.'); 
+  }
   }
 
   agregarFirma(): void {

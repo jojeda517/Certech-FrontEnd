@@ -85,6 +85,9 @@ export class UsuariosComponent implements OnInit {
   }
 
   eliminarParticipante(id_participante: string) {
+    const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este participante?');
+
+    if (confirmacion) {
     this.userService.eliminarParticipante(id_participante).subscribe(
       (response) => {
         console.log('Participante eliminado:', response);
@@ -96,7 +99,13 @@ export class UsuariosComponent implements OnInit {
         // Manejar errores aquí
       }
     );
+  }else{
+    // El usuario canceló la eliminación
+    console.log('Eliminación cancelada por el usuario.');
   }
+  // El usuario canceló la eliminación
+ 
+}
 
   onFileSelected(event: any) {
     const archivo: File = event.target.files[0];
