@@ -31,7 +31,7 @@ export class UserService {
   }
 
   actualizarParticipante(id_participante: string, participanteData: any): Observable<any> {
-    const url = `${this.apiUrl}participante/${id_participante}/`;
+    const url = `${this.apiUrl}${id_participante}/`;
     return this.http.put<any>(url, participanteData);
   }
 

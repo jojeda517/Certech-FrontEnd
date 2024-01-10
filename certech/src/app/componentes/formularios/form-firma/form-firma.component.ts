@@ -1,4 +1,3 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirmaService } from 'src/app/servicios/firma.service';
@@ -9,50 +8,48 @@ import { FirmaService } from 'src/app/servicios/firma.service';
   styleUrls: ['./form-firma.component.css']
 })
 export class FormFirmaComponent implements OnInit {
-  firmaId: number | null = null;
   nuevaFirma: any = {
     propietario_firma: '',
     cargo_propietario: '',
     firma: null as File | null,
     estado_firma: 'Activo'
   };
-  
 
-  constructor(private router: Router, private firmaService: FirmaService,private route: ActivatedRoute , private localitatio:Location) {}
- 
-
+  constructor(private router: Router, private firmaService: FirmaService,private route:ActivatedRoute) {}
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const id_firma = params['id_firma'];
-      console.log(id_firma)
-      if (id_firma) {
-        this.firmaService.obtenerFirmaPorId(id_firma).subscribe(
-          (firma: any) => {
-            // Cargar los datos de la firma obtenida en el formulario
-            this.nuevaFirma = firma;
-            console.log('Firma obtenida:', firma);
+      const idFirma = params['id_firma'];
+      console.log(idFirma)
+
+      if (idFirma) {
+        this.firmaService.getFirmas(idFirma).subscribe(
+          (data): void => {
+            console.log(data);
+            if (data && data.firma) {
+              this.nuevaFirma.propietario_firma = data.firma.id_participante;
+              this.nuevaFirma.cargo_propietario = data.cargo_propietario;
+              this.nuevaFirma.firma = data.firma.firma; // Asumiendo que 'firma' es el campo correcto
+              this.nuevaFirma.estado_firma = data.firma.estado_firma;
+      
+              console.log('Firma obtenida:', data.firma);
+            } else {
+              console.error('La respuesta del servicio no tiene la estructura esperada.');
+            }
           },
-          (error) => {
+          (error: any) => {
             console.error('Error al obtener firma por ID:', error);
-            // Maneja el error según tus necesidades
           }
         );
       }
-    });
-  } 
-  private cargarDetallesFirma(idFirma: number): void {
-    this.firmaService.obtenerFirmaPorId(idFirma).subscribe(
-      (firma: any) => {
-        // Cargar los datos de la firma existente en el formulario para editar
-        this.nuevaFirma = firma;
-        console.log('Firma obtenida:', firma);
-      },
-      error => {
-        console.error('Error al obtener la firma:', error);
-        // Maneja el error según tus necesidades
+      
+          },
+          (error) => {
+            console.error('Error al obtener participante por ID:', error);
+          }
+        );
       }
-    );
-  }
+    
+  
 
   cancelar(): void {
     this.router.navigate(['/firmas']);
