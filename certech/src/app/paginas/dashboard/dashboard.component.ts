@@ -45,12 +45,29 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['eventos/formenevtAct',idEvento]);
  }
  eliminarEvento(idEvento: string){
-
- }
+  const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este evento?');
+  if (confirmacion) {
+    this.eventoService.deleteEvento(idEvento).subscribe(
+      (response) => {
+        console.log('Evento eliminado:', response);
+        // Volver a cargar la lista después de eliminar el participante
+        this.getEventos();
+      },
+      (error) => {
+        console.error('Error al eliminar evento:', error);
+        // Manejar errores aquí
+      }
+    );
+  }else{
+    console.log('Eliminación cancelada por el usuario.'); 
+  }
+  }
+ 
   redirigirDetalle(idEvento: string): void {
     this.router.navigate([`/eventos/usuarios/${idEvento}`]);
   }
   mostrarEventos(): void {
     this.router.navigate(['/dashboard']);
   }
+  
 }

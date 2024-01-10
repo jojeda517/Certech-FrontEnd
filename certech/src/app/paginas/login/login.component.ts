@@ -14,7 +14,7 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(): void {
-    const url = 'http://34.125.254.116:8000/api/administrador/' + this.usuario + '/' + this.clave + '/';
+    const url = 'http://127.0.0.1:8000/api/administrador/' + this.usuario + '/' + this.clave + '/';
     
     console.log('URL de solicitud:', url); // Verifica que la URL sea la correcta
 

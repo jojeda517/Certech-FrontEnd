@@ -6,7 +6,7 @@ import { Observable, forkJoin } from 'rxjs';
   providedIn: 'root'
 })
 export class CertificadosService {
-  private apiUrl = 'http://34.125.254.116:8000/api/certificados/';
+  private apiUrl = 'http://127.0.0.1:8000/api/certificados/';
 
   constructor(private http: HttpClient) {}
 
@@ -17,7 +17,7 @@ export class CertificadosService {
     return this.http.get<any>(url);
   }
   searchCertificado(id: string): Observable<any> {
-    const url = `http://34.125.254.116:8000/api/certificadoValido/${id}/`;
+    const url = `http://127.0.0.1:8000/api/certificadoValido/${id}/`;
     return this.http.get(url);
   }
 }

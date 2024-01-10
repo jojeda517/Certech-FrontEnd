@@ -1,22 +1,58 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, AfterViewInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { EventoService } from 'src/app/servicios/evento.service';
 
 @Component({
   selector: 'app-form-event',
   templateUrl: './form-event.component.html',
   styleUrls: ['./form-event.component.css']
 })
-export class FormEventComponent {
+export class FormEventComponent implements AfterViewInit {
+  isEditing: boolean = false;
   nuevoEvento: any = {
     nombre_evento: '',
     tipo_evento: '',
     descripcion_evento: '',
-    portada: null as File | null, // Cambiando el tipo de la portada a string para aceptar la URL
-    logo: null as File | null // Agregar una propiedad para almacenar el archivo del logo
+    portada: null as File | null,
+    logo: null as File | null
   };
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private eventoService: EventoService
+  ) {}
+
+  ngAfterViewInit(): void {
+    this.route.params.subscribe(params => {
+      this.isEditing = params['idEvento'] !== undefined;
+
+      const h1Element = document.querySelector('.bienvenido h1');
+      if (h1Element) {
+        h1Element.textContent = this.isEditing ? 'Editar Evento' : 'Agregar Evento';
+      }
+
+      if (this.isEditing) {
+        const idEvento = params['idEvento'];
+
+        // Lógica para cargar los datos del evento al editar
+        this.eventoService.getEventos(idEvento).subscribe(
+          (data) => {
+            if (data && data.evento) {
+              this.nuevoEvento = data.evento;
+            } else {
+              console.error('La respuesta del servicio no tiene la estructura esperada.');
+            }
+          },
+          (error) => {
+            console.error('Error al obtener evento por ID:', error);
+          }
+        );
+      }
+    });
+  }
 
   mostrarEventos() {
     this.router.navigate(['/dashboard']);
@@ -34,7 +70,7 @@ export class FormEventComponent {
     this.router.navigate(['/dashboard']);
   }
 
-  agregarEvento() {
+  agregarOEditarEvento(): void {
     const formData = new FormData();
     formData.append('nombre_evento', this.nuevoEvento.nombre_evento);
     formData.append('tipo_evento', this.nuevoEvento.tipo_evento);
@@ -42,7 +78,17 @@ export class FormEventComponent {
     formData.append('portada', this.nuevoEvento.portada as File, 'nombre_archivo_portada.jpg');
     formData.append('logo', this.nuevoEvento.logo as File, 'nombre_archivo_logo.jpg');
 
-    this.http.post<any>('http://34.125.254.116:8000/api/evento/', formData).subscribe(
+    if (this.isEditing) {
+      // Lógica para editar el evento existente
+      this.editarEvento(formData);
+    } else {
+      // Lógica para agregar un nuevo evento
+      this.agregarEvento(formData);
+    }
+  }
+
+  private agregarEvento(formData: FormData): void {
+    this.eventoService.createEvento(formData).subscribe(
       (response) => {
         console.log('Evento creado:', response);
         // Manejar la respuesta del backend aquí
@@ -50,6 +96,21 @@ export class FormEventComponent {
       },
       (error) => {
         console.error('Error al crear evento:', error);
+        // Manejar errores aquí
+      }
+    );
+  }
+
+  private editarEvento(formData: FormData): void {
+    const idEvento = 'obtenerElIdDelEventoAEditar'; // Reemplaza esto con la lógica para obtener el ID del evento a editar
+    this.eventoService.actualizarEvento(idEvento, formData).subscribe(
+      (response) => {
+        console.log('Evento editado:', response);
+        // Manejar la respuesta del backend aquí
+        this.router.navigate(['/dashboard']);
+      },
+      (error) => {
+        console.error('Error al editar evento:', error);
         // Manejar errores aquí
       }
     );

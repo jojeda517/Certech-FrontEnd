@@ -9,8 +9,8 @@ import { Usuario } from '../componentes/formularios/form-estudiante/usuario.mode
 })
 export class UserService {
 
-  private apiUrl = 'http://34.125.254.116:8000/api/participante/';
-  private apifile = 'http://34.125.254.116:8000/api/participantefile/';
+  private apiUrl = 'http://127.0.0.1:8000/api/participante/';
+  private apifile = 'http://127.0.0.1:8000/api/participantefile/';
   constructor(private http: HttpClient) {}
   
   obtenerparticipante(): Observable<any> {

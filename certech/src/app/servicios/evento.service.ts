@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class EventoService {
 
-  private apiUrl = 'http://34.125.254.116:8000/api/evento/';
+  private apiUrl = 'http://127.0.0.1:8000/api/evento/';
 
   constructor(private http: HttpClient) { }
 

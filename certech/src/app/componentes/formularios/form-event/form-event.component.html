@@ -1,15 +1,14 @@
-<app-navbar (eventosClick)="mostrarEventos()" (validacionClick)="mostrarValidacion()" (firmasClick)="mostrarFirmas()">
-</app-navbar>
+<app-navbar (eventosClick)="mostrarEventos()" (validacionClick)="mostrarValidacion()" (firmasClick)="mostrarFirmas()"></app-navbar>
 
 <div class="contenedorPrincipal">
   <div class="contenedor">
     <div class="titulo">
       <label class="bienvenido" for="nomevent">
-        <h1>Agregar Evento</h1>
+        <h1>{{ isEditing ? 'Editar' : 'Agregar' }} Evento</h1>
       </label>
     </div>
     <div class="formulario">
-      <form class="login-form">
+      <form class="evento-form">
         <div class="form-group">
           <label for="nombre_evento">Nombre del Evento:</label>
           <input type="text" id="nombre_evento" name="nombre_evento" [(ngModel)]="nuevoEvento.nombre_evento"
@@ -18,8 +17,12 @@
 
         <div class="form-group">
           <label for="tipo_evento">Tipo:</label>
-          <input type="text" id="tipo_evento" name="tipo_evento" [(ngModel)]="nuevoEvento.tipo_evento"
-            placeholder="Ingrese el tipo">
+          <select id="tipo_evento" name="tipo_evento" [(ngModel)]="nuevoEvento.tipo_evento">
+            <option value="congreso">Congreso</option>
+            <option value="evento">Evento</option>
+            <option value="curso">Curso</option>
+            <option value="curso">Curso</option>
+          </select>
         </div>
 
         <div class="form-group">
@@ -40,8 +43,9 @@
 
         <br><br>
         <div class="form-group formBtn">
-          <button type="button" style="background-color: #190482; color: #fff;"
-            (click)="agregarEvento()">Guardar</button>
+          <button type="submit" style="background-color: #190482; color: #fff;" (click)="agregarOEditarEvento()">
+            {{ isEditing ? 'Guardar Cambios' : 'Agregar Evento' }}
+          </button>
           <button type="button" style="background-color: #190482; color: #fff;" (click)="cancelar()">Cancelar</button>
         </div>
       </form>
