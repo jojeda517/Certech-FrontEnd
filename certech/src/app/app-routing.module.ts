@@ -47,6 +47,9 @@ const routes: Routes = [
     {path:'eventos/formenevt', component:FormEventComponent
     //,canActivate: [AuthGuard]
     },
+    {path:'eventos/formenevtAct/:id', component:FormEventComponent
+    //,canActivate: [AuthGuard]
+    },
     {path:'eventos/tabla', component:TablaComponent
     //,canActivate: [AuthGuard]
     },

@@ -1,16 +1,18 @@
-<app-navbar (eventosClick)="mostrarEventos()" (validacionClick)="mostrarValidacion()" (firmasClick)="mostrarFirmas()"></app-navbar>
 <div class="contenedorDashboard">
   <div class="titulo">
     <h1>Eventos</h1>
   </div>
   <div class="contenedorTarjetas">
-    <!-- En el HTML de la lista de eventos -->
     <div class="" *ngFor="let evento of eventos">
       <div class="card">
         <div class="card-body" (click)="redirigirDetalle(evento.id_evento)" style="cursor: pointer;">
           <img [src]="'http://34.125.254.116:8000/' + evento.portada" alt="Evento" class="card-img-top">
           <h2>{{ evento.nombre_evento }}</h2>
           <p>{{ evento.descripcion_evento }}</p>
+          <div class="botonesEditarEliminar">
+            <button type="button" class="btn btn-primary" (click)="editarEvento(evento.id_evento)"><i class="fa-solid fa-pen"></i> Editar</button>
+            <button type="button" class="delete-btn btn btn-primary" (click)="eliminarEvento(evento.id_evento)"><i class="fa-solid fa-trash"></i> Eliminar</button>
+          </div>
         </div>
       </div>
     </div>

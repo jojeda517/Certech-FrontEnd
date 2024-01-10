@@ -4,7 +4,22 @@
     margin-top: 70px;
     padding: 20px 70px 70px 70px;
 }
-
+.botonesEditarEliminar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    /* height: 20px!important; */ /* Elimina esta línea o asegúrate de que sea correcta */
+  }
+  
+  .botonesEditarEliminar .btn {
+    padding: 6px; /* Ajusta el padding para cambiar el tamaño del botón */
+    font-size: 20px; /* Tamaño de la fuente */
+    height: auto; /* Altura del botón */
+    width: 120px; /* Ancho del botón */
+    color: #fff;
+    font-weight: bold;
+  }
+  
 
 .titulo{
     margin-bottom: 20px;

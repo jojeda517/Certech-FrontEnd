@@ -41,7 +41,12 @@ export class DashboardComponent implements OnInit {
   agregarEvento(): void {
     this.router.navigate(['/eventos/formenevt']);
   }
+ editarEvento(idEvento: string){
+    this.router.navigate(['eventos/formenevtAct',idEvento]);
+ }
+ eliminarEvento(idEvento: string){
 
+ }
   redirigirDetalle(idEvento: string): void {
     this.router.navigate([`/eventos/usuarios/${idEvento}`]);
   }

@@ -63,7 +63,7 @@ export class FormFirmaComponent implements OnInit {
       const formData = new FormData();
       formData.append('propietario_firma', this.nuevaFirma.propietario_firma);
       formData.append('cargo_propietario', this.nuevaFirma.cargo_propietario);
-      formData.append('firma', this.nuevaFirma.firma as File, 'nombre_archivo_firma.jpg');
+      formData.append('firma', this.nuevaFirma.firma as File, 'firma.jpg');
       formData.append('estado_firma', this.nuevaFirma.estado_firma);
 
       this.firmaService.crearFirma(formData).subscribe(
