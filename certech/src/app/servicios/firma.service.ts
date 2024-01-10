@@ -10,8 +10,8 @@ export class FirmaService {
   private apiUrlUpdate = 'http://34.125.254.116:8000/api/firmaupdate/';
 
   constructor(private http: HttpClient) {}
-  getFirmas(id: number): Observable<any> {
-    const url = `${this.apiUrl}${id}`;
+  getFirmas(idFirma?: string): Observable<any> {
+    const url = `${this.apiUrl}${idFirma}`;
     return this.http.get<any>(url);
   }
   obtenerFirmas(): Observable<any> {
@@ -20,7 +20,7 @@ export class FirmaService {
 
   // Obtener una firma específica por ID
   obtenerFirmaPorId(id_firma: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id_firma}`);
+    return this.http.get<any>(`${this.apiUrl}${id_firma}`);
   }
 
   // Crear una nueva firma

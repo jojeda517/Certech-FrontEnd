@@ -34,7 +34,7 @@ const routes: Routes = [
     //,canActivate: [AuthGuard]
     
     },
-    {path:'firmas/formFirmasAct/:id', component:FormFirmaComponent
+    {path:'firmas/formFirmasAct/:id_firma', component:FormFirmaComponent
     //,canActivate: [AuthGuard]
     
     },
