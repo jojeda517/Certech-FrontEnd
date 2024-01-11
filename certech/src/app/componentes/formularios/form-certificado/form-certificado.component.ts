@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Route, Router } from '@angular/router';
+import { CertificadosService } from 'src/app/servicios/certificados.service';
 import { EventoService } from 'src/app/servicios/evento.service';
 import { FirmaService } from 'src/app/servicios/firma.service';
 import { PlantillaService } from 'src/app/servicios/plantilla.service';
@@ -15,6 +16,7 @@ export class FormCertificadoComponent implements OnInit {
   firmas: any[] = [];
   eventos: any[] = [];
   plantillas: any[] = [];
+  participantesSeleccionados: string[] = [];
   firma1: any;
   firma2: any;
   plantilla: any;
@@ -24,6 +26,7 @@ export class FormCertificadoComponent implements OnInit {
     private firmaService: FirmaService,
     private eventoService: EventoService,
     private plantillaService: PlantillaService,
+    private certificadoService: CertificadosService,
     private sanitizer: DomSanitizer
   ) {}
 
@@ -94,7 +97,7 @@ export class FormCertificadoComponent implements OnInit {
   }
 
   seleccionarEvento() {
-    console.log('ID del evento seleccionado:', this.eventoSeleccionado.id);
+    console.log('ID del evento seleccionado:', this.eventoSeleccionado);
   }
 
   seleccionarFirma1() {
@@ -111,5 +114,33 @@ export class FormCertificadoComponent implements OnInit {
   seleccionarPlantillavista() {
     console.log('ID de la plantilla seleccionada:', this.plantilla);
   }
-  
+  generarvertificado(){
+    if (this.firma1 && this.firma2 && this.participantesSeleccionados.length > 0) {
+      // Iterar sobre cada ID de participante y realizar la solicitud a la URL del certificado con datos en el cuerpo
+      this.participantesSeleccionados.forEach((idParticipante) => {
+        const datosSolicitud = {
+          id_administrador: 1,
+          id_participante: parseInt(idParticipante), // Asegúrate de convertir a número si es necesario
+          id_evento: this.eventoSeleccionado,
+          id_plantilla: this.plantilla
+        };
+
+        const urlCompleta = `http://127.0.0.1:8000/api/certificado/${this.firma1}/${this.firma2}/`;
+
+        // Realizar la solicitud a la URL del certificado con datos en el cuerpo
+        this.certificadoService.generarCertificado(urlCompleta, datosSolicitud).subscribe(
+          (response) => {
+            console.log(`Certificado generado para el participante ${idParticipante}:`, response);
+            // Puedes manejar la respuesta aquí, por ejemplo, mostrar un mensaje en la interfaz de usuario
+          },
+          (error) => {
+            console.error(`Error al generar certificado para el participante ${idParticipante}:`, error);
+            // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje de error en la interfaz de usuario
+          }
+        );
+      });
+    } else {
+      console.error('Por favor, complete las firmas y seleccione al menos un participante.');
+    }
+  }
 }

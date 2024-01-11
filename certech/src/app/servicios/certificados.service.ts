@@ -20,4 +20,7 @@ export class CertificadosService {
     const url = `http://127.0.0.1:8000/api/certificadoValido/${id}/`;
     return this.http.get(url);
   }
+  generarCertificado(urlCompleta: string, datosSolicitud: any): Observable<any> {
+    return this.http.post<any>(urlCompleta, datosSolicitud);
+  }
 }
