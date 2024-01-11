@@ -12,7 +12,7 @@
     border-radius: 10px;
     border: none !important;
 }
-
+ 
 .btnParticipantes{
     margin: 10px;
     background: #fff;
@@ -37,8 +37,19 @@
 
 .card-body{
     padding: 0;
+    cursor: pointer; /* Cambio de cursor al pasar sobre el cuerpo de la tarjeta */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
 }
-
+ /* Estilo para el objeto embed (ajusta según tus necesidades) */
+ embed {
+    max-width: 100%; /* Ajustar el ancho máximo al 100% del contenedor */
+    max-height: 100%; /* Ajustar la altura máxima al 100% del contenedor */
+    border: 5px solid #ddd; /* Borde del objeto embed */
+    border-radius: 6px; /* Bordes redondeados del objeto embed */
+  }
 .card{
     min-height: 300px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

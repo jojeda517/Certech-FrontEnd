@@ -30,6 +30,7 @@ import { DesarrolladoresComponent } from './paginas/desarrolladores/desarrollado
 import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-certificado.component';
 import { ValiddorInicoComponent } from './paginas/validdor-inico/validdor-inico.component';
 import { TerminoycondicionComponent } from './paginas/terminoycondicion/terminoycondicion.component';
+import { FormPlantillaComponent } from './form-plantilla/form-plantilla.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { TerminoycondicionComponent } from './paginas/terminoycondicion/terminoy
     VistaCertificadoComponent,
     ValiddorInicoComponent,
     TerminoycondicionComponent,
+    FormPlantillaComponent,
     
     
   ],

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { PlantillaService } from 'src/app/servicios/plantilla.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-seccion-certificado',
@@ -8,11 +11,32 @@ import { Location } from '@angular/common';
   styleUrls: ['./seccion-certificado.component.css']
 })
 export class SeccionCertificadoComponent implements OnInit {
+  plantillas: any[] = [];
+  constructor(
+    private router: Router, 
+    private location: Location,
+    private plantillaService: PlantillaService,
+    private sanitizer: DomSanitizer
+    ) { }
 
-  constructor(private router: Router, private location: Location) { }
-
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+      this.obtenerPlantillas();
+    }
+  
+    obtenerPlantillas(): void {
+      this.plantillaService.obtenerPlantillas().subscribe(
+        (data) => {
+          this.plantillas = data.plantillas;
+        },
+        (error) => {
+          console.error('Error al obtener plantillas:', error);
+          // Puedes manejar el error según tus necesidades
+        }
+      );
+    }
+    sanitizeUrl(url: string): SafeResourceUrl {
+      return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    }
   agregarCertificado(): void {
     this.router.navigate(['/eventos/usuarios/formCertificado']);
   }
@@ -28,5 +52,8 @@ export class SeccionCertificadoComponent implements OnInit {
 
   mostrarFirmas(): void {
     this.router.navigate(['/firmas']);
+  }
+  agregarPlantilla(): void {
+    this.router.navigate(['/eventos/usuarios/formPlantilla']);
   }
 }

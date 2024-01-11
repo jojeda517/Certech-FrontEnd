@@ -18,6 +18,8 @@ import { DesarrolladoresComponent } from './paginas/desarrolladores/desarrollado
 import { ValiddorInicoComponent } from './paginas/validdor-inico/validdor-inico.component';
 import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-certificado.component';
 import { TerminoycondicionComponent } from './paginas/terminoycondicion/terminoycondicion.component';
+import { FormPlantillaComponent } from './form-plantilla/form-plantilla.component';
+
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent},
@@ -74,12 +76,11 @@ const routes: Routes = [
     { path: 'desarrolladores', component: DesarrolladoresComponent },
     { path: 'eventos/seccionCertificados', component: SeccionCertificadoComponent},
     { path: 'vista-certificado', component: VistaCertificadoComponent},
-    { path: 'terminoycondiciones', component: TerminoycondicionComponent}
-    
+    { path: 'terminoycondiciones', component: TerminoycondicionComponent},
+    { path: 'eventos/usuarios/formPlantilla', component: FormPlantillaComponent },
+  ];
     
 
-    
-];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
