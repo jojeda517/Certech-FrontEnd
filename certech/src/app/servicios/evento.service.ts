@@ -46,9 +46,13 @@ export class EventoService {
 
   actualizarEvento(idEvento: string, formData: FormData): Observable<any> {
     const url = `${this.baseUrl}/${idEvento}/`;
-    return this.http.post(url, formData)
+    const headers = new HttpHeaders();  // Create a new HttpHeaders object
+    // Do not set 'Content-Type' here to let the browser set it automatically for FormData
+  
+    return this.http.post(url, formData, { headers })  // Pass headers as an option
       .pipe(
         catchError(this.handleError)
       );
   }
+  
 }

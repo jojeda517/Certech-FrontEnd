@@ -88,3 +88,29 @@
 .btnAgregar:hover{
     color: #190482;
 }
+.delete-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    right: 2px; /* Ajusta este valor según tus necesidades para mover el botón hacia la derecha */
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  /* Estilos para el icono en el botón */
+  .delete-btn i {
+    margin-right: 5px;
+  }
+  
+  .delete-btn i.fa-trash {
+    font-size: 16px;
+  }
+  

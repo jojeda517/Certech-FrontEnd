@@ -30,8 +30,12 @@ export class PlantillaService {
 
   eliminarPlantilla(idPlantilla: string): Observable<any> {
     const url = `${this.apiUrl}${idPlantilla}/`;
-    return this.http.delete<any>(url);
+    return this.http.delete<any>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
+  
   private handleError(error: any) {
     console.error('Ocurrió un error:', error);
     return throwError('Algo malo sucedió; por favor, inténtelo de nuevo más tarde.');

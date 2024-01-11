@@ -14,11 +14,16 @@
   <div class="contenedorTarjetas">
       <div class="" *ngFor="let plantilla of plantillas">
         <div class="card">
+          <button type="button" class="delete-btn btn btn-primary" (click)="borrarPlantilla(plantilla.id_plantilla)">
+            <i class="fas fa-trash"></i>
+            </button>
           <div class="card-body " style="cursor: pointer;">
             <!-- Puedes ajustar la lógica según la estructura exacta de tus objetos de plantilla -->
             <embed [src]="sanitizeUrl('http://127.0.0.1:8000/' + plantilla.plantilla)" type="application/pdf" width="100%" height="600px" />
-             </div>
-          
+            
+          </div>
+             
+ 
         </div>
       </div>
     <div class="card">
