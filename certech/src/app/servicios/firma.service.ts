@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 
@@ -7,8 +7,12 @@ import { Observable, catchError, throwError } from 'rxjs';
 })
 export class FirmaService {
   private apiUrl = 'http://127.0.0.1:8000/api/firma/';
-  private apiUrlUpdate = 'http://127.0.0.1:8000/api/firmaupdate/';
-
+  private baseUrl = 'http://127.0.0.1:8000/api/firmaupdate/';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
   constructor(private http: HttpClient) {}
   getFirmas(idFirma?: string): Observable<any> {
     const url = `${this.apiUrl}${idFirma}`;
@@ -29,10 +33,13 @@ export class FirmaService {
   }       
 
   // Actualizar una firma existente por ID
-  actualizarFirma(id_firma: number, firmaData: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrlUpdate}/${id_firma}`, firmaData);
+  actualizarFirma(id_firma: number, formData: FormData): Observable<any> {
+    const url = `${this.baseUrl}/${id_firma}/`;
+    return this.http.post(url, formData)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
-
   // Eliminar una firma por ID
   eliminarParticipante(id_participante: string): Observable<any> {
     const url = `${this.apiUrl}${id_participante}/`;

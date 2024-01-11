@@ -3,15 +3,6 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-// Ajusta la interfaz Evento según los nombres de las propiedades
-interface Evento {
-  nombre_evento: string;
-  tipo_evento: string;
-  descripcion_evento: string;
-  portada: string;
-  logo: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
