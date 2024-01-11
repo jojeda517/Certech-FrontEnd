@@ -3,12 +3,28 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+// Ajusta la interfaz Evento según los nombres de las propiedades
+interface Evento {
+  nombre_evento: string;
+  tipo_evento: string;
+  descripcion_evento: string;
+  portada: string;
+  logo: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class EventoService {
 
   private apiUrl = 'http://127.0.0.1:8000/api/evento/';
+  private baseUrl = 'http://127.0.0.1:8000/api/eventoupdate';
+  
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -32,23 +48,16 @@ export class EventoService {
     );
   }
 
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      console.error('Ocurrió un error:', error.error.message);
-    } else {
-      console.error(
-        `Código del error ${error.status}, ` +
-        `error: ${error.error}`);
-    }
+  private handleError(error: any) {
+    console.error('Ocurrió un error:', error);
     return throwError('Algo malo sucedió; por favor, inténtelo de nuevo más tarde.');
   }
-  actualizarEvento(idEvento: string, nuevoEventoData: any) {
-    const url = 'http://34.125.254.116:8000/api/eventoupdate/${idEvento}/';
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
-
-    return this.http.post<any>(url, nuevoEventoData, { headers });
+  actualizarEvento(idEvento: string, formData: FormData): Observable<any> {
+    const url = `${this.baseUrl}/${idEvento}/`;
+    return this.http.post(url, formData)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 }
