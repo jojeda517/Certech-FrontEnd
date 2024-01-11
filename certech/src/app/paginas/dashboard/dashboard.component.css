@@ -1,3 +1,4 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
 .contenedorDashboard{
     min-height: calc(100vh - 70px);
     width: 100vw;
@@ -85,3 +86,59 @@
     height: 200px;
     object-fit: cover;
 }
+.delete-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    right: 2px; display: flex; 
+    align-items: center;
+}
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  /* Estilos para el icono en el botón */
+  .delete-btn i {
+    margin-right: 5px;
+  }
+  
+  .delete-btn i.fa-trash-can {
+    font-size: 16px;
+  }
+  .edit-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #1d45ca;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px; /* Ajusta este valor según tus necesidades para mover el botón hacia abajo */
+    right: 40px;
+    display: flex; 
+    align-items: center;
+}
+  
+  .edit-btn:hover {
+    background-color: #1d45ca;
+  }
+  
+  /* Estilos para el icono en el botón */
+  .edit-btn i {
+    margin-right: 5px;
+  }
+  
+  .edit-btn i.fa-pen-to-square {
+    font-size: 16px;
+    position: center;
+  }
+  
+  
