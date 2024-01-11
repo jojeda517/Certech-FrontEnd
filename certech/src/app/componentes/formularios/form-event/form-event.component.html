@@ -44,10 +44,13 @@
         <br><br>
         <div class="form-group formBtn">
           <button type="submit" style="background-color: #190482; color: #fff;" (click)="agregarOEditarEvento()">
-            {{ isEditing ? 'Guardar Cambios' : 'Agregar Evento' }}
+            <i class="fas fa-save"></i> {{ isEditing ? 'Guardar Cambios' : 'Agregar Evento' }}
           </button>
-          <button type="button" style="background-color: #190482; color: #fff;" (click)="cancelar()">Cancelar</button>
+          <button type="button" style="background-color: #190482; color: #fff;" (click)="cancelar()">
+            <i class="fas fa-times"></i> Cancelar
+          </button>
         </div>
+        
       </form>
     </div>
   </div>
