@@ -54,6 +54,6 @@ export class SeccionCertificadoComponent implements OnInit {
     this.router.navigate(['/firmas']);
   }
   agregarPlantilla(): void {
-    this.router.navigate(['/eventos/usuarios/formPlantilla']);
+    this.router.navigate(['/eventos/formPlantilla']);
   }
 }

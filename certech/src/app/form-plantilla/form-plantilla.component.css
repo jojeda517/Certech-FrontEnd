@@ -1,0 +1,79 @@
+.contenedorPrincipal {
+    min-height: calc(100vh - 70px);
+    width: 100vw;
+    margin: 70px 0 0 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    /*background-image: url(https://images.unsplash.com/photo-1682687220509-61b8a906ca19?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);*/
+  }
+
+  .titulo{
+    margin-top: 10px;
+  }
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+  }
+  
+  .contenedor {
+    width: 50vw;
+    height: 90vh;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.5); 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .formulario{
+    width: 80%;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .formBtn{
+    display: grid;
+    grid-template-columns:  repeat(2, 1fr);
+    grid-column-gap: 20px;
+  }
+
+  .form-group button {
+    background-color: #190482;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .form-group button:hover {
+    background-color: #7752FE !important;
+    transform: scale(1.05);
+  }

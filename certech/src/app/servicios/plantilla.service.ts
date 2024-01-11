@@ -8,6 +8,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class PlantillaService {
   private apiUrl = 'http://127.0.0.1:8000/api/plantilla/';
+  private endpoint = '/';
+
 
   constructor(private http: HttpClient) {}
 
@@ -20,17 +22,11 @@ export class PlantillaService {
     return this.http.get<any>(url);
   }
 
-  subirPlantilla(archivo: File, idPlantilla?: string): Observable<any> {
-    const formData = new FormData();
-    formData.append('plantilla', archivo);
-
-    if (idPlantilla) {
-      const url = `${this.apiUrl}${idPlantilla}/`;
-      return this.http.post<any>(url, formData);
-    } else {
-      return this.http.post<any>(this.apiUrl, formData);
-    }
+  subirPlantilla(formData: FormData, id_plantilla?: string): Observable<any> {
+    const url = id_plantilla ? `${this.apiUrl}/${id_plantilla}/` : this.apiUrl;
+    return this.http.post<any>(url, formData);
   }
+  
 
   eliminarPlantilla(idPlantilla: string): Observable<any> {
     const url = `${this.apiUrl}${idPlantilla}/`;

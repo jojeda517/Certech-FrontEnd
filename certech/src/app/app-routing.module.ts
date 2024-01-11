@@ -77,7 +77,7 @@ const routes: Routes = [
     { path: 'eventos/seccionCertificados', component: SeccionCertificadoComponent},
     { path: 'vista-certificado', component: VistaCertificadoComponent},
     { path: 'terminoycondiciones', component: TerminoycondicionComponent},
-    { path: 'eventos/usuarios/formPlantilla', component: FormPlantillaComponent },
+    { path: 'eventos/formPlantilla', component: FormPlantillaComponent },
   ];
     
 
