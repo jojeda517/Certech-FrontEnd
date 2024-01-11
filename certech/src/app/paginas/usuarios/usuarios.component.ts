@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 
 @Component({
@@ -18,11 +18,20 @@ export class UsuariosComponent implements OnInit {
     correo: ''
   };
   @ViewChild('fileInput') fileInput: ElementRef | undefined;
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService,private route: ActivatedRoute) {}
   ngOnInit(): void {
-    // En el ciclo de vida OnInit, podrías cargar los datos de los participantes
-    this.cargarParticipantes();
+    this.route.queryParams.subscribe(params => {
+      const idEvento = params['idEvento'];
+  
+      if (idEvento) {
+        this.cargarParticipantes(idEvento);
+      } else {
+        // Manejar el caso en que no se proporciona un idEvento en los parámetros de consulta
+        console.error('No se proporcionó un idEvento en los parámetros de consulta.');
+      }
+    });
   }
+  
 
   filtrarCedula(): void {
     this.userService.obtenerparticipante().subscribe(
@@ -43,8 +52,8 @@ export class UsuariosComponent implements OnInit {
       }
     );
   }
-  cargarParticipantes(): void {
-    this.userService.getParticipantes().subscribe(
+  cargarParticipantes(idEvento :string): void {
+    this.userService.getParticipantes(idEvento).subscribe(
       (response) => {
         if (response && response.participantes) {
           this.participantes = response.participantes;
@@ -90,7 +99,7 @@ export class UsuariosComponent implements OnInit {
       (response) => {
         console.log('Participante eliminado:', response);
         // Volver a cargar la lista después de eliminar el participante
-        this.cargarParticipantes();
+        this.cargarParticipantes(id_participante);
       },
       (error) => {
         console.error('Error al eliminar participante:', error);

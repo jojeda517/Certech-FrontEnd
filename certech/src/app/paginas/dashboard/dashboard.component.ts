@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit {
   }
  
   redirigirDetalle(idEvento: string): void {
-    this.router.navigate([`/eventos/usuarios/${idEvento}`]);
+    this.router.navigate(['/eventos/usuarios'], { queryParams: { idEvento } });
   }
   mostrarEventos(): void {
     this.router.navigate(['/dashboard']);
