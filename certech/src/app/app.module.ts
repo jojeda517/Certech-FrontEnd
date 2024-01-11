@@ -31,6 +31,7 @@ import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-cer
 import { ValiddorInicoComponent } from './paginas/validdor-inico/validdor-inico.component';
 import { TerminoycondicionComponent } from './paginas/terminoycondicion/terminoycondicion.component';
 import { FormPlantillaComponent } from './form-plantilla/form-plantilla.component';
+import { ObjecToArray } from './componentes/formularios/form-certificado/ObjecToArray';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { FormPlantillaComponent } from './form-plantilla/form-plantilla.componen
     ValiddorInicoComponent,
     TerminoycondicionComponent,
     FormPlantillaComponent,
+    ObjecToArray
     
     
   ],

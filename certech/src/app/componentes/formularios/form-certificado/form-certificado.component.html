@@ -1,58 +1,56 @@
-
 <div class="login-container">
-    <app-navbar
-      (eventosClick)="mostrarEventos()"
-      (validacionClick)="mostrarValidacion()"
-      (firmasClick)="mostrarFirmas()">
-    </app-navbar>
-    <div class="login-form-container">
-      <label class="bienvenido" for="nomevent"><h1>Agregar Certificado</h1></label>
-      <div class="formulario">
-        <form class="login-form">
-         
-          <div class="form-group">
-            <label for="nombre">Nombre del Certificado:</label>
-            <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" placeholder="Ingrese el nombre del certificado">
-          </div>
-    
-          <div class="form-group">
-            <label for="evento">Nombre del Evento:</label>
-            <input type="text" id="evento" name="evento" [(ngModel)]="evento" placeholder="Ingrese el nombre del evento">
-          </div>
-    
-          <div class="form-group">
-            <label for="fechainicio">Fecha de Inicio:</label>
-            <input type="text" id="fechainicio" name="fechainicio" [(ngModel)]="fechainicio" placeholder="Ingrese la fecha de inicio">
-          </div>
-    
-          <div class="form-group">
-            <label for="tiempo">Duración:</label>
-            <input type="text" id="tiempo" name="tiempo" [(ngModel)]="tiempo" placeholder="Ingrese la duración">
-          </div>
-    
-          <div class="form-group">
-            <label for="responsablenombre">Nombre del Responsable:</label>
-            <input type="text" id="responsablenombre" name="responsablenombre" [(ngModel)]="responsablenombre" placeholder="Ingrese el nombre del responsable">
-          </div>
-    
-          <div class="form-group">
-            <label for="responsablecargo">Cargo del Responsable:</label>
-            <input type="text" id="responsablecargo" name="responsablecargo" [(ngModel)]="responsablecargo" placeholder="Ingrese el cargo del responsable">
-          </div>
-    
-          <div class="form-group">
-            <label for="firma">Firma:</label>
-            <input type="text" id="firma" name="firma" [(ngModel)]="firma" placeholder="Ingrese el nombre de la firma">
-          </div>
-    
-          <br><br>
-          <div class="form-group formBtn">
-            <button type="submit" style="background-color: #190482; color: #fff;" (click)="guardarEvento()">Guardar</button>
-            <button type="submit" style="background-color: #190482; color: #fff;" (click)="cancelar()">Cancelar</button>
-          </div>
-    
-        </form>
-      </div>
+  <app-navbar
+    (eventosClick)="mostrarEventos()"
+    (validacionClick)="mostrarValidacion()"
+    (firmasClick)="mostrarFirmas()">
+  </app-navbar>
+
+  <div class="login-form-container">
+    <label class="bienvenido" for="nomevent"><h1>Agregar Certificado</h1></label>
+    <div class="formulario">
+      <form class="login-form">
+
+        <div class="form-group">
+          <label for="eventoSeleccionado">Seleccionar Evento:</label>
+          <select id="eventoSeleccionado" name="eventoSeleccionado"  [(ngModel)]="eventoSeleccionado" (change)="seleccionarEvento()">
+            <option disabled selected value="">Elegir Evento </option>
+            <ng-container *ngFor="let subarray of eventos; let i = index"  >
+              <option *ngFor="let valor of subarray; " [value]="valor.id_evento">{{ valor.nombre_evento }} </option>
+            </ng-container>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="firmas1">Seleccionar Firma 1:</label>
+          <select id="firmas1" name="firmas1" [(ngModel)]="firma1" (change)="seleccionarFirma1()">
+            <option disabled selected value="">Elegir Firma 1 </option>
+            <ng-container *ngFor="let subarray of firmas; let i = index">
+              <option *ngFor="let valor of subarray" [value]="valor.id_firma">{{ valor.propietario_firma }}</option>
+            </ng-container>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="firmas2">Seleccionar Firma 2:</label>
+          <select id="firmas2" name="firmas2" [(ngModel)]="firma2" (change)="seleccionarFirma2()">
+            <option disabled selected value="">Elegir Firma 2 </option>
+            <ng-container *ngFor="let subarray of firmas; let i = index">
+              <option *ngFor="let valor of subarray" [value]="valor.id_firma">{{ valor.propietario_firma }}</option>
+            </ng-container>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="plantilla">Seleccionar plantilla:</label>
+          <select id="plantilla" name="plantilla" [(ngModel)]="plantilla" (change)="seleccionarPlantilla()">
+            <option disabled selected value="">Elegir plantilla</option>
+            <ng-container *ngFor="let subarray of plantillas; let i = index">
+              <option *ngFor="let valor of subarray" [value]="valor.id_plantilla"   >{{ valor.plantilla }}</option>
+            </ng-container>
+          </select>
+         </div>
+        
+
+      </form>
     </div>
   </div>
-  
+</div>
