@@ -11,17 +11,15 @@ export class UserService {
 
   private apiUrl = 'http://127.0.0.1:8000/api/participante/';
   private apifile = 'http://127.0.0.1:8000/api/participantefile/';
+  private apiEst = 'http://127.0.0.1:8000/api/participanteEvento/';
   constructor(private http: HttpClient) {}
   
   obtenerparticipante(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}`);
   }
-  getParticipantess(id: number): Observable<Usuario> {
-    const url = `${this.apiUrl}${id}`;
-    return this.http.get<Usuario>(url);
-  }
+ 
   getParticipantes(idParticipante?: string): Observable<any> {
-    const url = idParticipante ? `${this.apiUrl}${idParticipante}/` : this.apiUrl;
+    const url = idParticipante ? `${this.apiEst}${idParticipante}/` : this.apiEst;
     return this.http.get<any>(url);
   }
   
