@@ -6,8 +6,12 @@
   </app-navbar>
   
   <div class="login-form-container">
-    <label class="bienvenido" for="nomevent"><h1>Agregar Firma</h1></label>
-    <form class="login-form">
+    <div class="titulo">
+      <label class="bienvenido" for="nomevent">
+        <h1>{{ isEditing ? 'Editar' : 'Agregar' }} Evento</h1>
+      </label>
+    </div>
+     <form class="login-form">
       <div class="form-group">
         <label for="propietario">Propietario:</label>
         <input type="text" id="propietario" name="propietario" [(ngModel)]="nuevaFirma.propietario_firma" placeholder="Ingrese el propietario">
@@ -32,7 +36,7 @@
       </div>
       
       <div class="form-group formBtn">
-        <button type="button" style="background-color: #190482; color: #fff;" (click)="guardar()">Guardar</button>
+        <button type="button" style="background-color: #190482; color: #fff;" (click)="agregarOEditarEvento()">Guardar</button>
         <button type="button" style="background-color: #190482; color: #fff;" (click)="cancelar()">Cancelar</button>
       </div>
     </form>

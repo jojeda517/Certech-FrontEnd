@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirmaService } from 'src/app/servicios/firma.service';
 
@@ -7,7 +7,8 @@ import { FirmaService } from 'src/app/servicios/firma.service';
   templateUrl: './form-firma.component.html',
   styleUrls: ['./form-firma.component.css']
 })
-export class FormFirmaComponent implements OnInit {
+export class FormFirmaComponent implements AfterViewInit {
+  isEditing: boolean = false;
   nuevaFirma: any = {
     propietario_firma: '',
     cargo_propietario: '',
@@ -15,8 +16,39 @@ export class FormFirmaComponent implements OnInit {
     estado_firma: 'Activo'
   };
 
-  constructor(private router: Router, private firmaService: FirmaService,private route:ActivatedRoute) {}
-  ngOnInit(): void {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute, 
+    private firmaService: FirmaService,
+    private cdr: ChangeDetectorRef
+    ) {}
+
+    ngAfterViewInit(): void {
+      this.route.params.subscribe(params => {
+        this.isEditing = params['id_firma'] !== undefined;
+    
+        if (this.isEditing) {
+          const id_firma = params['id_firma'];
+    
+          this.firmaService.getFirmas(id_firma).subscribe(
+            (data) => {
+              if (data && data.firma) {
+                this.nuevaFirma = data.firma;  // Aquí corregí data.evento por data.firma
+                this.cdr.detectChanges();
+              } else {
+                console.error('La respuesta del servicio no tiene la estructura esperada.');
+              }
+            },
+            (error) => {
+              console.error('Error al obtener firma por ID:', error);
+            }
+          );
+        }
+      });
+      this.cdr.detectChanges();
+    }
+    
+  /* ngOnInit(): void {
     this.route.params.subscribe(params => {
       const idFirma = params['id_firma'];
       console.log(idFirma)
@@ -48,14 +80,10 @@ export class FormFirmaComponent implements OnInit {
           }
         );
       }
-    
+     */
   
 
-  cancelar(): void {
-    this.router.navigate(['/firmas']);
-  }
-
-  guardar(): void {
+  /* guardar(): void {
     if (this.nuevaFirma.propietario_firma && this.nuevaFirma.cargo_propietario && this.nuevaFirma.firma) {
       const formData = new FormData();
       formData.append('propietario_firma', this.nuevaFirma.propietario_firma);
@@ -76,7 +104,7 @@ export class FormFirmaComponent implements OnInit {
     } else {
       console.error('Por favor, complete todos los campos antes de guardar.');
     }
-  }
+  } */
 
   onFirmaSelected(event: any): void {
     const file = event.target.files[0];
@@ -94,4 +122,53 @@ export class FormFirmaComponent implements OnInit {
   mostrarFirmas(): void {
     this.router.navigate(['/firmas']);
   }
+  
+  cancelar(): void {
+    this.router.navigate(['/firmas']);
+  }
+
+  agregarOEditarEvento(): void {
+    const formData = new FormData();
+    formData.append('propietario_firma', this.nuevaFirma.propietario_firma);
+    formData.append('cargo_propietario', this.nuevaFirma.cargo_propietario);
+    formData.append('firma', this.nuevaFirma.firma as File);
+    formData.append('estado_firma', this.nuevaFirma.estado_firma);
+
+    if (this.isEditing) {
+      this.editarFirma(this.nuevaFirma.id_firma, formData);
+    } else {
+      this.agregarFirma(formData);
+    }
+  }
+  private agregarFirma(formData: FormData): void {
+    this.firmaService.crearFirma(formData).subscribe(
+      (response) => {
+        console.log('Evento creado:', response);
+        this.router.navigate(['/firmas']);
+      },
+      (error) => {
+        console.error('Error al crear firma:', error);
+      }
+    );
+  }
+
+  private editarFirma(id_firma: string | undefined, formData: FormData): void {
+    if (!id_firma) {
+      console.error('ID de firma no proporcionado para la edición.');
+      return;
+    }
+  
+    this.firmaService.actualizarFirma(id_firma, formData).subscribe(
+      (response) => {
+        console.log('Firma editada:', response);
+        // Manejar la respuesta del backend aquí
+        this.router.navigate(['/firmas']);
+      },
+      (error) => {
+        console.error('Error al editar firma:', error);
+        // Manejar errores aquí
+      }
+    );
+  }
+  
 }

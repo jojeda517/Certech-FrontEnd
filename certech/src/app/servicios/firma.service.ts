@@ -33,8 +33,8 @@ export class FirmaService {
   }       
 
   // Actualizar una firma existente por ID
-  actualizarFirma(id_firma: number, formData: FormData): Observable<any> {
-    const url = `${this.baseUrl}/${id_firma}/`;
+  actualizarFirma(id_firma: string, formData: FormData): Observable<any> {
+    const url = `${this.baseUrl}${id_firma}/`;  // Corregir la construcción de la URL
     return this.http.post(url, formData)
       .pipe(
         catchError(this.handleError)
