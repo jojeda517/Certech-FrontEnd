@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* styles.css o styles.scss */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 @font-face {
     font-family: 'HonorSans-Regular';
     src: url('../src/assets/fonts/HONORSans//HONORSans-Regular.ttf') format('truetype');
