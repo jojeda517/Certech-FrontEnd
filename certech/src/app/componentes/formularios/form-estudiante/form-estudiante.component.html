@@ -9,30 +9,32 @@
       <div class="login-form-container">
         <label class="bienvenido" for="nomevent"><h1>Agregar Estudiante</h1></label>
         <form class="login-form">
-         
           <div class="form-group">
-            <label for="nomevent">Cedula:</label>
-            <input type="text" id="cedula" name="nomevent" [(ngModel)]="cedula" placeholder="Ingrese numero de cedula">
+            <label for="cedula">Cedula:</label>
+            <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" placeholder="Ingrese numero de cedula" required pattern="\d+">
           </div>
-    
+        
           <div class="form-group">
-            <label for="tipo">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre_apellido" placeholder="Ingrese nombre completo">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre_apellido" placeholder="Ingrese nombre completo" required>
           </div>
+        
           <div class="form-group">
-            <label for="tipo">Telefono:</label>
-            <input type="text" id="telefono" name="telefono" [(ngModel)]="celular" placeholder="Ingrese numero telefonico">
+            <label for="celular">Telefono:</label>
+            <input type="text" id="celular" name="celular" [(ngModel)]="celular" placeholder="Ingrese numero telefonico" required pattern="\d{10}">
           </div>
+        
           <div class="form-group">
-            <label for="descripcion">Correo electronico:</label>
-            <input type="email" id="correo" name="correo" [(ngModel)]="correo" placeholder="Ingrese el correo electronico">
+            <label for="correo">Correo electronico:</label>
+            <input type="email" id="correo" name="correo" [(ngModel)]="correo" placeholder="Ingrese el correo electronico" required>
           </div>
+        
           <br><br>
           <div class="form-group formBtn">
-            <button type="submit" style="background-color: #190482; color: #fff;" (click)="guardar()">Guardar</button>
-            <button type="submit" style="background-color: #190482; color: #fff;" (click)="cancelar() ">Cancelar</button>
+            <button type="button" style="background-color: #190482; color: #fff;" (click)="guardar()">Guardar</button>
+            <button type="button" style="background-color: #190482; color: #fff;" (click)="cancelar()">Cancelar</button>
           </div>
-    
         </form>
+        
       </div>
     </div>

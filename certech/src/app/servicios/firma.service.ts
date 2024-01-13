@@ -15,7 +15,7 @@ export class FirmaService {
   };
   constructor(private http: HttpClient) {}
   getFirmas(idFirma?: string): Observable<any> {
-    const url = `${this.apiUrl}${idFirma}`;
+    const url = `${this.apiUrl}${idFirma}/`;
     return this.http.get<any>(url);
   }
   obtenerFirmas(): Observable<any> {

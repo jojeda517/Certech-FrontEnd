@@ -60,7 +60,7 @@
                                     <!--Editar-->
                                 </button>
                                 <button type="button" class="delete-btn btn btn-primary"
-                                    (click)="eliminarParticipante(participante.id_participante)">
+                                    (click)="eliminarParticipanteLocal(participante)">
                                     <i class="fa-solid fa-trash"></i> 
                                     <!--Eliminar-->
                                     {{ participante.id }} <!-- Agregar esta línea para mostrar el ID -->
@@ -68,7 +68,7 @@
                             </div>
                         </td>
 
-                    </tr>
+                    </tr>   
                 </tbody>
             </table>
         </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { PlantillaService } from 'src/app/servicios/plantilla.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -14,13 +14,17 @@ export class SeccionCertificadoComponent implements OnInit {
   plantillas: any[] = [];
   constructor(
     private router: Router, 
+    private route: ActivatedRoute, 
     private location: Location,
     private plantillaService: PlantillaService,
     private sanitizer: DomSanitizer
     ) { }
 
     ngOnInit(): void {
-      this.obtenerPlantillas();
+      this.route.queryParams.subscribe(params => {
+        const idEvento = params['idEvento'];
+        this.obtenerPlantillas();
+      });
     }
   
     obtenerPlantillas(): void {
@@ -37,9 +41,14 @@ export class SeccionCertificadoComponent implements OnInit {
     sanitizeUrl(url: string): SafeResourceUrl {
       return this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
-  agregarCertificado(): void {
-    this.router.navigate(['/eventos/usuarios/formCertificado']);
-  }
+    agregarCertificado(): void {
+      this.route.queryParams.subscribe(params => {
+        const id= params['id'];
+        console.log(id)
+        // Asegúrate de que estás usando el nombre correcto del parámetro en queryParams
+        this.router.navigate(['/eventos/usuarios/formCertificado'], { queryParams: { id: id} });
+      });
+    }
   goBack(): void {
     this.location.back();
   }
@@ -54,7 +63,13 @@ export class SeccionCertificadoComponent implements OnInit {
     this.router.navigate(['/firmas']);
   }
   agregarPlantilla(): void {
-    this.router.navigate(['/eventos/formPlantilla']);
+    this.route.queryParams.subscribe(params => {
+      const id= params['id'];
+      console.log(id)
+      // Asegúrate de que estás usando el nombre correcto del parámetro en queryParams
+      this.router.navigate(['/eventos/formPlantilla'], { queryParams: { id: id} });
+    });
+    
   }
   borrarPlantilla(idPlantilla: string): void {
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este evento?');

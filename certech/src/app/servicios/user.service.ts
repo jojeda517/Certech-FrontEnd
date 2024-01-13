@@ -22,11 +22,12 @@ export class UserService {
  
   getParticipantes(idParticipante?: string): Observable<any> {
     const url = idParticipante ? `${this.apiEst}${idParticipante}/` : this.apiEst;
-    return this.http.get<any>(url);
+    return this.http.get<any[]>(url);
   }
   
   crearParticipante(cedula: string, nombre: string, celular: string, correo: string): Observable<any> {
     const participanteData = { cedula, nombre_apellido: nombre, celular, correo };
+    console.log(participanteData)
     return this.http.post<any>(this.apiUrl, participanteData);
   }
 
@@ -63,6 +64,22 @@ export class UserService {
   agregarParticipante(participante: any): void {
     this.participantes.push(participante);
   }
+  eliminarUsuario(participante: any): void {
+    const index = this.participantes.indexOf(participante);
+    if (index !== -1) {
+      this.participantes.splice(index, 1);
+    }
+  }
+  actualizarUsuario(participanteActualizado: any): void {
+    const index = this.participantes.findIndex(participante => participante.id === participanteActualizado.id);
 
+    if (index !== -1) {
+      this.participantes[index] = participanteActualizado;
+    }
+  }
   // Otros métodos del servicio, como agregar, editar, eliminar, etc., podrían ir aquí...
+  agregarArchivoSubido(archivo: any): void {
+    this.participantes.push(archivo);
+    
+  }
 }

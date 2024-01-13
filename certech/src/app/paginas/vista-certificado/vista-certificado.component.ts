@@ -21,7 +21,7 @@ export class VistaCertificadoComponent implements OnInit {
       const urlParam = params['url'];
 
       // Construir la URL completa del PDF y sanitizarla
-      const sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`http://34.125.254.116:8000/${urlParam}`);
+      const sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`http://127.0.0.1:8000/${urlParam}`);
       this.pdfUrl = sanitizedUrl;
     });
   }

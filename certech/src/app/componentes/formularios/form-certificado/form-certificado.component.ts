@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CertificadosService } from 'src/app/servicios/certificados.service';
 import { EventoService } from 'src/app/servicios/evento.service';
@@ -14,12 +14,14 @@ import { UserService } from 'src/app/servicios/user.service';
   styleUrls: ['./form-certificado.component.css']
 })
 export class FormCertificadoComponent implements OnInit {
+  
   usuarios:any[]=[];
   usuariosnube:any[]=[]
   participantes: any[] = [];
   participantesLocal: any[] = [];
   todosParticipantes:any[]=[]
   private subscription: Subscription = new Subscription;
+  idEvento:string="";
 
   eventoSeleccionado: any; // Puedes ajustar el tipo según la estructura de tus datos
   firmas: any[] = [];
@@ -31,6 +33,7 @@ export class FormCertificadoComponent implements OnInit {
   plantilla: any;
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private firmaService: FirmaService,
     private eventoService: EventoService,
@@ -40,6 +43,8 @@ export class FormCertificadoComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) {}
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+    this.idEvento = params['id'];
     this.traerfirmas();
     this.traerEventos();
     this.traerPlantillas();
@@ -48,19 +53,20 @@ export class FormCertificadoComponent implements OnInit {
         // Actualizar la variable participantes con los datos obtenidos
         this.participantes = data;
         this.participantesLocal = [...this.participantes];
+        console.log(this.idEvento)
       },
       error => {
         console.error('Error al obtener participantes:', error);
       }
     );
     this.obtenerParticipantes()
+  });
  
 
   }
 
      
  
-
   sanitizeUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
@@ -105,7 +111,6 @@ export class FormCertificadoComponent implements OnInit {
       }
     );
   }
-  
   
   
   traerfirmas() {
@@ -161,7 +166,8 @@ export class FormCertificadoComponent implements OnInit {
     console.log('ID de la plantilla seleccionada:', this.plantilla);
   }
   obtenerIds() {
-    console.log("Estudiantes Nube:", this.usuariosnube);
+    
+    console.log("Estudiantes Nube:", this.idEvento);
     console.log("Participantes Local:", this.participantesLocal);
   
     this.participantesLocal.forEach(participanteLocal => {
@@ -183,39 +189,42 @@ export class FormCertificadoComponent implements OnInit {
   correr(){
     this.obtenerIds()
   }
+      
+    generarCertificado() {
+      this.correr();
+      console.log(this.participantesSeleccionados);
     
-  generarCertificado() {
-    this.correr();
-    console.log(this.participantesSeleccionados);
-  
-    if (this.firma1 && this.firma2 && this.participantesSeleccionados.length > 0) {
-      // Iterar sobre cada ID de participante y realizar la solicitud a la URL del certificado con datos en el cuerpo
-      this.participantesSeleccionados.forEach((idParticipante) => {
-        const datosSolicitud = {
-          id_administrador: 1,
-          id_participante: parseInt(idParticipante, 10), // Corregir aquí
-          id_evento: parseInt(this.eventoSeleccionado, 10),
-          id_plantilla: parseInt(this.plantilla, 10)
-        };
-  
-        const urlCompleta = `http://127.0.0.1:8000/api/certificado/${this.firma1}/${this.firma2}/`;
-        console.log(datosSolicitud);
-  
-        // Realizar la solicitud a la URL del certificado con datos en el cuerpo
-        this.certificadoService.generarCertificado(urlCompleta, datosSolicitud).subscribe(
-          (response) => {
-            console.log(`Certificado generado para el participante ${idParticipante}:`, response);
-            // Puedes manejar la respuesta aquí, por ejemplo, mostrar un mensaje en la interfaz de usuario
-          },
-          (error) => {
-            console.error(`Error al generar certificado para el participante ${idParticipante}:`, error);
-            // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje de error en la interfaz de usuario
-          }
-        );
-      });
-    } else {
-      console.error('Por favor, complete las firmas y seleccione al menos un participante.');
+      if (this.firma1 && this.firma2 && this.participantesSeleccionados.length > 0) {
+        // Iterar sobre cada ID de participante y realizar la solicitud a la URL del certificado con datos en el cuerpo
+        this.participantesSeleccionados.forEach((idParticipante) => {
+          const datosSolicitud = {
+            id_administrador: 3,
+            id_evento: parseInt(this.eventoSeleccionado, 10),
+            id_participante: parseInt(idParticipante,10), // Corregir aquí
+            id_plantilla: parseInt(this.plantilla,10)
+          };
+    
+          const urlCompleta = `http://127.0.0.1:8000/api/certificado/${parseInt(this.firma1)}/${parseInt(this.firma2)}/`;
+          console.log(datosSolicitud);
+    
+          // Realizar la solicitud a la URL del certificado con datos en el cuerpo
+          this.certificadoService.generarCertificado(urlCompleta, datosSolicitud).subscribe(
+            (response) => {
+              this.router.navigate(['eventos/usuarios'])
+              console.log(`Certificado generado para el participante ${idParticipante}:`, response);
+              // Puedes manejar la respuesta aquí, por ejemplo, mostrar un mensaje en la interfaz de usuario
+            },
+            (error) => {
+             
+              
+              console.error(`Error al generar certificado para el participante ${idParticipante}:`, error);
+              // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje de error en la interfaz de usuario
+            }
+          );
+        });
+      } else {
+        console.error('Por favor, complete las firmas y seleccione al menos un participante.');
+      }
     }
-  }
-  
+    
 }

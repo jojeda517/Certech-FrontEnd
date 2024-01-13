@@ -104,8 +104,12 @@ export class UsuariosComponent implements OnInit {
   mostrarcertificados() {
     this.router.navigate(['eventos/seccionCertificados']);
   }
-  editarParticipante(id_participante: string) {
-    this.router.navigate(['eventos/usuarios/formEstudiante/', id_participante]);
+  editarParticipante(participante: string) {
+    this.router.navigate(['eventos/usuarios/formEstudiante/', participante]);
+  }
+  eliminarParticipanteLocal(participante: any): void {
+    this.userService.eliminarUsuario(participante)  
+    this.eliminarParticipante(participante.id_participamte);
   }
   eliminarParticipante(id_participante: string) {
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este participante?');
@@ -136,17 +140,15 @@ export class UsuariosComponent implements OnInit {
     if (archivo) {
       this.subirArchivo(archivo);
     }
-  }
-
-  subirArchivo(archivo: File) {
+  }subirArchivo(archivo: File) {
     this.userService.subirArchivoExcel(archivo).subscribe(
       (response) => {
-        console.log('Archivo subido correctamente:', response);{
-          
-        }
-        this.recargarPagina()
-        // Manejar la respuesta aquí si es necesario
+        console.log('Archivo subido correctamente:', response);
         
+        // Agregar los nuevos datos al estado del servicio
+        this.userService.agregarArchivoSubido(response);
+        
+        // Manejar la respuesta aquí si es necesario
       },
       (error) => {
         console.error('Error al subir el archivo:', error);
@@ -154,13 +156,15 @@ export class UsuariosComponent implements OnInit {
       }
     );
   }
+  
   importarArchivo() {
     if (this.fileInput) {
       this.fileInput.nativeElement.click(); // Activa el input de tipo file
     }
   }
+  
   recargarPagina(): void {
     window.location.reload();
   }
-  }
   
+}

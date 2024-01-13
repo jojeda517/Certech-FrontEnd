@@ -38,7 +38,7 @@ search(): void {
     (data: any) => {
       this.certificadoData = data;
       // Supongamos que certificadoData.url contiene la URL del PDF
-      this.certificadoData.url = this.sanitizer.bypassSecurityTrustResourceUrl('http://34.125.254.116:8000/' + this.certificadoData.url);
+      this.certificadoData.url = this.sanitizer.bypassSecurityTrustResourceUrl('http://127.0.0.1:8000/' + this.certificadoData.url);
 
     },
     (error: HttpErrorResponse) => {

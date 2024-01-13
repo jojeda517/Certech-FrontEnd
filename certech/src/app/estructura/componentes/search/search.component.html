@@ -44,11 +44,13 @@
             <div class="card" *ngFor="let certificado of certificados">
               <div class="card-header">
                 
-                <h4>Código Único: {{ certificado.codigo_unico }}</h4>
+                <h4>Evento: {{ certificado.evento }}</h4>
               </div>
               <div class="card-body">
                 <!-- <p><strong>Enlace:</strong> <a [href]="'http://34.125.254.116:8000/' + certificado.url" target="_blank">Ver Certificado</a></p>-->
-                <p><strong>Nombre del Evento:</strong> {{ getNombreEvento(certificado.id_evento) }}</p>
+                <p>Participante :{{certificado.nombre_apellido }}</p>
+                  <p>Fecha de certificacion :{{certificado.fecha }}</p>
+                    <p>codigo de validacion :{{certificado.codigo_unico }}</p>
                 <button (click)="verCertificado(certificado.url)">Ver Certificado</button>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlantillaService } from 'src/app/servicios/plantilla.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class FormPlantillaComponent implements OnInit {
   nuevaPlantilla: any = {};
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private plantillaService: PlantillaService
   ) {}
@@ -34,7 +35,13 @@ export class FormPlantillaComponent implements OnInit {
   }
 
   cancelar() {
-    this.router.navigate(['/eventos/seccionCertificados']);
+    this.route.queryParams.subscribe(params => {
+      const id= params['id'];
+      console.log(id)
+      // Asegúrate de que estás usando el nombre correcto del parámetro en queryParams
+      this.router.navigate(['/eventos/seccionCertificados'], { queryParams: { id: id} });
+    });
+ 
   }
 
   agregarOEditarPlantilla(): void {
@@ -45,9 +52,13 @@ export class FormPlantillaComponent implements OnInit {
       (response) => {
         console.log('Plantilla agregada con éxito:', response);
         // Puedes realizar acciones adicionales después de agregar la plantilla
-
-        // Navegar a la página "/eventos/seccionCertificados" y recargar automáticamente
-        this.router.navigate(['/eventos/seccionCertificados'], { queryParams: { reload: true } });
+        this.route.queryParams.subscribe(params => {
+          const id = params['id'];
+          console.log(id);
+          // Asegúrate de que estás usando el nombre correcto del parámetro en queryParams
+          this.router.navigate(['/eventos/seccionCertificados'], { queryParams: { reload: true, id: id } });
+        });
+       
       },
       (error) => {
         console.error('Error al agregar plantilla:', error);

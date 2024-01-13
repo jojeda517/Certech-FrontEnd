@@ -24,21 +24,33 @@
     
       ngOnInit(): void {
         this.route.params.subscribe(params => {
-          const idParticipante = params['id_participante'];
-    
-          if (idParticipante) {
-            this.userService.getParticipantes(idParticipante).subscribe(
-              (data: any) => {
-                if (data && data.participante) {
-                  this.id_participante = data.participante.id_participante;
-                  this.cedula = data.participante.cedula;
-                  this.nombre_apellido = data.participante.nombre_apellido;
-                  this.celular = data.participante.celular;
-                  this.correo = data.participante.correo;
-    
-                  console.log('Participante obtenido:', data.participante);
+          const id_participante = params['id_participante'];
+      
+          if (id_participante) {
+            this.userService.getParticipantes(id_participante).subscribe(
+              (response: any) => {
+                console.log('Respuesta completa del servicio:', response);
+      
+                if (response && response.participantes) {
+                  const participantesArray = response.participantes;
+      
+                  if (participantesArray.length > 0) {
+                    const participante = participantesArray[0]; // Tomar el primer elemento del array
+                    this.id_participante = participante.id_participante;
+                    this.cedula = participante.cedula;
+                    this.nombre_apellido = participante.nombre_apellido;
+                    this.celular = participante.celular;
+                    this.correo = participante.correo;
+      
+                    console.log('Participante obtenido:', participante);
+      
+                    // Aquí puedes realizar cualquier lógica adicional que dependa de la información obtenida
+                    // ya que estás dentro del bloque subscribe y tienes acceso a los datos.
+                  } else {
+                    console.error('El array de participantes está vacío.');
+                  }
                 } else {
-                  console.error('La respuesta del servicio no tiene la estructura esperada.');
+                  console.error('La propiedad participantes no existe en la respuesta del servicio.');
                 }
               },
               (error) => {
@@ -49,7 +61,7 @@
         });
       }
       
-    
+      
       mostrarEventos(): void {
         this.router.navigate(['/dashboard']);
       }
@@ -61,6 +73,7 @@
       mostrarFirmas(): void {
         this.router.navigate(['/firmas']);
       }
+    
     
       guardar(): void {
         if (this.nombre_apellido && this.celular && this.cedula && this.correo) {
@@ -93,8 +106,14 @@
             this.userService.crearParticipante(this.cedula, this.nombre_apellido, this.celular, this.correo)
               .subscribe(
                 (response) => {
+                  this.route.queryParams.subscribe(params => {
+                    const id= params['id'];
+                    console.log(id)
+                    // Asegúrate de que estás usando el nombre correcto del parámetro en queryParams
+                    this.router.navigate(['/eventos/usuarios'], { queryParams: { id: id} });
+                  });
           
-                  this.router.navigate(['/eventos/usuarios']);
+                
                 },
                 (error) => {
                   console.error('Error al crear el participante:', error);
@@ -109,4 +128,7 @@
       cancelar(): void {
         this.location.back();
       }
+     /* actualizarParticipante(participanteActualizado: any): void {
+        this.userService.actualizarUsuario(participanteActualizado);
+      }*/
     }

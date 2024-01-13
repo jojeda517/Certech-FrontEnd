@@ -16,7 +16,7 @@ export class SearchComponent  {
   constructor(private http: HttpClient, private router: Router) { }
 
   buscarCertificados() {
-    const apiUrl = `http://34.125.254.116:8000/api/certificadoParticipante/${this.cedula}/`;
+    const apiUrl = `http://127.0.0.1:8000/api/certificadoParticipante/${this.cedula}/`;
 
     this.http.get(apiUrl).subscribe((data: any) => {
       this.certificados = this.formatFechaCertificados(data.certificados);
@@ -56,7 +56,7 @@ export class SearchComponent  {
   obtenerNombresEventos() {
     // Itera sobre los certificados y realiza una solicitud para obtener el nombre de cada evento
     for (const certificado of this.certificados) {
-      const apiUrl = `http://34.125.254.116:8000/api/evento/${certificado.id_evento}/`;
+      const apiUrl = `http://127.0.0.1:8000/api/evento/${certificado.id_evento}/`;
 
       this.http.get(apiUrl).subscribe((data: any) => {
         // Asigna el nombre del evento al certificado correspondiente
