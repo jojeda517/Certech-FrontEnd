@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { of } from 'rxjs';
 import { UserService } from 'src/app/servicios/user.service';
 
 @Component({
@@ -17,9 +18,11 @@ export class UsuariosComponent implements OnInit {
     celular: '',
     correo: ''
   };
+  
   @ViewChild('fileInput') fileInput: ElementRef | undefined;
   constructor(private router: Router, private userService: UserService,private route: ActivatedRoute) {}
   ngOnInit(): void {
+    this.cargarUsuarios()
     this.route.queryParams.subscribe(params => {
       const idEvento = params['idEvento'];
   
@@ -31,7 +34,17 @@ export class UsuariosComponent implements OnInit {
       }
     });
   }
-  
+  cargarUsuarios(): void {
+    this.userService.obtenerUsuarios().subscribe(
+      (usuarios: any[]) => {
+        this.participantes = usuarios;
+      },
+      (error) => {
+        console.error('Error al cargar usuarios:', error);
+      }
+    );
+   
+  }
 
   filtrarCedula(): void {
     this.userService.obtenerparticipante().subscribe(
@@ -53,11 +66,14 @@ export class UsuariosComponent implements OnInit {
     );
   }
   cargarParticipantes(idEvento :string): void {
+   
     this.userService.getParticipantes(idEvento).subscribe(
       (response) => {
         if (response && response.participantes) {
           this.participantes = response.participantes;
+          
         }
+        
       },
       (error) => {
         console.error('Error al cargar participantes:', error);

@@ -10,8 +10,8 @@
     })
     export class FormEstudianteComponent  implements OnInit {
       id_participante: string | undefined = "";
-      telefono: string = "";
-      nombre: string = "";
+      celular: string = "";
+      nombre_apellido: string = "";
       cedula: string = "";
       correo: string = "";
     
@@ -32,8 +32,8 @@
                 if (data && data.participante) {
                   this.id_participante = data.participante.id_participante;
                   this.cedula = data.participante.cedula;
-                  this.nombre = data.participante.nombre_apellido;
-                  this.telefono = data.participante.celular;
+                  this.nombre_apellido = data.participante.nombre_apellido;
+                  this.celular = data.participante.celular;
                   this.correo = data.participante.correo;
     
                   console.log('Participante obtenido:', data.participante);
@@ -48,6 +48,7 @@
           }
         });
       }
+      
     
       mostrarEventos(): void {
         this.router.navigate(['/dashboard']);
@@ -62,11 +63,11 @@
       }
     
       guardar(): void {
-        if (this.nombre && this.telefono && this.cedula && this.correo) {
+        if (this.nombre_apellido && this.celular && this.cedula && this.correo) {
           const actualizarData = {
             cedula: this.cedula,
-            nombre: this.nombre,
-            telefono: this.telefono,
+            nombre_apellido: this.nombre_apellido,
+            celular: this.celular,
             correo: this.correo
           };
     
@@ -81,10 +82,18 @@
                 }
               );
           } else {
-            this.userService.crearParticipante(this.cedula, this.nombre, this.telefono, this.correo)
+            const nuevoParticipante = {
+              cedula: this.cedula,
+              nombre_apellido: this.nombre_apellido,
+              celular: this.celular,
+              correo: this.correo 
+            };
+        
+            this.userService.agregarParticipante(nuevoParticipante);
+            this.userService.crearParticipante(this.cedula, this.nombre_apellido, this.celular, this.correo)
               .subscribe(
                 (response) => {
-                  console.log('Participante creado:', response);
+          
                   this.router.navigate(['/eventos/usuarios']);
                 },
                 (error) => {

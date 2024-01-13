@@ -32,6 +32,8 @@ import { ValiddorInicoComponent } from './paginas/validdor-inico/validdor-inico.
 import { TerminoycondicionComponent } from './paginas/terminoycondicion/terminoycondicion.component';
 import { FormPlantillaComponent } from './form-plantilla/form-plantilla.component';
 import { ObjecToArray } from './componentes/formularios/form-certificado/ObjecToArray';
+import { PruebaComponent } from './paginas/prueba/prueba.component';
+import { FormParticipanteComponent } from './componentes/formularios/form-participante/form-participante.component';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { ObjecToArray } from './componentes/formularios/form-certificado/ObjecTo
     ValiddorInicoComponent,
     TerminoycondicionComponent,
     FormPlantillaComponent,
-    ObjecToArray
+    ObjecToArray,
+    PruebaComponent,
+    FormParticipanteComponent
     
     
   ],

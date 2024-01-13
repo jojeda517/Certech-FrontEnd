@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Usuario } from '../componentes/formularios/form-estudiante/usuario.model';
 
@@ -8,14 +8,16 @@ import { Usuario } from '../componentes/formularios/form-estudiante/usuario.mode
   providedIn: 'root'
 })
 export class UserService {
+  private participantes: any[] = [];
 
   private apiUrl = 'http://127.0.0.1:8000/api/participante/';
   private apifile = 'http://127.0.0.1:8000/api/participantefile/';
   private apiEst = 'http://127.0.0.1:8000/api/participanteEvento/';
   constructor(private http: HttpClient) {}
+
   
   obtenerparticipante(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}`);
+    return this.http.get<any[]>(`${this.apiUrl}`);
   }
  
   getParticipantes(idParticipante?: string): Observable<any> {
@@ -53,4 +55,14 @@ export class UserService {
   }
 
 
+  
+  obtenerUsuarios(): Observable<any[]> {
+    // Simulamos una solicitud HTTP para obtener usuarios
+    return of(this.participantes);
+  }
+  agregarParticipante(participante: any): void {
+    this.participantes.push(participante);
+  }
+
+  // Otros métodos del servicio, como agregar, editar, eliminar, etc., podrían ir aquí...
 }

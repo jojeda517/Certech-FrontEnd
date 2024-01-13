@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Route, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { CertificadosService } from 'src/app/servicios/certificados.service';
 import { EventoService } from 'src/app/servicios/evento.service';
 import { FirmaService } from 'src/app/servicios/firma.service';
 import { PlantillaService } from 'src/app/servicios/plantilla.service';
+import { UserService } from 'src/app/servicios/user.service';
 
 @Component({
   selector: 'app-form-certificado',
@@ -12,6 +14,13 @@ import { PlantillaService } from 'src/app/servicios/plantilla.service';
   styleUrls: ['./form-certificado.component.css']
 })
 export class FormCertificadoComponent implements OnInit {
+  usuarios:any[]=[];
+  usuariosnube:any[]=[]
+  participantes: any[] = [];
+  participantesLocal: any[] = [];
+  todosParticipantes:any[]=[]
+  private subscription: Subscription = new Subscription;
+
   eventoSeleccionado: any; // Puedes ajustar el tipo según la estructura de tus datos
   firmas: any[] = [];
   eventos: any[] = [];
@@ -27,14 +36,30 @@ export class FormCertificadoComponent implements OnInit {
     private eventoService: EventoService,
     private plantillaService: PlantillaService,
     private certificadoService: CertificadosService,
+    private userService: UserService,
     private sanitizer: DomSanitizer
   ) {}
-
   ngOnInit(): void {
     this.traerfirmas();
     this.traerEventos();
     this.traerPlantillas();
+    this.subscription = this.userService.obtenerUsuarios().subscribe(
+      (data: any) => {
+        // Actualizar la variable participantes con los datos obtenidos
+        this.participantes = data;
+        this.participantesLocal = [...this.participantes];
+      },
+      error => {
+        console.error('Error al obtener participantes:', error);
+      }
+    );
+    this.obtenerParticipantes()
+ 
+
   }
+
+     
+ 
 
   sanitizeUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
@@ -59,12 +84,34 @@ export class FormCertificadoComponent implements OnInit {
   cancelar(): void {
     this.router.navigate(['/eventos/usuarios']);
   }
-
+  obtenerParticipantes() {
+    this.userService.obtenerparticipante().subscribe(
+      (data: any) => {
+        // Verificar que data.participantes sea un array
+        if (Array.isArray(data.participantes) && data.participantes.length > 0) {
+          // Almacenar los datos en el array usuariosnube
+          this.usuariosnube = data.participantes;
+  
+        
+  
+          // Resto del código si es necesario
+  
+        } else {
+          console.error('El servicio no devolvió un array de participantes válido:', data);
+        }
+      },
+      error => {
+        console.error('Error al obtener participantes:', error);
+      }
+    );
+  }
+  
+  
+  
   traerfirmas() {
     this.firmaService.obtenerFirmas().subscribe(
       (data: any[]) => {
         this.firmas = Object.values(data);
-        console.log('Firmas obtenidas:', this.firmas);
       },
       (error) => {
         console.error('Error al obtener firmas:', error);
@@ -88,7 +135,6 @@ export class FormCertificadoComponent implements OnInit {
     this.plantillaService.obtenerPlantillas().subscribe(
       (data: any[]) => {
         this.plantillas = Object.values(data);
-        console.log('Plantillas obtenidas:', this.plantillas);
       },
       (error) => {
         console.error('Error al obtener plantillas:', error);
@@ -114,19 +160,47 @@ export class FormCertificadoComponent implements OnInit {
   seleccionarPlantillavista() {
     console.log('ID de la plantilla seleccionada:', this.plantilla);
   }
-  generarvertificado(){
+  obtenerIds() {
+    console.log("Estudiantes Nube:", this.usuariosnube);
+    console.log("Participantes Local:", this.participantesLocal);
+  
+    this.participantesLocal.forEach(participanteLocal => {
+      const cedulaBuscada = participanteLocal.cedula;
+      const elementoConId = this.usuariosnube.find(item => item.cedula === cedulaBuscada);
+  
+      if (elementoConId) {
+        this.participantesSeleccionados.push(elementoConId.id_participante)
+        console.log(`Cédula: ${cedulaBuscada}, Id correspondiente: ${elementoConId.id_participante}`);
+        // Aquí puedes hacer lo que necesites con el id encontrado
+      } else {
+        console.log(`No se encontró la cédula ${cedulaBuscada} en listaConId`);
+      }
+    });
+  }
+  
+  
+  
+  correr(){
+    this.obtenerIds()
+  }
+    
+  generarCertificado() {
+    this.correr();
+    console.log(this.participantesSeleccionados);
+  
     if (this.firma1 && this.firma2 && this.participantesSeleccionados.length > 0) {
       // Iterar sobre cada ID de participante y realizar la solicitud a la URL del certificado con datos en el cuerpo
       this.participantesSeleccionados.forEach((idParticipante) => {
         const datosSolicitud = {
           id_administrador: 1,
-          id_participante: parseInt(idParticipante), // Asegúrate de convertir a número si es necesario
-          id_evento: this.eventoSeleccionado,
-          id_plantilla: this.plantilla
+          id_participante: parseInt(idParticipante, 10), // Corregir aquí
+          id_evento: parseInt(this.eventoSeleccionado, 10),
+          id_plantilla: parseInt(this.plantilla, 10)
         };
-
+  
         const urlCompleta = `http://127.0.0.1:8000/api/certificado/${this.firma1}/${this.firma2}/`;
-
+        console.log(datosSolicitud);
+  
         // Realizar la solicitud a la URL del certificado con datos en el cuerpo
         this.certificadoService.generarCertificado(urlCompleta, datosSolicitud).subscribe(
           (response) => {
@@ -143,4 +217,5 @@ export class FormCertificadoComponent implements OnInit {
       console.error('Por favor, complete las firmas y seleccione al menos un participante.');
     }
   }
+  
 }

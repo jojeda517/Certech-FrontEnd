@@ -1,0 +1,42 @@
+
+<br>
+<br>
+<br>
+<br>
+<div class="botonesAccion">
+    <button type="button" class="btn btn-agregar" (click)="AgregarEstudiante()">
+        <i class="fa-solid fa-user-plus"></i> Agregar
+    </button>
+    <button type="button" class="btn btn-importar" (click)="importarArchivo()">
+        <i class="fa-solid fa-upload"></i> Importar
+    </button>
+</div>
+
+<div class="container-tabla">
+    <div *ngIf="participantes.length > 0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Cedula</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let participante of participantes; let i = index">
+                    <td>{{ participante.cedula }}</td>
+                    <td>{{ participante.nombre_apellido }}</td>
+                    <td>{{ participante.correo }}</td>
+                    <td>{{ participante.celular }}</td>
+                    <td>
+                       
+                      
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

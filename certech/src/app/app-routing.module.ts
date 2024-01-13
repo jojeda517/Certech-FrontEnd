@@ -19,6 +19,8 @@ import { ValiddorInicoComponent } from './paginas/validdor-inico/validdor-inico.
 import { VistaCertificadoComponent } from './paginas/vista-certificado/vista-certificado.component';
 import { TerminoycondicionComponent } from './paginas/terminoycondicion/terminoycondicion.component';
 import { FormPlantillaComponent } from './form-plantilla/form-plantilla.component';
+import { PruebaComponent } from './paginas/prueba/prueba.component';
+import { FormParticipanteComponent } from './componentes/formularios/form-participante/form-participante.component';
 
 
 const routes: Routes = [
@@ -78,6 +80,8 @@ const routes: Routes = [
     { path: 'vista-certificado', component: VistaCertificadoComponent},
     { path: 'terminoycondiciones', component: TerminoycondicionComponent},
     { path: 'eventos/formPlantilla', component: FormPlantillaComponent },
+    { path: 'prueba', component: PruebaComponent },
+    { path: 'formularioprueba', component: FormParticipanteComponent },
   ];
     
 
