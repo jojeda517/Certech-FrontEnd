@@ -9,6 +9,7 @@ import { UserService } from 'src/app/servicios/user.service';
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit {
+  @ViewChild('downloadLink') downloadLink!: ElementRef;
   participantes: any[] = [];
   participanteAEditar: any = {}; 
   filtroCedula: string = '';
@@ -140,15 +141,16 @@ export class UsuariosComponent implements OnInit {
     if (archivo) {
       this.subirArchivo(archivo);
     }
-  }subirArchivo(archivo: File) {
+  }
+  subirArchivo(archivo: File) {;
+    
+    console.log(archivo)
     this.userService.subirArchivoExcel(archivo).subscribe(
       (response) => {
         console.log('Archivo subido correctamente:', response);
         
-        // Agregar los nuevos datos al estado del servicio
         this.userService.agregarArchivoSubido(response);
-        
-        // Manejar la respuesta aquí si es necesario
+        console.log(response)
       },
       (error) => {
         console.error('Error al subir el archivo:', error);
@@ -163,8 +165,18 @@ export class UsuariosComponent implements OnInit {
     }
   }
   
-  recargarPagina(): void {
-    window.location.reload();
+  
+  descargarplantilla(): void{
+
+    const rutaArchivo = '/assets/archivos/plantilla.xlsx'; // Ajusta la ruta según tu estructura
+
+    // Crear un enlace temporal
+    const enlaceDescarga = this.downloadLink.nativeElement;
+    enlaceDescarga.href = rutaArchivo;
+    enlaceDescarga.download = 'plantilla.xlsx'; // Nombre del archivo al descargar
+
+    // Simular clic en el enlace para iniciar la descarga
+    enlaceDescarga.click();
   }
   
 }

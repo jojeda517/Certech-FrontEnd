@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEventos();
+   
   }
 
   getEventos(): void {
@@ -43,6 +44,7 @@ export class DashboardComponent implements OnInit {
   }
  editarEvento(idEvento: string){
     this.router.navigate(['eventos/formenevtAct',idEvento]);
+    this.recargarPagina()
  }
  eliminarEvento(idEvento: string){
   const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este evento?');
@@ -69,5 +71,7 @@ export class DashboardComponent implements OnInit {
   mostrarEventos(): void {
     this.router.navigate(['/dashboard']);
   }
-  
+  recargarPagina(): void {
+    window.location.reload();
+  }
 }

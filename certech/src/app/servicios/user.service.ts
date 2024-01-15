@@ -78,8 +78,8 @@ export class UserService {
     }
   }
   // Otros métodos del servicio, como agregar, editar, eliminar, etc., podrían ir aquí...
-  agregarArchivoSubido(archivo: any): void {
-    this.participantes.push(archivo);
+  agregarArchivoSubido(response: any[]): void {
+    this.participantes.push(...response);
     
   }
 }

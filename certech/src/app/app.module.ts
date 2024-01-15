@@ -34,6 +34,7 @@ import { FormPlantillaComponent } from './form-plantilla/form-plantilla.componen
 import { ObjecToArray } from './componentes/formularios/form-certificado/ObjecToArray';
 import { PruebaComponent } from './paginas/prueba/prueba.component';
 import { FormParticipanteComponent } from './componentes/formularios/form-participante/form-participante.component';
+import { NotificacioComponent } from './componentes/formularios/notificacio/notificacio.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { FormParticipanteComponent } from './componentes/formularios/form-partic
     FormPlantillaComponent,
     ObjecToArray,
     PruebaComponent,
-    FormParticipanteComponent
+    FormParticipanteComponent,
+    NotificacioComponent
     
     
   ],

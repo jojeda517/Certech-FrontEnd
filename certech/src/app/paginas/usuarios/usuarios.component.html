@@ -23,7 +23,14 @@
                 </button>
                  </div>
             </form>
+            
             <div class="botonesAccion">
+                    
+                <button type="button" class="btn btn-agregar" (click)="descargarplantilla()">
+                    <i class="fa-solid fa-file"></i> Plantilla
+                </button>
+                <a #downloadLink style="display: none"></a>
+                
                 <button type="button" class="btn btn-agregar" (click)="AgregarEstudiante()">
                     <i class="fa-solid fa-user-plus"></i> Agregar
                 </button>
@@ -55,10 +62,7 @@
                         <td>{{ participante.celular }}</td>
                         <td>
                             <div class="botonesTabla">
-                                <button class="btn btn-primary" (click)="editarParticipante(participante.id_participante)">
-                                    <i class="fa-solid fa-pen"></i>
-                                    <!--Editar-->
-                                </button>
+                                
                                 <button type="button" class="delete-btn btn btn-primary"
                                     (click)="eliminarParticipanteLocal(participante)">
                                     <i class="fa-solid fa-trash"></i> 

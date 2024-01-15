@@ -24,6 +24,7 @@
     "docxtemplater": "^3.43.0",
     "html2pdf.js": "^0.10.1",
     "jquery": "^3.6.0",
+    "ngx-toastr": "^18.0.0",
     "pizzip": "^3.1.4",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

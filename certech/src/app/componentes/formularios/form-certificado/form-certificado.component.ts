@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { CertificadosService } from 'src/app/servicios/certificados.service';
 import { EventoService } from 'src/app/servicios/evento.service';
 import { FirmaService } from 'src/app/servicios/firma.service';
+import { MessageService } from 'src/app/servicios/message.service';
 import { PlantillaService } from 'src/app/servicios/plantilla.service';
 import { UserService } from 'src/app/servicios/user.service';
 
@@ -33,6 +34,7 @@ export class FormCertificadoComponent implements OnInit {
   plantilla: any;
 
   constructor(
+    private notificationService: MessageService,
     private route: ActivatedRoute,
     private router: Router,
     private firmaService: FirmaService,
@@ -210,8 +212,12 @@ export class FormCertificadoComponent implements OnInit {
           // Realizar la solicitud a la URL del certificado con datos en el cuerpo
           this.certificadoService.generarCertificado(urlCompleta, datosSolicitud).subscribe(
             (response) => {
-              this.router.navigate(['eventos/usuarios'])
+              this.router.navigate(['eventos/usuarios']);
+              
+              const confirmacion = new window.Text('Agregado con exito');
               console.log(`Certificado generado para el participante ${idParticipante}:`, response);
+              
+
               // Puedes manejar la respuesta aquí, por ejemplo, mostrar un mensaje en la interfaz de usuario
             },
             (error) => {
@@ -227,4 +233,7 @@ export class FormCertificadoComponent implements OnInit {
       }
     }
     
+    mostrarNotificacion(): void {
+      this.notificationService.showNotification('Certificado creado con éxito');
+    }
 }
