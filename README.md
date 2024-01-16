@@ -97,8 +97,6 @@ La aplicación sigue una arquitectura cliente-servidor, donde el frontend está 
 
 [Arquitectura del sistema](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G10AajVMzn1NRNjU-OtxDlLGf7yIs1wqpH)
 
-[![Texto Alternativo](https://utaedu-my.sharepoint.com/:i:/g/personal/kmoyolema3943_uta_edu_ec/EVO1IeOg1mpNgrA1gl5NOOwB0soRZBFbclXmABbewIDTOg?e=PeZ6hD)](https://utaedu-my.sharepoint.com/:i:/g/personal/kmoyolema3943_uta_edu_ec/EVO1IeOg1mpNgrA1gl5NOOwB0soRZBFbclXmABbewIDTOg?e=PeZ6hD)
-
 
 [Diagrama BD](https://dbdiagram.io/d/654815217d8bbd64658804d9)
 
