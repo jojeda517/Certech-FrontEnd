@@ -73,11 +73,11 @@
 }
 
 .btnAgregar{
-    color: #190482;
+    color: #AD272E;
 }
 
 .btnAgregar:hover{
-    color: #190482;
+    color: #AD272E;
 }
 
 
@@ -115,7 +115,7 @@
   .edit-btn {
     width: 30px;
     height: 30px;
-    background-color: #1d45ca;
+    background-color: #621C19;
     color: #fff;
     border: none;
     padding: 5px;
@@ -128,7 +128,7 @@
 }
   
   .edit-btn:hover {
-    background-color: #1d45ca;
+    background-color: #621C19;
   }
   
   /* Estilos para el icono en el botón */

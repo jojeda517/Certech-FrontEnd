@@ -30,22 +30,22 @@
 
 .btnParticipantes{
     margin: 10px;
-    background: #190482;
+    background: #AD272E;
 }
 
 .btnParticipantes:hover{
-    background-color: #190482;
+    background-color: #AD272E;
 }
 
 .btnCertificados{
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: #fff;
-    color: #190482;
+    color: #AD272E;
 }
 
 .btnCertificados:hover{
-    background-color: #190482;
+    background-color: #AD272E;
     color: #fff;
 }
 
@@ -63,7 +63,7 @@
 
 .btn-agregar, 
 .btn-importar{
-    background-color: #190482;
+    background-color: #AD272E;
     color: #fff;
     margin-left: 10px;
     border-radius: 10px;
@@ -73,7 +73,7 @@
 
 .btn-agregar:hover, 
 .btn-importar:hover{
-    background-color: #8361fe;
+    background-color: #621C19;
     color: #fff;
     transform: scale(1.05);
 }

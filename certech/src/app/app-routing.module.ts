@@ -43,7 +43,7 @@ const routes: Routes = [
     
     },
     {path:'validacion', component:ValidacionComponent
-    //,canActivate: [AuthGuard]
+    //,canActivate: [AuthGuard] 
     },
     {path:'eventos/usuarios', component:UsuariosComponent
     //,canActivate: [AuthGuard]

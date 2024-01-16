@@ -44,7 +44,7 @@
   }
   
   .form-group button {
-    background-color: #190482;
+    background-color: #AD272E;
     color: #fff;
     padding: 10px;
     border: none;
@@ -55,7 +55,7 @@
   }
   
   .form-group button:hover {
-    background-color: #7752FE !important;
+    background-color: #621C19 !important;
     transform: scale(1.05);
   }
 
@@ -72,12 +72,12 @@
   }
   
   .forgot-password a {
-    color: #190482;
+    color: #AD272E;
     text-decoration: none;
   }
   
   .forgot-password a:hover {
-    color: #7752FE;
+    color: #621C19;
     text-decoration: underline;
   }
   

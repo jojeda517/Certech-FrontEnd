@@ -25,4 +25,7 @@ export class HeaderComponent implements OnInit {
     // Redirige a la ruta '/login'
     this.router.navigate(['/login']);
   }
+  cerrarSesion(): void {
+    this.authService.logout(); // Llama al método logout del servicio AuthService
+  }
 }

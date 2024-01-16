@@ -105,14 +105,14 @@ app-firmas {
 
 
   .botonesTabla button{
-    background-color: #190482;
+    background-color: #AD272E;
     border-radius: 10px;
     transition: transform 0.3s ease;
     border: none;
   }
 
   .botonesTabla button:hover{
-    background-color: #7752FE !important;
+    background-color: #621C19 !important;
     transform: scale(1.05);
   }
 

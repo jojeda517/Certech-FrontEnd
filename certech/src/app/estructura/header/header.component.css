@@ -1,5 +1,7 @@
 header {
-    background-color: #ECF2FF;
+    
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2   );
     padding: 10px 20px 5px 20px;
     display: flex;
     justify-content: space-between;
@@ -13,8 +15,9 @@ header {
   }
   
   .logo {
-      width: 15vw;
-      height: auto;
+    margin-left: 50px;
+      width: auto;
+      height: 60px;
       cursor: pointer;
       transition: transform 0.3s ease;
   }
@@ -25,7 +28,7 @@ header {
   
   .login-button {
     height: auto;
-    background-color: #190482;
+    background-color: #AD272E;
     color: #fff;
     padding: 10px 15px;
     border: none;
@@ -35,7 +38,7 @@ header {
   }
   
   .login-button:hover {
-    background-color: #7752FE;
+    background-color: #AD272E;
     transform: scale(1.05);
   }
   

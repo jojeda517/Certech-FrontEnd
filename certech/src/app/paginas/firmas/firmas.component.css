@@ -29,7 +29,7 @@ h1 {
 }
 
 .btn-agregar {
-    background-color: #190482;
+    background-color: #AD272E;
     color: #ECF2FF;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -40,7 +40,7 @@ h1 {
 }
 
 .btn-agregar:hover {
-    background-color: #7752FE;
+    background-color: #621C19;
     transform: scale(1.05);
     color: #ECF2FF;
 }

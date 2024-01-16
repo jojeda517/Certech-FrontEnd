@@ -45,7 +45,7 @@
   }
   
   .form-group button {
-    background-color: #190482;
+    background-color: #AD272E;
     color: #fff;
     padding: 10px;
     border: none;
@@ -56,7 +56,7 @@
   }
   
   .form-group button:hover {
-    background-color: #7752FE !important;
+    background-color: #621C19 !important;
     transform: scale(1.05);
   }
   
@@ -119,7 +119,7 @@
   }
 
   button {
-    background-color: #4caf50;
+    background-color: #AD272E;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -128,5 +128,5 @@
   }
 
   button:hover {
-    background-color: #45a049;
+    background-color: #621C19;
   }

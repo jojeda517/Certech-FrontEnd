@@ -8,7 +8,7 @@
 .codigoVerificacion button{
   padding: 5px;
   border: none;
-  background-color: #190482;
+  background-color: #AD272E;
   color: #fff;
   width: 150px;
   border-radius: 10px;
@@ -18,7 +18,7 @@
 
 .codigoVerificacion button:hover{
   transform: scale(1.05);
-  background-color: #8361fe;
+  background-color: #621C19;
 }
 
 .contenedorVerificado {

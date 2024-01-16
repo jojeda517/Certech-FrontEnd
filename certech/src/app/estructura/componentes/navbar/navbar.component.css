@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #ECF2FF !important;
+    background-color: #fff !important;
     height: 70px;
 }
 
@@ -8,13 +8,13 @@
 }
 
 .navbar-toggler:hover{
-    background-color: #190482;
+    background-color: #AD272E;
     transform: scale(1.05);
     color: #ECF2FF !important;
 }
 
 .navbar-toggler span i{
-    color:#190482;
+    color:#AD272E;
     font-size: 28px;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .btn {
-    background-color: #190482;
+    background-color: #AD272E;
     color: #ECF2FF;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -33,7 +33,7 @@
 
 .btn:hover {
     transform: scale(1.05);
-    background-color: #7752FE;
+    background-color: #621C19;
     color: #ECF2FF;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .offcanvas{
-    background-color: #05001c!important;
+    background-color: #434343!important;
     max-width: 50vw;
 }
 

@@ -8,8 +8,8 @@
 
 .contenedorBuscador{
   width: 100%;
-  height: 70vh;
-  background-image: url(../../../../assets/images/graduados.jpg);
+  height: 90vh;
+  background-image: url(https://images.unsplash.com/photo-1581291519195-ef11498d1cf2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D  );
   background-size: cover;
   background-position: center;
   display: flex;
@@ -48,7 +48,7 @@
 }
 
 .card-body button {
-  background-color: #190482;
+  background-color: #AD272E;
   color: #fff;
   padding: 5px;
   width: 100%;
@@ -57,13 +57,13 @@
 }
 
 .card-body button:hover {
-  background-color: #7752fe;
+  background-color: #621C19;
 }
 
 
 .form-group {
   margin-top: 15px;
-  width: 50vw;
+  width: 50vw;  
   box-sizing: border-box;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .form-group button {
-  background-color: #190482;
+  background-color: #AD272E;
   color: #fff;
   padding: 10px;
   border: none;
@@ -91,6 +91,6 @@
 }
 
 .form-group button:hover {
-  background-color: #7752FE !important;
+  background-color: #621C19 !important;
   transform: scale(1.05);
 }
