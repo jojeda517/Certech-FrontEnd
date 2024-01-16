@@ -42,50 +42,50 @@ El proyecto CerTech se enfoca en desarrollar un sistema integral de gestión de 
 
 **Nota:** Se recomienda utilizar Visual Studio Code como entorno de desarrollo.
 
-3.## **Configuración del Entorno de Desarrollo:**
+3. ## **Configuración del Entorno de Desarrollo:**
 
 Instalación de Herramientas Básicas:
 
-1. **Instalar Node.js y npm:**
+ **Instalar Node.js y npm:**
    - Descarga e instala Node.js desde <https://nodejs.org/>.
    - Verifica la instalación ejecutando **node -v** y **npm -v**.
-2. **Instalar Angular CLI:**
+ **Instalar Angular CLI:**
    - Ejecuta **npm install -g @angular/cli** para instalar Angular CLI globalmente.
-3. **Instalar Visual Studio Code:**
+ **Instalar Visual Studio Code:**
    - Descarga e instala Visual Studio Code desde https://code.visualstudio.com/.
-3.1  **Configuración del Backend con Django y MySQL:**
-1. **Instalar Python y pip:**
+  ***Configuración del Backend con Django y MySQL:***
+ **Instalar Python y pip:**
    - Descarga e instala Python desde <https://www.python.org/>.
    - Verifica la instalación ejecutando **python --version** y **pip --version**.
-2. **Configurar un entorno virtual:**
+ **Configurar un entorno virtual:**
    - En el directorio del proyecto, ejecuta:
 
 |<p>python -m venv venv</p><p>source venv/bin/activate   # Para sistemas Unix/Linux</p><p># o</p><p>.\venv\Scripts\activate    # Para sistemas Windows</p>|
 | :- |
 
-3. **Instalar Django y bibliotecas requeridas:**
+ **Instalar Django y bibliotecas requeridas:**
    - Ejecuta **pip install django mysqlclient**.
      
-4. **Configurar la base de datos MySQL:**
+ **Configurar la base de datos MySQL:**
    - Crea una base de datos en MySQL llamada certech y actualiza la configuración en el archivo **settings.py** de Django.
      
-3.2 Configuración de Bibliotecas de Python:
+ **Configuración de Bibliotecas de Python:**
 
-1. **Instalar bibliotecas de Python:**
+ **Instalar bibliotecas de Python:**
    - Ejecuta **pip install openpyxl pandas reportlab PyPDF2**.
    - Configuración del Frontend con Angular:
      
-2. **Instalar las dependencias de Angular:**
+ **Instalar las dependencias de Angular:**
    - En el directorio del proyecto Angular, ejecuta **npm install**.
    - Iniciar el Entorno de Desarrollo:
      
-3. **Iniciar el Backend de Django:**
+ **Iniciar el Backend de Django:**
    - Ejecuta **python manage.py runserver** desde el directorio del proyecto Django.
      
-4. **Iniciar el Frontend de Angular:**
+ **Iniciar el Frontend de Angular:**
    - En el directorio del proyecto Angular, ejecuta **ng serve**.
      
-5. **Acceder a la Aplicación:**
+ **Acceder a la Aplicación:**
    - Abre tu navegador y ve a **http://localhost:4200/** para acceder al frontend de Angular.
      
 4. ## **Arquitectura de la Aplicación:**
@@ -155,16 +155,16 @@ La base de datos que estamos utilizando es la mysql y se le proporcionara el sql
 
 8. ## **Manejo de Errores:**
    
-1. **Formato de Respuestas de Error:**
+- **Formato de Respuestas de Error:**
    - Todas las respuestas de error deben seguir un formato consistente que incluya un mensaje descriptivo y, si es posible, información adicional sobre el error.
      
-2. **Logging de Errores:**
+- **Logging de Errores:**
    - Los errores deben registrarse adecuadamente en los registros del servidor para que los desarrolladores puedan rastrear y solucionar problemas.
      
-3. **Notificaciones a Desarrolladores:**
+- **Notificaciones a Desarrolladores:**
    - Considera implementar notificaciones automáticas a los desarrolladores cuando ocurra un error crítico para que puedan abordar rápidamente el problema.
      
-4. **Documentación Clara:**
+- **Documentación Clara:**
    - La documentación de la API debe incluir detalles sobre los posibles errores que pueden ocurrir, cómo manejarlos y posibles soluciones.
 
 **Códigos de Estado HTTP y su Significado:**
@@ -240,37 +240,37 @@ Una vez mandando esos comandos en la terminal y ejecutando XAMPP ya que se encue
 
 11. ## **Recursos Adicionales:**
     
-1. **Django (Backend):**
+- **Django (Backend):**
    - [Documentación Oficial de Django](mailto:https://docs.djangoproject.com/es/5.0/)
    - [Django Rest Framework](https://www.django-rest-framework.org/)
-2. **Angular (Frontend):**
+- **Angular (Frontend):**
    - Documentación Oficial de Angular
    - [Angular](https://angular.io/)
-3. **Base de Datos:**
+- **Base de Datos:**
    - Documentación de MySQL
    - Documentación de PostgreSQL
-4. **Herramientas y Servicios:**
+- **Herramientas y Servicios:**
    - [Gunicorn - Servidor de Aplicaciones para Django](https://gunicorn.org/)
    - Nginx - Servidor Web
 
-** Bibliotecas y Frameworks Utilizados:**
+**Bibliotecas y Frameworks Utilizados:**
 
-1. **Backend (Django):**
+- **Backend (Django):**
    - [Django](https://www.djangoproject.com/)
    - [Django Rest Framework](https://www.django-rest-framework.org/)
    - mysqlclient (Conector MySQL para Django)
      
-2. **Frontend (Angular):**
+- **Frontend (Angular):**
    - [Angular](https://angular.io/)
    - [Node.js](https://nodejs.org/)
    - [npm (Gestor de Paquetes para Node.js)](https://www.npmjs.com/)
      
-3. **Otras Bibliotecas Python Utilizadas:**
+- **Otras Bibliotecas Python Utilizadas:**
    - openpyxl
    - pandas
    - reportlab
      
-4. **Herramientas de Desarrollo:**
+- **Herramientas de Desarrollo:**
    - Visual Studio Code
 
 12. ## **Contacto y Soporte:**
