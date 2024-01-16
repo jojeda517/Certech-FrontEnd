@@ -1,11 +1,11 @@
 
-1. *Introducción:*
+**## 1. Introducción:**
 
 El proyecto CerTech se enfoca en desarrollar un sistema integral de gestión de certificados, desde la planificación hasta la implementación, definiendo recursos y tecnologías. Este informe resalta la importancia de cada fase, desde la planificación hasta el diseño del software, con énfasis en la evaluación y análisis de herramientas para lograr una solución que satisfaga las necesidades del proyecto y mejore la eficiencia y seguridad en la emisión de certificados. Se detalla la fase de diseño del software, la planificación del proyecto y las metodologías de gestión implementadas, destacando la importancia de la toma de decisiones informada. 
 
 2. *Requisitos del Sistema:*
 
-**Hardware:
+**Hardware:**
 
 - **Especificaciones Mínimas:**
   - Procesador: Procesador de doble núcleo a 1.8 GHz o equivalente.
@@ -16,7 +16,7 @@ El proyecto CerTech se enfoca en desarrollar un sistema integral de gestión de 
   - Memoria RAM: 8 GB o superior.
   - Almacenamiento: 50 GB de espacio disponible en disco.
 
-Software:
+**Software:**
 
 - **Sistema Operativo:**
   - Windows 10 (versión 1809 o superior) / macOS 10.14 o superior / Linux (distribuciones compatibles con Angular y Python).
