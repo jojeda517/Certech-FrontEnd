@@ -92,9 +92,7 @@ Instalación de Herramientas Básicas:
 
 La aplicación sigue una arquitectura cliente-servidor, donde el frontend está construido con Angular y el backend utiliza el framework Django. La comunicación entre el frontend y el backend se realiza a través de una API REST. La base de datos MySQL almacena los datos de la aplicación
 
-![Arquitectura del sistema](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G10AajVMzn1NRNjU-OtxDlLGf7yIs1wqpH)
-
-![Imagen Adicional](https://utaedu-my.sharepoint.com/:i:/g/personal/kmoyolema3943_uta_edu_ec/EVO1IeOg1mpNgrA1gl5NOOwB0soRZBFbclXmABbewIDTOg?e=PeZ6hD)
+[Arquitectura del sistema](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G10AajVMzn1NRNjU-OtxDlLGf7yIs1wqpH)
 
 
 [Diagrama BD](https://dbdiagram.io/d/654815217d8bbd64658804d9)
