@@ -1,0 +1,38 @@
+<div class="contenedorPrincipal">
+    <div class="titulo">
+      <h1>Validación de Certificados</h1>
+    </div>
+    <div class="codigoVerificacion">
+      <input type="text" id="searchText" [(ngModel)]="searchText" placeholder="Codigo único del certificado">
+      <button (click)="search()">Verificar</button>
+    </div>
+    <div *ngIf="certificadoData">
+      <div class="contenedorVerificado">
+        <div class="informacion">
+          <h2>Este certificado es auténtico</h2>
+          <p *ngIf="certificadoData.fecha">Fecha de creacion: {{ certificadoData.fecha }}</p>
+    
+          <p>Codigo de verificacion: {{ certificadoData.codigo_unico }}</p>
+        </div>
+        <div class="imagenVerificado">
+          <img src="../../../assets/images/Check.svg" alt="">
+        </div>
+        <!--
+          <a href="{{'http://34.125.254.116:8000/'+ certificadoData.url }}" target="_blank">
+            <button type="button">Ir al Certificado</button>
+          </a>
+        -->
+      </div>
+      <embed [src]="certificadoData.url" type="application/pdf" width="100%" height="700px" />
+    </div>
+    <div *ngIf="verificado == false">
+      <div class="contenedorVerificado">
+        <div class="informacion">
+          <h2>No se ha podido validar la legitimidad del certificado</h2>
+        </div>
+        <div class="imagenVerificado">
+          <img src="../../../assets/images/Error.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>

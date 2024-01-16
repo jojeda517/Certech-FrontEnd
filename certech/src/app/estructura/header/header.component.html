@@ -1,0 +1,7 @@
+<header>
+  <a routerLink="/inicio">
+    <img src="../../assets/images/Logo_UTA.png" alt="Logo" class="logo">
+  </a>
+  <button class="login-button" *ngIf="!authService.isAuthenticated()" (click)="mostrarLogin()">Acceder</button>
+  <button class="login-button" *ngIf="authService.isAuthenticated()" (click)="cerrarSesion()">Cerrar Sesión</button>
+</header>

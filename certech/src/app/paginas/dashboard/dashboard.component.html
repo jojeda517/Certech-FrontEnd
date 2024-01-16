@@ -1,0 +1,38 @@
+<div class="contenedorDashboard">
+  <div class="titulo">
+    <h1>Eventos</h1>
+  </div>
+  <div class="contenedorTarjetas">
+    <div class="" *ngFor="let evento of eventos">
+      <div class="card">
+          <button type="button" class="edit-btn btn btn-primary" (click)="editarEvento(evento.id_evento)">
+            <i class="fas fa-pen-to-square"></i>
+          </button>
+         
+          <button type="button" class="delete-btn btn btn-primary" (click)="eliminarEvento(evento.id_evento)">
+            <i class="fas fa-trash-can"></i>
+            </button>
+        
+        <div class="card-body" (click)="redirigirDetalle(evento.id_evento)" style="cursor: pointer;">
+          <img [src]="'http://127.0.0.1:8000/' + evento.portada" alt="Evento" class="card-img-top">
+          <h2>{{ evento.nombre_evento }}</h2>
+          <p>{{ evento.descripcion_evento }}</p>
+          
+        </div>
+       
+        
+      </div>
+    </div>
+
+    <div class="">
+      <!-- Nueva tarjeta para agregar -->
+      <div class="card">
+        <div class="card-body text-center">
+          <button class="btn btnAgregar" (click)="agregarEvento()"><i class="fa-solid fa-plus"></i><br>
+            <p>Agregar evento</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

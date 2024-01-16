@@ -1,0 +1,40 @@
+.contenedor{
+    margin: 10px 10% 10px 10%;
+  }
+  
+  h3{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-size: 1.5em;
+  }
+  
+  button{
+    background-color: #ECF2FF !important;
+    border: none !important;
+    color: #1B262C !important;
+    padding-right: 30px !important;
+    padding-left: 30px !important;
+    border-radius: 10px !important;
+    margin-right: 10px;
+  }
+  
+  button:hover,
+  button:focus {
+    background-color: #190482 !important;
+    color: #ECF2FF !important;
+    box-shadow: none !important;
+  }
+  
+  .category-buttons{
+    display: flex;
+  }
+  
+  @media (max-width: 1000px){
+    .category-buttons{
+      flex-direction: column;
+    }
+  
+    button{
+      margin-bottom: 10px;
+    }
+  }

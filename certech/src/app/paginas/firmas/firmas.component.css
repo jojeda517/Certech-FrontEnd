@@ -1,0 +1,82 @@
+.container {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 70px);
+    margin-top: 70px;
+    width: 100%;
+}
+
+.container_botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.container_botones {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form-search__input {
+    border: 1px solid #a0a0a0;
+    border-radius: 10px;
+    width: 30vw;
+}
+
+.btn-agregar {
+    background-color: #AD272E;
+    color: #ECF2FF;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-agregar i {
+    margin-right: 10px;
+}
+
+.btn-agregar:hover {
+    background-color: #621C19;
+    transform: scale(1.05);
+    color: #ECF2FF;
+}
+
+.container-tabla {
+    margin: 0;
+    width: 100%;
+}
+
+.imgFirmas {
+    width: 50%;
+}
+
+
+
+td,
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    width: auto;
+}
+
+
+tbody tr {
+    height: 50px;
+}
+
+
+
+.imgFirmas {
+ max-width: 150px;
+ max-height: 100px;
+}
+
+i {
+    box-shadow: none;
+    transform: none;
+}

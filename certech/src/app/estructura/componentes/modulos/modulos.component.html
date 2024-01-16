@@ -1,0 +1,8 @@
+<div class="contenedor">
+    <h3>Filtrar por Categoría</h3>
+    <div class="btn-group category-buttons" role="group">
+      <button *ngFor="let category of categorias" type="button" class="btn btn-secondary" (click)="filterByCategory(category)">
+        {{ category }}
+      </button>
+    </div>
+</div>

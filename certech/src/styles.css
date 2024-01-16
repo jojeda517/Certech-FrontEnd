@@ -1,0 +1,148 @@
+/* You can add global styles to this file, and also import other style files */
+/* styles.css o styles.scss */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+@font-face {
+    font-family: 'HonorSans-Regular';
+    src: url('../src/assets/fonts/HONORSans//HONORSans-Regular.ttf') format('truetype');
+
+}
+@font-face {
+    font-family: 'HonorSans-Bold';
+    src: url('../src/assets/fonts/HONORSans/HONORSans-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'HonorSans-Demibold';
+    src: url('../src/assets/fonts/HONORSans/HONORSans-Demibold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'HonorSans-Thin';
+    src: url('../src/assets/fonts/HONORSans/HONORSans-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'HonorSans-Medium';
+    src: url('../src/assets/fonts/HONORSans/HONORSans-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'HonorSans-ExtraLight';
+    src: url('../src/assets/fonts/HONORSans/HONORSans-ExtraLight.ttf') format('truetype');
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: HonorSans-Regular;
+}
+
+h1{
+    font-family: HonorSans-Bold;
+}
+
+h2{
+    font-family: HonorSans-Demibold;
+}
+
+body{
+    width: 100%;
+}
+
+app-firmas {
+    display: flex;
+    justify-content: center;
+}
+
+.form-search input,
+.form-search input:focus{
+  border: none; 
+  outline: none; 
+  box-shadow: none !important;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.5); 
+  color: #000 !important;
+  border-radius: 10px;
+}
+
+.form-search button{
+  border: none; 
+  outline: none; 
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.35); 
+  color: #000;
+  border-radius: 10px;
+}
+
+.form-search button:hover{
+  border: none; 
+  outline: none; 
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.5); 
+  color: #000;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse; 
+    table-layout: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #d60d0d !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .botonesTabla{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .botonesTabla button{
+    background-color: #AD272E;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    border: none;
+  }
+
+  .botonesTabla button:hover{
+    background-color: #621C19 !important;
+    transform: scale(1.05);
+  }
+
+  .botonesTabla .delete-btn {
+    margin: 10px;
+}
+
+.contenedorTarjetas{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 50px;
+  row-gap: 50px;
+}
+
+@media (max-width: 990px) {
+  .contenedorTarjetas {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .contenedorTarjetas {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.contenedorPrincipal{
+  min-height: calc(100vh - 70px);
+  width: 100vw;
+  margin-top: 70px;
+  padding: 20px 70px 20px 70px;
+}

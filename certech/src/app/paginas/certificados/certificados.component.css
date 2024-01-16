@@ -1,0 +1,35 @@
+.contenedorPrincipal{
+    margin-top: 70px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-canvas {
+    background-color: #f2f2f2;
+}
+
+.botonesAccion{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 20px;
+    margin: 20px;
+}
+
+.botonesAccion button,
+.descargarBtn button,
+.generarBtn button{
+    border: none;
+    background-color: #190482;
+    color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.botonesAccion button:hover,
+.descargarBtn button:hover,
+.generarBtn button:hover{
+    transform: scale(1.05);
+    background-color: #8361fe;
+}

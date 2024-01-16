@@ -1,0 +1,40 @@
+
+
+<div class="login-container">
+    <app-navbar
+    (eventosClick)="mostrarEventos()"
+    (validacionClick)="mostrarValidacion()"
+    (firmasClick)="mostrarFirmas()">
+  </app-navbar>
+      <div class="login-form-container">
+        <label class="bienvenido" for="nomevent"><h1>Agregar Estudiante</h1></label>
+        <form class="login-form">
+          <div class="form-group">
+            <label for="cedula">Cedula:</label>
+            <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" placeholder="Ingrese numero de cedula" required pattern="\d+">
+          </div>
+        
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre_apellido" placeholder="Ingrese nombre completo" required>
+          </div>
+        
+          <div class="form-group">
+            <label for="celular">Telefono:</label>
+            <input type="text" id="celular" name="celular" [(ngModel)]="celular" placeholder="Ingrese numero telefonico" required pattern="\d{10}">
+          </div>
+        
+          <div class="form-group">
+            <label for="correo">Correo electronico:</label>
+            <input type="email" id="correo" name="correo" [(ngModel)]="correo" placeholder="Ingrese el correo electronico" required>
+          </div>
+        
+          <br><br>
+          <div class="form-group formBtn">
+            <button type="button" style="background-color: #AD272E; color: #fff;" (click)="guardar()">Guardar</button>
+            <button type="button" style="background-color: #AD272E; color: #fff;" (click)="cancelar()">Cancelar</button>
+          </div>
+        </form>
+        
+      </div>
+    </div>

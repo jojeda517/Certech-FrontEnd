@@ -1,0 +1,33 @@
+<div class="contenedorPrincipal ">
+
+    <div class="canvas">
+      <div class="col-12 container-canvas">
+        <canvas
+          #canvasRef
+          width="900px"
+          height="700px"
+        ></canvas>
+      </div>
+    </div>
+    <div class="botonesAccion">
+      <div class="descargarBtn">
+        <button class="btn btn-success" (click)="download()">
+          <i class="fa-solid fa-download"></i>
+           Descargar
+        </button>
+      </div>
+      <div class="editarBtn">
+        <button class="btn btn-primary" (click)="editarCertificado()">
+          <i class="fa-solid fa-file-signature"></i>
+           Editar
+        </button>
+      </div>
+      <div class="generarBtn">
+        <button class="btn btn-danger" (click)="generarCertificado()">
+          <i class="fa-solid fa-file-import"></i>
+           Generar
+        </button>
+      </div>
+    </div>
+  </div>
+  

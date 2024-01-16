@@ -1,0 +1,116 @@
+.Tabs{
+    display: flex;
+    flex-direction: row;
+    background-color: #ecf2ff;
+    border-radius: 15px;
+    width: 430px;
+    margin-bottom: 20px;
+}
+
+.Tabs .btn{
+    width: 200px;
+    border-radius: 10px;
+    border: none !important;
+}
+ 
+.btnParticipantes{
+    margin: 10px;
+    background: #fff;
+    color: #AD272E;
+}
+
+.btnParticipantes:hover{
+    background-color: #AD272E;
+}
+
+.btnCertificados{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #AD272E;
+}
+
+.btnCertificados:hover{
+    background-color: #AD272E;
+    color: #fff;
+}
+
+
+.card-body{
+    padding: 0;
+    cursor: pointer; /* Cambio de cursor al pasar sobre el cuerpo de la tarjeta */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+ /* Estilo para el objeto embed (ajusta según tus necesidades) */
+ embed {
+    max-width: 100%; /* Ajustar el ancho máximo al 100% del contenedor */
+    max-height: 100%; /* Ajustar la altura máxima al 100% del contenedor */
+    border: 5px solid #ddd; /* Borde del objeto embed */
+    border-radius: 6px; /* Bordes redondeados del objeto embed */
+  }
+.card{
+    min-height: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+
+
+.card-body button{
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+
+
+.card-body h2{
+    margin: 10px 20px 10px 20px;
+}
+
+.card-body p{
+    margin: 10px 20px 10px 20px;
+    font-family: HonorSans-ExtraLight;
+}
+
+.btnAgregar{
+    color: #AD272E;
+}
+
+.btnAgregar:hover{
+    color: #AD272E;
+}
+.delete-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    right: 2px; /* Ajusta este valor según tus necesidades para mover el botón hacia la derecha */
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  /* Estilos para el icono en el botón */
+  .delete-btn i {
+    margin-right: 5px;
+  }
+  
+  .delete-btn i.fa-trash {
+    font-size: 16px;
+  }
+  

@@ -1,0 +1,48 @@
+/* footer.component.css */
+footer {
+    background-color: #621C19;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100vw;
+    box-sizing: border-box;
+    bottom: 0;
+    position:relative;
+  }
+  
+  
+  p{
+    margin: 0%;
+    font-size: 15px;
+  }
+  
+  img {
+    margin-top: 20px;
+    width: 100px;
+  }
+  
+  .menuFooter{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);;
+    margin: 30px 70px 0 70px;
+    
+  }
+  
+  .menuFooter div a {
+    font-family: HonorSans-Regular;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .menuFooter div a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 1000px){
+    .menuFooter{
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 20px;
+    }
+  }

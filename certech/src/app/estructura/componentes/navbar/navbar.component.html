@@ -1,0 +1,32 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <span>
+          <i class="fa-solid fa-bars"></i>
+        </span>
+      </button>
+      <!-- Nuevo botón "Cerrar Sesión" -->
+      <button class="btn ms-auto" (click)="cerrarSesion()">Cerrar Sesión</button>
+      <!-- Fin del nuevo botón -->
+      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img src="../../assets/images/CerTech_White_Logo.svg" alt="Logo" class="logo"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <button class="nav-link btn btn-link active" (click)="mostrarVentana('eventos')"><i class="fa-solid fa-graduation-cap"></i>Eventos</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link btn btn-link active" (click)="mostrarVentana('firmas')"><i class="fa-solid fa-file-contract"></i>Firmas</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link btn btn-link active" (click)="mostrarVentana('validacion')"><i class="fa-solid fa-file-circle-check"></i>Validación</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  

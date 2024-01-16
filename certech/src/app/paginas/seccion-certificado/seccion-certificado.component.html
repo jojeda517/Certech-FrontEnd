@@ -1,0 +1,40 @@
+<app-navbar (eventosClick)="mostrarEventos()" (validacionClick)="mostrarValidacion()" (firmasClick)="mostrarFirmas()"></app-navbar>
+<div class="contenedorPrincipal">
+  <div class="container_botones">
+    <div>
+        <h1>Usuarios</h1>
+    </div>
+    
+    <div class="Tabs">
+        <!--<app-eventos class="usuariosBtn"></app-eventos>-->
+        <button type="button" class="btnParticipantes btn btn-primary" (click)="goBack()">Participantes</button>
+        <button type="button" class="btnCertificados btn btn-primary">Certificados</button>
+    </div>
+  </div>
+  <div class="contenedorTarjetas">
+      <div class="" *ngFor="let plantilla of plantillas">
+        <div class="card">
+          <button type="button" class="delete-btn btn btn-primary" (click)="borrarPlantilla(plantilla.id_plantilla)">
+            <i class="fas fa-trash"></i>
+            </button>
+          <div class="card-body " style="cursor: pointer;">
+            <!-- Puedes ajustar la lógica según la estructura exacta de tus objetos de plantilla -->
+            <embed [src]="sanitizeUrl('http://127.0.0.1:8000/' + plantilla.plantilla)" type="application/pdf" width="100%" height="600px" />
+            
+          </div>
+             
+ 
+        </div>
+      </div>
+    <div class="card">
+      <div class="card-body text-center">
+        <button class="btn btnAgregar" (click)="agregarCertificado()"><i class="fa-solid fa-plus"></i><br><p>Agregar Certificado</p></button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body text-center">
+        <button class="btn btnAgregar" (click)="agregarPlantilla()"><i class="fa-solid fa-plus"></i><br><p>Agregar Plantilla</p></button>
+      </div>
+    </div>
+  </div>
+</div>

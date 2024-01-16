@@ -1,0 +1,35 @@
+.contenedorPrincipal{
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.encabezado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+
+}
+
+.contenido{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 100px;
+}
+
+p{
+    text-align: justify;
+}
+
+.logoSisTech img {
+    height: 14vh;
+    width: auto;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+/* Resto de los estilos... */

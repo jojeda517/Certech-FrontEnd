@@ -1,0 +1,57 @@
+<app-navbar (eventosClick)="mostrarEventos()" (validacionClick)="mostrarValidacion()" (firmasClick)="mostrarFirmas()"></app-navbar>
+
+<div class="contenedorPrincipal">
+  <div class="contenedor">
+    <div class="titulo">
+      <label class="bienvenido" for="nomevent">
+        <h1>{{ isEditing ? 'Editar' : 'Agregar' }} Evento</h1>
+      </label>
+    </div>
+    <div class="formulario">
+      <form class="evento-form">
+        <div class="form-group">
+          <label for="nombre_evento">Nombre del Evento:</label>
+          <input type="text" id="nombre_evento" name="nombre_evento" [(ngModel)]="nuevoEvento.nombre_evento"
+            placeholder="Ingrese el nombre del evento">
+        </div>
+
+        <div class="form-group">
+          <label for="tipo_evento">Tipo:</label>
+          <select id="tipo_evento" name="tipo_evento" [(ngModel)]="nuevoEvento.tipo_evento">
+            <option value="congreso">Congreso</option>
+            <option value="evento">Evento</option>
+            <option value="curso">Curso</option>
+            <option value="curso">Concurso</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion_evento">Descripción:</label>
+          <input type="text" id="descripcion_evento" name="descripcion_evento"
+            [(ngModel)]="nuevoEvento.descripcion_evento" placeholder="Ingrese la descripción">
+        </div>
+
+        <div class="form-group">
+          <label for="portada">Portada (Archivo de imagen):</label>
+          <input type="file" id="portada" name="portada" (change)="onPortadaSelected($event)">
+        </div>
+
+        <div class="form-group">
+          <label for="logo">Logo (Archivo de imagen):</label>
+          <input type="file" id="logo" name="logo" (change)="onLogoSelected($event)">
+        </div>
+
+        <br><br>
+        <div class="form-group formBtn">
+          <button type="submit" style="background-color: #AD272E; color: #fff;" (click)="agregarOEditarEvento()">
+            <i class="fas fa-save"></i> {{ isEditing ? 'Guardar Cambios' : 'Agregar Evento' }}
+          </button>
+          <button type="button" style="background-color: #AD272E; color: #fff;" (click)="cancelar()">
+            <i class="fas fa-times"></i> Cancelar
+          </button>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>
