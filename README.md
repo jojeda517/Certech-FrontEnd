@@ -1,9 +1,9 @@
 
-**## 1. Introducción:**
+## **Introducción:**
 
 El proyecto CerTech se enfoca en desarrollar un sistema integral de gestión de certificados, desde la planificación hasta la implementación, definiendo recursos y tecnologías. Este informe resalta la importancia de cada fase, desde la planificación hasta el diseño del software, con énfasis en la evaluación y análisis de herramientas para lograr una solución que satisfaga las necesidades del proyecto y mejore la eficiencia y seguridad en la emisión de certificados. Se detalla la fase de diseño del software, la planificación del proyecto y las metodologías de gestión implementadas, destacando la importancia de la toma de decisiones informada. 
 
-2. *Requisitos del Sistema:*
+2. **Requisitos del Sistema:**
 
 **Hardware:**
 
