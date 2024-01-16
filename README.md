@@ -29,6 +29,7 @@ El proyecto CerTech se enfoca en desarrollar un sistema integral de gestión de 
   - **XAMPP:**
     - Apache: versión 2.4.46 o superior.
     - MySQL: versión 8.0 o superior.
+      
       [![XAMPP](https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/XAMPP_Windows_10.PNG/420px-XAMPP_Windows_10.PNG)](https://www.apachefriends.org/index.html)
 
   - **Python:**
@@ -38,7 +39,9 @@ El proyecto CerTech se enfoca en desarrollar un sistema integral de gestión de 
       - pandas: versión 1.3.0 o superior.
       - reportlab: versión 3.5.67 o superior.
       - PyPDF2: versión 1.26.0 o superior.
+        
 [![Python](https://1000marcas.net/wp-content/uploads/2020/11/Python-logo-768x223.png)](https://www.python.org/)
+
 
 **Nota:** Se recomienda utilizar Visual Studio Code como entorno de desarrollo.
 
@@ -93,6 +96,8 @@ Instalación de Herramientas Básicas:
 La aplicación sigue una arquitectura cliente-servidor, donde el frontend está construido con Angular y el backend utiliza el framework Django. La comunicación entre el frontend y el backend se realiza a través de una API REST. La base de datos MySQL almacena los datos de la aplicación
 
 [Arquitectura del sistema](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G10AajVMzn1NRNjU-OtxDlLGf7yIs1wqpH)
+
+[![Texto Alternativo](https://utaedu-my.sharepoint.com/:i:/g/personal/kmoyolema3943_uta_edu_ec/EVO1IeOg1mpNgrA1gl5NOOwB0soRZBFbclXmABbewIDTOg?e=PeZ6hD)](https://utaedu-my.sharepoint.com/:i:/g/personal/kmoyolema3943_uta_edu_ec/EVO1IeOg1mpNgrA1gl5NOOwB0soRZBFbclXmABbewIDTOg?e=PeZ6hD)
 
 
 [Diagrama BD](https://dbdiagram.io/d/654815217d8bbd64658804d9)
